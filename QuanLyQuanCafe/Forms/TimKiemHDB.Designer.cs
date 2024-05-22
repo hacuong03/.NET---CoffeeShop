@@ -29,11 +29,8 @@
         private void InitializeComponent()
         {
             this.lblTKHoaDonBan = new System.Windows.Forms.Label();
-            this.txtMaNhanVien = new System.Windows.Forms.TextBox();
             this.lblMaNhanVien = new System.Windows.Forms.Label();
-            this.txtMaKhachHang = new System.Windows.Forms.TextBox();
             this.lblMaKhachHang = new System.Windows.Forms.Label();
-            this.txtMaHDB = new System.Windows.Forms.TextBox();
             this.lblMaHDB = new System.Windows.Forms.Label();
             this.mskNgayBan = new System.Windows.Forms.MaskedTextBox();
             this.lblNgayBan = new System.Windows.Forms.Label();
@@ -44,6 +41,9 @@
             this.btnTimLai = new System.Windows.Forms.Button();
             this.btnDong = new System.Windows.Forms.Button();
             this.gbxHoaDonBan = new System.Windows.Forms.GroupBox();
+            this.cboMaKhachHang = new System.Windows.Forms.ComboBox();
+            this.cboMaNhanVien = new System.Windows.Forms.ComboBox();
+            this.cboMaHDB = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTimKiemHDB)).BeginInit();
             this.gbxHoaDonBan.SuspendLayout();
             this.SuspendLayout();
@@ -58,14 +58,6 @@
             this.lblTKHoaDonBan.TabIndex = 105;
             this.lblTKHoaDonBan.Text = "TÌM KIẾM HÓA ĐƠN BÁN";
             // 
-            // txtMaNhanVien
-            // 
-            this.txtMaNhanVien.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMaNhanVien.Location = new System.Drawing.Point(176, 82);
-            this.txtMaNhanVien.Name = "txtMaNhanVien";
-            this.txtMaNhanVien.Size = new System.Drawing.Size(187, 24);
-            this.txtMaNhanVien.TabIndex = 112;
-            // 
             // lblMaNhanVien
             // 
             this.lblMaNhanVien.AutoSize = true;
@@ -76,14 +68,6 @@
             this.lblMaNhanVien.TabIndex = 107;
             this.lblMaNhanVien.Text = "Mã nhân viên:";
             // 
-            // txtMaKhachHang
-            // 
-            this.txtMaKhachHang.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMaKhachHang.Location = new System.Drawing.Point(176, 129);
-            this.txtMaKhachHang.Name = "txtMaKhachHang";
-            this.txtMaKhachHang.Size = new System.Drawing.Size(187, 24);
-            this.txtMaKhachHang.TabIndex = 113;
-            // 
             // lblMaKhachHang
             // 
             this.lblMaKhachHang.AutoSize = true;
@@ -93,14 +77,6 @@
             this.lblMaKhachHang.Size = new System.Drawing.Size(113, 18);
             this.lblMaKhachHang.TabIndex = 108;
             this.lblMaKhachHang.Text = "Mã khách hàng:";
-            // 
-            // txtMaHDB
-            // 
-            this.txtMaHDB.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMaHDB.Location = new System.Drawing.Point(176, 37);
-            this.txtMaHDB.Name = "txtMaHDB";
-            this.txtMaHDB.Size = new System.Drawing.Size(187, 24);
-            this.txtMaHDB.TabIndex = 111;
             // 
             // lblMaHDB
             // 
@@ -139,6 +115,7 @@
             this.txtTongTien.Name = "txtTongTien";
             this.txtTongTien.Size = new System.Drawing.Size(187, 24);
             this.txtTongTien.TabIndex = 115;
+            this.txtTongTien.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTongTien_KeyPress);
             // 
             // lblTongTien
             // 
@@ -160,6 +137,7 @@
             this.dgvTimKiemHDB.RowTemplate.Height = 24;
             this.dgvTimKiemHDB.Size = new System.Drawing.Size(806, 389);
             this.dgvTimKiemHDB.TabIndex = 116;
+            this.dgvTimKiemHDB.DoubleClick += new System.EventHandler(this.dgvTimKiemHDB_DoubleClick);
             // 
             // btnTimKiem
             // 
@@ -169,6 +147,7 @@
             this.btnTimKiem.TabIndex = 117;
             this.btnTimKiem.Text = "Tìm kiếm";
             this.btnTimKiem.UseVisualStyleBackColor = true;
+            this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
             // 
             // btnTimLai
             // 
@@ -178,6 +157,7 @@
             this.btnTimLai.TabIndex = 118;
             this.btnTimLai.Text = "Tìm lại";
             this.btnTimLai.UseVisualStyleBackColor = true;
+            this.btnTimLai.Click += new System.EventHandler(this.btnTimLai_Click);
             // 
             // btnDong
             // 
@@ -187,16 +167,17 @@
             this.btnDong.TabIndex = 119;
             this.btnDong.Text = "Đóng";
             this.btnDong.UseVisualStyleBackColor = true;
+            this.btnDong.Click += new System.EventHandler(this.btnDong_Click);
             // 
             // gbxHoaDonBan
             // 
+            this.gbxHoaDonBan.Controls.Add(this.cboMaKhachHang);
+            this.gbxHoaDonBan.Controls.Add(this.cboMaNhanVien);
+            this.gbxHoaDonBan.Controls.Add(this.cboMaHDB);
             this.gbxHoaDonBan.Controls.Add(this.lblMaHDB);
             this.gbxHoaDonBan.Controls.Add(this.lblMaNhanVien);
-            this.gbxHoaDonBan.Controls.Add(this.txtMaNhanVien);
             this.gbxHoaDonBan.Controls.Add(this.lblMaKhachHang);
-            this.gbxHoaDonBan.Controls.Add(this.txtMaKhachHang);
             this.gbxHoaDonBan.Controls.Add(this.txtTongTien);
-            this.gbxHoaDonBan.Controls.Add(this.txtMaHDB);
             this.gbxHoaDonBan.Controls.Add(this.lblTongTien);
             this.gbxHoaDonBan.Controls.Add(this.lblNgayBan);
             this.gbxHoaDonBan.Controls.Add(this.mskNgayBan);
@@ -206,7 +187,34 @@
             this.gbxHoaDonBan.Size = new System.Drawing.Size(806, 172);
             this.gbxHoaDonBan.TabIndex = 105;
             this.gbxHoaDonBan.TabStop = false;
-            this.gbxHoaDonBan.Text = "Thông tin chi tiết";
+            this.gbxHoaDonBan.Text = "Thông tin tìm kiếm";
+            // 
+            // cboMaKhachHang
+            // 
+            this.cboMaKhachHang.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboMaKhachHang.FormattingEnabled = true;
+            this.cboMaKhachHang.Location = new System.Drawing.Point(170, 126);
+            this.cboMaKhachHang.Name = "cboMaKhachHang";
+            this.cboMaKhachHang.Size = new System.Drawing.Size(187, 26);
+            this.cboMaKhachHang.TabIndex = 113;
+            // 
+            // cboMaNhanVien
+            // 
+            this.cboMaNhanVien.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboMaNhanVien.FormattingEnabled = true;
+            this.cboMaNhanVien.Location = new System.Drawing.Point(170, 80);
+            this.cboMaNhanVien.Name = "cboMaNhanVien";
+            this.cboMaNhanVien.Size = new System.Drawing.Size(187, 26);
+            this.cboMaNhanVien.TabIndex = 112;
+            // 
+            // cboMaHDB
+            // 
+            this.cboMaHDB.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboMaHDB.FormattingEnabled = true;
+            this.cboMaHDB.Location = new System.Drawing.Point(170, 35);
+            this.cboMaHDB.Name = "cboMaHDB";
+            this.cboMaHDB.Size = new System.Drawing.Size(187, 26);
+            this.cboMaHDB.TabIndex = 111;
             // 
             // frmTKHoaDonBan
             // 
@@ -222,6 +230,7 @@
             this.Name = "frmTKHoaDonBan";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tìm Kiếm Hóa Đơn Bán";
+            this.Load += new System.EventHandler(this.frmTKHoaDonBan_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTimKiemHDB)).EndInit();
             this.gbxHoaDonBan.ResumeLayout(false);
             this.gbxHoaDonBan.PerformLayout();
@@ -233,11 +242,8 @@
         #endregion
 
         private System.Windows.Forms.Label lblTKHoaDonBan;
-        private System.Windows.Forms.TextBox txtMaNhanVien;
         private System.Windows.Forms.Label lblMaNhanVien;
-        private System.Windows.Forms.TextBox txtMaKhachHang;
         private System.Windows.Forms.Label lblMaKhachHang;
-        private System.Windows.Forms.TextBox txtMaHDB;
         private System.Windows.Forms.Label lblMaHDB;
         private System.Windows.Forms.MaskedTextBox mskNgayBan;
         private System.Windows.Forms.Label lblNgayBan;
@@ -248,5 +254,8 @@
         private System.Windows.Forms.Button btnTimLai;
         private System.Windows.Forms.Button btnDong;
         private System.Windows.Forms.GroupBox gbxHoaDonBan;
+        private System.Windows.Forms.ComboBox cboMaKhachHang;
+        private System.Windows.Forms.ComboBox cboMaNhanVien;
+        private System.Windows.Forms.ComboBox cboMaHDB;
     }
 }

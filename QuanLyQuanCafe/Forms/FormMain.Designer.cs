@@ -71,19 +71,20 @@
             // mnuBCHoaDonNhap
             // 
             this.mnuBCHoaDonNhap.Name = "mnuBCHoaDonNhap";
-            this.mnuBCHoaDonNhap.Size = new System.Drawing.Size(187, 26);
+            this.mnuBCHoaDonNhap.Size = new System.Drawing.Size(224, 26);
             this.mnuBCHoaDonNhap.Text = "Hóa đơn nhập";
             // 
             // mnuBCHoaDonBan
             // 
             this.mnuBCHoaDonBan.Name = "mnuBCHoaDonBan";
-            this.mnuBCHoaDonBan.Size = new System.Drawing.Size(187, 26);
+            this.mnuBCHoaDonBan.Size = new System.Drawing.Size(224, 26);
             this.mnuBCHoaDonBan.Text = "Hóa đơn bán";
+            this.mnuBCHoaDonBan.Click += new System.EventHandler(this.mnuBCHoaDonBan_Click);
             // 
             // mnuBCDoanhThu
             // 
             this.mnuBCDoanhThu.Name = "mnuBCDoanhThu";
-            this.mnuBCDoanhThu.Size = new System.Drawing.Size(187, 26);
+            this.mnuBCDoanhThu.Size = new System.Drawing.Size(224, 26);
             this.mnuBCDoanhThu.Text = "Doanh thu";
             // 
             // mnuTKHoaDonBan

@@ -36,14 +36,14 @@
             this.lblTongTien = new System.Windows.Forms.Label();
             this.mskNgayNhap = new System.Windows.Forms.MaskedTextBox();
             this.lblNgayNhap = new System.Windows.Forms.Label();
-            this.txtMaHDB = new System.Windows.Forms.TextBox();
             this.lblMaHDN = new System.Windows.Forms.Label();
-            this.txtMaNCC = new System.Windows.Forms.TextBox();
             this.lblMaNCC = new System.Windows.Forms.Label();
-            this.txtMaNhanVien = new System.Windows.Forms.TextBox();
             this.lblMaNhanVien = new System.Windows.Forms.Label();
             this.lblTKHoaDonNhap = new System.Windows.Forms.Label();
             this.gbxHoaDonNhap = new System.Windows.Forms.GroupBox();
+            this.cboMaNCC = new System.Windows.Forms.ComboBox();
+            this.cboMaNhanVien = new System.Windows.Forms.ComboBox();
+            this.cboMaHDN = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTimKiemHDN)).BeginInit();
             this.gbxHoaDonNhap.SuspendLayout();
             this.SuspendLayout();
@@ -56,6 +56,7 @@
             this.btnDong.TabIndex = 134;
             this.btnDong.Text = "Đóng";
             this.btnDong.UseVisualStyleBackColor = true;
+            this.btnDong.Click += new System.EventHandler(this.btnDong_Click);
             // 
             // btnTimLai
             // 
@@ -65,6 +66,7 @@
             this.btnTimLai.TabIndex = 133;
             this.btnTimLai.Text = "Tìm lại";
             this.btnTimLai.UseVisualStyleBackColor = true;
+            this.btnTimLai.Click += new System.EventHandler(this.btnTimLai_Click);
             // 
             // btnTimKiem
             // 
@@ -74,6 +76,7 @@
             this.btnTimKiem.TabIndex = 132;
             this.btnTimKiem.Text = "Tìm kiếm";
             this.btnTimKiem.UseVisualStyleBackColor = true;
+            this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
             // 
             // dgvTimKiemHDN
             // 
@@ -85,6 +88,7 @@
             this.dgvTimKiemHDN.RowTemplate.Height = 24;
             this.dgvTimKiemHDN.Size = new System.Drawing.Size(806, 389);
             this.dgvTimKiemHDN.TabIndex = 131;
+            this.dgvTimKiemHDN.DoubleClick += new System.EventHandler(this.dgvTimKiemHDN_DoubleClick);
             // 
             // txtTongTien
             // 
@@ -93,6 +97,7 @@
             this.txtTongTien.Name = "txtTongTien";
             this.txtTongTien.Size = new System.Drawing.Size(187, 24);
             this.txtTongTien.TabIndex = 130;
+            this.txtTongTien.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTongTien_KeyPress);
             // 
             // lblTongTien
             // 
@@ -124,14 +129,6 @@
             this.lblNgayNhap.TabIndex = 124;
             this.lblNgayNhap.Text = "Ngày nhập:";
             // 
-            // txtMaHDB
-            // 
-            this.txtMaHDB.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMaHDB.Location = new System.Drawing.Point(174, 36);
-            this.txtMaHDB.Name = "txtMaHDB";
-            this.txtMaHDB.Size = new System.Drawing.Size(187, 24);
-            this.txtMaHDB.TabIndex = 126;
-            // 
             // lblMaHDN
             // 
             this.lblMaHDN.AutoSize = true;
@@ -142,14 +139,6 @@
             this.lblMaHDN.TabIndex = 121;
             this.lblMaHDN.Text = "Mã hóa đơn nhập:";
             // 
-            // txtMaNCC
-            // 
-            this.txtMaNCC.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMaNCC.Location = new System.Drawing.Point(174, 128);
-            this.txtMaNCC.Name = "txtMaNCC";
-            this.txtMaNCC.Size = new System.Drawing.Size(187, 24);
-            this.txtMaNCC.TabIndex = 128;
-            // 
             // lblMaNCC
             // 
             this.lblMaNCC.AutoSize = true;
@@ -159,14 +148,6 @@
             this.lblMaNCC.Size = new System.Drawing.Size(125, 18);
             this.lblMaNCC.TabIndex = 123;
             this.lblMaNCC.Text = "Mã nhà cung cấp:";
-            // 
-            // txtMaNhanVien
-            // 
-            this.txtMaNhanVien.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMaNhanVien.Location = new System.Drawing.Point(174, 81);
-            this.txtMaNhanVien.Name = "txtMaNhanVien";
-            this.txtMaNhanVien.Size = new System.Drawing.Size(187, 24);
-            this.txtMaNhanVien.TabIndex = 127;
             // 
             // lblMaNhanVien
             // 
@@ -190,13 +171,13 @@
             // 
             // gbxHoaDonNhap
             // 
+            this.gbxHoaDonNhap.Controls.Add(this.cboMaNCC);
+            this.gbxHoaDonNhap.Controls.Add(this.cboMaNhanVien);
+            this.gbxHoaDonNhap.Controls.Add(this.cboMaHDN);
             this.gbxHoaDonNhap.Controls.Add(this.lblMaHDN);
             this.gbxHoaDonNhap.Controls.Add(this.lblMaNhanVien);
-            this.gbxHoaDonNhap.Controls.Add(this.txtMaNhanVien);
             this.gbxHoaDonNhap.Controls.Add(this.lblMaNCC);
-            this.gbxHoaDonNhap.Controls.Add(this.txtMaNCC);
             this.gbxHoaDonNhap.Controls.Add(this.txtTongTien);
-            this.gbxHoaDonNhap.Controls.Add(this.txtMaHDB);
             this.gbxHoaDonNhap.Controls.Add(this.lblTongTien);
             this.gbxHoaDonNhap.Controls.Add(this.lblNgayNhap);
             this.gbxHoaDonNhap.Controls.Add(this.mskNgayNhap);
@@ -206,7 +187,34 @@
             this.gbxHoaDonNhap.Size = new System.Drawing.Size(806, 177);
             this.gbxHoaDonNhap.TabIndex = 120;
             this.gbxHoaDonNhap.TabStop = false;
-            this.gbxHoaDonNhap.Text = "Thông tin chi tiết";
+            this.gbxHoaDonNhap.Text = "Thông tin tìm kiếm";
+            // 
+            // cboMaNCC
+            // 
+            this.cboMaNCC.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboMaNCC.FormattingEnabled = true;
+            this.cboMaNCC.Location = new System.Drawing.Point(176, 125);
+            this.cboMaNCC.Name = "cboMaNCC";
+            this.cboMaNCC.Size = new System.Drawing.Size(187, 26);
+            this.cboMaNCC.TabIndex = 133;
+            // 
+            // cboMaNhanVien
+            // 
+            this.cboMaNhanVien.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboMaNhanVien.FormattingEnabled = true;
+            this.cboMaNhanVien.Location = new System.Drawing.Point(176, 79);
+            this.cboMaNhanVien.Name = "cboMaNhanVien";
+            this.cboMaNhanVien.Size = new System.Drawing.Size(187, 26);
+            this.cboMaNhanVien.TabIndex = 132;
+            // 
+            // cboMaHDN
+            // 
+            this.cboMaHDN.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboMaHDN.FormattingEnabled = true;
+            this.cboMaHDN.Location = new System.Drawing.Point(176, 34);
+            this.cboMaHDN.Name = "cboMaHDN";
+            this.cboMaHDN.Size = new System.Drawing.Size(187, 26);
+            this.cboMaHDN.TabIndex = 131;
             // 
             // frmTKHoaDonNhap
             // 
@@ -222,6 +230,7 @@
             this.Name = "frmTKHoaDonNhap";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tìm Kiếm Hóa Đơn Nhập";
+            this.Load += new System.EventHandler(this.frmTKHoaDonNhap_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTimKiemHDN)).EndInit();
             this.gbxHoaDonNhap.ResumeLayout(false);
             this.gbxHoaDonNhap.PerformLayout();
@@ -240,13 +249,13 @@
         private System.Windows.Forms.Label lblTongTien;
         private System.Windows.Forms.MaskedTextBox mskNgayNhap;
         private System.Windows.Forms.Label lblNgayNhap;
-        private System.Windows.Forms.TextBox txtMaHDB;
         private System.Windows.Forms.Label lblMaHDN;
-        private System.Windows.Forms.TextBox txtMaNCC;
         private System.Windows.Forms.Label lblMaNCC;
-        private System.Windows.Forms.TextBox txtMaNhanVien;
         private System.Windows.Forms.Label lblMaNhanVien;
         private System.Windows.Forms.Label lblTKHoaDonNhap;
         private System.Windows.Forms.GroupBox gbxHoaDonNhap;
+        private System.Windows.Forms.ComboBox cboMaNCC;
+        private System.Windows.Forms.ComboBox cboMaNhanVien;
+        private System.Windows.Forms.ComboBox cboMaHDN;
     }
 }

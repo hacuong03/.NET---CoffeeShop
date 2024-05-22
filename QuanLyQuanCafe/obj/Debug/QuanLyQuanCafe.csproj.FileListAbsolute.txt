@@ -32,3 +32,4 @@ C:\Users\lovei\source\repos\QuanLyQuanCafe\QuanLyQuanCafe\obj\Debug\QuanLyQuanCa
 C:\Users\lovei\source\repos\QuanLyQuanCafe\QuanLyQuanCafe\obj\Debug\QuanLyQuanCafe.Forms.frmDMNhaCungCap.resources
 C:\Users\lovei\source\repos\QuanLyQuanCafe\QuanLyQuanCafe\obj\Debug\QuanLyQuanCafe.Forms.frmTKHoaDonBan.resources
 C:\Users\lovei\source\repos\QuanLyQuanCafe\QuanLyQuanCafe\obj\Debug\QuanLyQuanCafe.Forms.frmTKHoaDonNhap.resources
+C:\Users\lovei\source\repos\QuanLyQuanCafe\QuanLyQuanCafe\obj\Debug\QuanLyQuanCafe.Forms.frmHoaDonBan.resources

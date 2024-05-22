@@ -78,5 +78,10 @@ namespace QuanLyQuanCafe
                 Application.Exit();
             }
         }
+
+        private void mnuBCHoaDonBan_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -79,6 +79,7 @@ public partial class BaoCaoHoaDonNhap : Form
         dataGridView1.Columns[11].Width = 100;
         dataGridView1.Columns[12].Width = 100;
         dataGridView1.Columns[13].Width = 100;
+        
 
         dataGridView1.AllowUserToAddRows = false;
         dataGridView1.EditMode = DataGridViewEditMode.EditProgrammatically;

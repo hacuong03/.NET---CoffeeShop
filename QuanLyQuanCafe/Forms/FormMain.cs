@@ -83,5 +83,12 @@ namespace QuanLyQuanCafe
         {
 
         }
+
+        private void mnuHoaDonBan_Click(object sender, EventArgs e)
+        {
+            Forms.frmHoaDonBan f = new Forms.frmHoaDonBan();
+            f.Show();
+        }
+
     }
 }

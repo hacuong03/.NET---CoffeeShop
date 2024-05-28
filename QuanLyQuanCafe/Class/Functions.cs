@@ -16,7 +16,7 @@ namespace QuanLyQuanCafe.Class
 
         public static void Connect()
         {
-            connString = "Data Source=DESKTOP-E1T3VV1\\HUEKIM;Initial Catalog=QuanLyQuanCafe;Integrated Security=True;Encrypt=False";
+            connString = "Data Source=DESKTOP-KQPQT81\\HATRONGCUONG;Initial Catalog=QuanLyQuanCafe;Integrated Security=True;Encrypt=False";
             conn = new SqlConnection();
             conn.ConnectionString = connString;
             conn.Open();

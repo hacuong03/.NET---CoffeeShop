@@ -58,6 +58,17 @@ namespace QuanLyQuanCafe
             f.Show();
         }
 
+        private void mnuHoaDonNhap_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void mnuHoaDonBan_Click(object sender, EventArgs e)
+        {
+            Forms.frmHoaDonBan f = new Forms.frmHoaDonBan();
+            f.Show();
+        }
+
         private void mnuTKHoaDonNhap_Click(object sender, EventArgs e)
         {
             Forms.frmTKHoaDonNhap f = new Forms.frmTKHoaDonNhap();
@@ -70,6 +81,21 @@ namespace QuanLyQuanCafe
             f.Show();
         }
 
+        private void mnuBCHoaDonNhap_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void mnuBCHoaDonBan_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void mnuBCDoanhThu_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void mnuThoat_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Bạn có muốn thoát khỏi ứng dụng?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
@@ -78,17 +104,5 @@ namespace QuanLyQuanCafe
                 Application.Exit();
             }
         }
-
-        private void mnuBCHoaDonBan_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void mnuHoaDonBan_Click(object sender, EventArgs e)
-        {
-            Forms.frmHoaDonBan f = new Forms.frmHoaDonBan();
-            f.Show();
-        }
-
     }
 }

@@ -89,13 +89,12 @@ namespace QuanLyQuanCafe.Forms
         private void dgvTimKiemHDB_DoubleClick(object sender, EventArgs e)
         {
             string mahdb;
-            if (MessageBox.Show("Bạn có muốn hiển thị thông tin chi tiết hóa đơn bán này không?", "Xác nhận", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show("Bạn có muốn hiển thị thông tin chi tiết hóa đơn bán này không?", "Xác nhận", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
             {
                 mahdb = dgvTimKiemHDB.CurrentRow.Cells["MaHDB"].Value.ToString();
-                //frmDMHoaDonBan frm = new frmDMHoaDonBan();
-                //frm.txtMaHDB.Text = mahdb;
-                //frm.StartPosition = FormStartPosition.CenterScreen;
-                //frm.ShowDialog();
+                frmHoaDonBan f = new frmHoaDonBan();
+                f.textMaHD.Text = mahdb;
+                f.ShowDialog();
             }
         }
 

@@ -66,6 +66,7 @@
             this.mskNgaySinh.Size = new System.Drawing.Size(187, 24);
             this.mskNgaySinh.TabIndex = 78;
             this.mskNgaySinh.ValidatingType = typeof(System.DateTime);
+            this.mskNgaySinh.KeyUp += new System.Windows.Forms.KeyEventHandler(this.mskNgaySinh_KeyUp);
             // 
             // mskDienThoai
             // 
@@ -75,6 +76,7 @@
             this.mskDienThoai.Name = "mskDienThoai";
             this.mskDienThoai.Size = new System.Drawing.Size(187, 24);
             this.mskDienThoai.TabIndex = 77;
+            this.mskDienThoai.KeyUp += new System.Windows.Forms.KeyEventHandler(this.mskDienThoai_KeyUp);
             // 
             // txtDiaChi
             // 
@@ -83,6 +85,7 @@
             this.txtDiaChi.Name = "txtDiaChi";
             this.txtDiaChi.Size = new System.Drawing.Size(187, 24);
             this.txtDiaChi.TabIndex = 76;
+            this.txtDiaChi.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtDiaChi_KeyUp);
             // 
             // lblNgaySinh
             // 
@@ -154,6 +157,7 @@
             this.txtTenNhanVien.Name = "txtTenNhanVien";
             this.txtTenNhanVien.Size = new System.Drawing.Size(187, 24);
             this.txtTenNhanVien.TabIndex = 73;
+            this.txtTenNhanVien.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtTenNhanVien_KeyUp);
             // 
             // txtMaNhanVien
             // 
@@ -162,6 +166,7 @@
             this.txtMaNhanVien.Name = "txtMaNhanVien";
             this.txtMaNhanVien.Size = new System.Drawing.Size(187, 24);
             this.txtMaNhanVien.TabIndex = 72;
+            this.txtMaNhanVien.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtMaNhanVien_KeyUp);
             // 
             // lblTenNhanVien
             // 
@@ -201,6 +206,7 @@
             this.cboMaQue.Name = "cboMaQue";
             this.cboMaQue.Size = new System.Drawing.Size(187, 26);
             this.cboMaQue.TabIndex = 75;
+            this.cboMaQue.KeyUp += new System.Windows.Forms.KeyEventHandler(this.cboMaQue_KeyUp);
             // 
             // lblMaQue
             // 
@@ -245,6 +251,7 @@
             this.btnHienThiDS.TabIndex = 85;
             this.btnHienThiDS.Text = "Hiển thị";
             this.btnHienThiDS.UseVisualStyleBackColor = true;
+            this.btnHienThiDS.Click += new System.EventHandler(this.btnHienThiDS_Click);
             // 
             // btnDong
             // 
@@ -277,6 +284,7 @@
             this.btnBoQua.TabIndex = 83;
             this.btnBoQua.Text = "Bỏ qua";
             this.btnBoQua.UseVisualStyleBackColor = true;
+            this.btnBoQua.Click += new System.EventHandler(this.btnBoQua_Click);
             // 
             // btnLuu
             // 
@@ -287,6 +295,7 @@
             this.btnLuu.TabIndex = 82;
             this.btnLuu.Text = "Lưu";
             this.btnLuu.UseVisualStyleBackColor = true;
+            this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
             // btnSua
             // 
@@ -297,6 +306,7 @@
             this.btnSua.TabIndex = 80;
             this.btnSua.Text = "Sửa";
             this.btnSua.UseVisualStyleBackColor = true;
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // btnXoa
             // 
@@ -307,6 +317,7 @@
             this.btnXoa.TabIndex = 81;
             this.btnXoa.Text = "Xóa";
             this.btnXoa.UseVisualStyleBackColor = true;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // btnThem
             // 
@@ -317,6 +328,7 @@
             this.btnThem.TabIndex = 79;
             this.btnThem.Text = "Thêm";
             this.btnThem.UseVisualStyleBackColor = true;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // frmDMNhanVien
             // 

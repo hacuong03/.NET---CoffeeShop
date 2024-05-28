@@ -19,19 +19,19 @@ namespace QuanLyQuanCafe.Forms
 
         private void btnDangNhap_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtTaiKhoan.Text) && string.IsNullOrWhiteSpace(txtMatKhau.Text))
+            if (txtTaiKhoan.Text.Trim().Length == 0 && txtMatKhau.Text.Trim().Length == 0)
             {
                 MessageBox.Show("Hãy nhập tài khoản và mật khẩu!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtTaiKhoan.Focus();
                 return;
             }
-            else if (string.IsNullOrWhiteSpace(txtTaiKhoan.Text))
+            else if (txtTaiKhoan.Text.Trim().Length == 0)
             {
                 MessageBox.Show("Hãy nhập tài khoản!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtTaiKhoan.Focus();
                 return;
             }
-            else if (string.IsNullOrWhiteSpace(txtMatKhau.Text))
+            else if (txtMatKhau.Text.Trim().Length == 0)
             {
                 MessageBox.Show("Hãy nhập mật khẩu!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtMatKhau.Focus();

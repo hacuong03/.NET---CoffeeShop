@@ -24,43 +24,44 @@ namespace QuanLyQuanCafe
 
         private void mnuSanPham_Click(object sender, EventArgs e)
         {
-            Forms.frmDMSanPham f = new Forms.frmDMSanPham();
+            Forms.frmSanPham f = new Forms.frmSanPham();
             f.Show();
         }
 
         private void mnuCongDung_Click(object sender, EventArgs e)
         {
-            Forms.frmDMCongDung f = new Forms.frmDMCongDung();
+            Forms.frmCongDung f = new Forms.frmCongDung();
             f.Show();
         }
 
         private void mnuLoaiSanPham_Click(object sender, EventArgs e)
         {
-            Forms.frmDMLoaiSanPham f = new Forms.frmDMLoaiSanPham();
+            Forms.frmLoaiSanPham f = new Forms.frmLoaiSanPham();
             f.Show();
         }
 
         private void mnuNhanVien_Click(object sender, EventArgs e)
         {
-            Forms.frmDMNhanVien f = new Forms.frmDMNhanVien();
+            Forms.frmNhanVien f = new Forms.frmNhanVien();
             f.Show();
         }
 
         private void mnuKhachHang_Click(object sender, EventArgs e)
         {
-            Forms.frmDMKhachHang f = new Forms.frmDMKhachHang();
+            Forms.frmKhachHang f = new Forms.frmKhachHang();
             f.Show();
         }
 
         private void mnuNhaCungCap_Click(object sender, EventArgs e)
         {
-            Forms.frmDMNhaCungCap f = new Forms.frmDMNhaCungCap();
+            Forms.frmNhaCungCap f = new Forms.frmNhaCungCap();
             f.Show();
         }
 
         private void mnuHoaDonNhap_Click(object sender, EventArgs e)
         {
-
+            Forms.frmHoaDonNhap f = new Forms.frmHoaDonNhap();
+            f.Show();
         }
 
         private void mnuHoaDonBan_Click(object sender, EventArgs e)
@@ -69,31 +70,34 @@ namespace QuanLyQuanCafe
             f.Show();
         }
 
-        private void mnuTKHoaDonNhap_Click(object sender, EventArgs e)
+        private void mnuTimKiemHDN_Click(object sender, EventArgs e)
         {
-            Forms.frmTKHoaDonNhap f = new Forms.frmTKHoaDonNhap();
+            Forms.frmTimKiemHDN f = new Forms.frmTimKiemHDN();
             f.Show();
         }
 
-        private void mnuTKHoaDonBan_Click(object sender, EventArgs e)
+        private void mnuTimKiemHDB_Click(object sender, EventArgs e)
         {
-            Forms.frmTKHoaDonBan f = new Forms.frmTKHoaDonBan();
+            Forms.frmTimKiemHDB f = new Forms.frmTimKiemHDB();
             f.Show();
         }
 
-        private void mnuBCHoaDonNhap_Click(object sender, EventArgs e)
+        private void mnuBaoCaoHDN_Click(object sender, EventArgs e)
         {
-
+            Forms.frmBaoCaoHDN f = new Forms.frmBaoCaoHDN();
+            f.Show();
         }
 
-        private void mnuBCHoaDonBan_Click(object sender, EventArgs e)
+        private void mnuBaoCaoHDB_Click(object sender, EventArgs e)
         {
-
+            Forms.frmBaoCaoHDB f = new Forms.frmBaoCaoHDB();
+            f.Show();
         }
 
-        private void mnuBCDoanhThu_Click(object sender, EventArgs e)
+        private void mnuBaoCaoDoanhThu_Click(object sender, EventArgs e)
         {
-
+            Forms.frmBaoCaoDoanhThu f = new Forms.frmBaoCaoDoanhThu();
+            f.Show();
         }
 
         private void mnuThoat_Click(object sender, EventArgs e)

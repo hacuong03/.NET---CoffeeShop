@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace QuanLyQuanCafe.Forms
 {
-    public partial class frmDMLoaiSanPham : Form
+    public partial class frmLoaiSanPham : Form
     {
-        public frmDMLoaiSanPham()
+        public frmLoaiSanPham()
         {
             InitializeComponent();
         }

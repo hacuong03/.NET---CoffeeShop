@@ -38,13 +38,13 @@ namespace QuanLyQuanCafe.Forms
             textTongtien.ReadOnly = true;
             textGiamgia.Text = "0";
             textTongtien.Text = "0";
-            Functions.FillCombo("select MaKH, TenKH from tblKhachHang", comboMaKH,"MaKH", "TenKH");
+            Functions.FillCombo("select MaKH, TenKH from tblKhachHang", comboMaKH, "MaKH", "TenKH");
             comboMaKH.SelectedIndex = -1;
-            Functions.FillCombo("select MaNV, TenNV from tblNhanVien",comboMaNV, "MaNV", "TenNV");
+            Functions.FillCombo("select MaNV, TenNV from tblNhanVien", comboMaNV, "MaNV", "TenNV");
             comboMaNV.SelectedIndex = -1;
-            Functions.FillCombo("select MaSP, TenSP from tblSanPham", comboMahang,"MaSP", "TenSP");
+            Functions.FillCombo("select MaSP, TenSP from tblSanPham", comboMahang, "MaSP", "TenSP");
             comboMahang.SelectedIndex = -1;
-            Functions.FillCombo("select MaHDB from tblHoaDonBan", comboMaHDB,"MaHDB", "MaHDB");
+            Functions.FillCombo("select MaHDB from tblHoaDonBan", comboMaHDB, "MaHDB", "MaHDB");
             comboMaHDB.SelectedIndex = -1;
             if (textMaHD.Text != "")
             {
@@ -54,7 +54,9 @@ namespace QuanLyQuanCafe.Forms
             }
             Load_DataGridViewChitiet();
         }
+
         DataTable tblHDB;
+
         private void Load_DataGridViewChitiet()
         {
             string sql;
@@ -63,7 +65,6 @@ namespace QuanLyQuanCafe.Forms
                 "where a.MaHDB = N'" + textMaHD.Text + "' and a.MaSP=b.MaSP";
             tblHDB = Functions.GetDataToTable(sql);
             dataGridViewHDB.DataSource = tblHDB;
-
             dataGridViewHDB.Columns[0].HeaderText = "Mã sản phẩm";
             dataGridViewHDB.Columns[1].HeaderText = "Tên sản phẩm";
             dataGridViewHDB.Columns[2].HeaderText = "Số lượng";
@@ -84,7 +85,7 @@ namespace QuanLyQuanCafe.Forms
             string str;
             str = "select NgayBan from tblHoaDonBan where MaHDB = N'" + textMaHD.Text + "'";
             textNgayban.Text = Functions.ConvertDateTime(Functions.GetFieldValues(str));
-            
+
             str = "select MaNV from tblHoaDonBan where MaHDB = N'" + textMaHD.Text + "'";
             comboMaNV.Text = Functions.GetFieldValues(str);
 
@@ -107,6 +108,7 @@ namespace QuanLyQuanCafe.Forms
             textMaHD.Text = Functions.CreateKey("HDB");
             Load_DataGridViewChitiet();
         }
+
         private void ResetValues()
         {
             textMaHD.Text = "";
@@ -132,60 +134,60 @@ namespace QuanLyQuanCafe.Forms
                 // Mã HDBan được sinh tự động do đó không có trường hợp trùng khóa
                 if (textNgayban.Text.Length == 0)
                 {
-                    MessageBox.Show("Bạn phải nhập ngày bán", "Thông báo",MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Bạn phải nhập ngày bán", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     textNgayban.Focus();
                     return;
                 }
                 if (comboMaNV.Text.Length == 0)
                 {
-                    MessageBox.Show("Bạn phải nhập nhân viên", "Thông báo",MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Bạn phải nhập nhân viên", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     comboMaNV.Focus();
                     return;
                 }
                 if (comboMaKH.Text.Length == 0)
                 {
-                    MessageBox.Show("Bạn phải nhập khách hàng", "Thông báo",MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Bạn phải nhập khách hàng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     comboMaKH.Focus();
                     return;
                 }
                 //lưu thông tin chung vào bảng tblhdban    
-                sql = "insert into tblHoaDonBan(MaHDB, NgayBan, MaNV, MaKH, TongTien) values(N'" + textMaHD.Text.Trim() + "', '" +Functions.ConvertDateTime(textNgayban.Text.Trim()) + "',N'" + comboMaNV.SelectedValue + "',N'" +comboMaKH.SelectedValue + "'," + textTongtien.Text + ")";
+                sql = "insert into tblHoaDonBan(MaHDB, NgayBan, MaNV, MaKH, TongTien) values(N'" + textMaHD.Text.Trim() + "', '" + Functions.ConvertDateTime(textNgayban.Text.Trim()) + "',N'" + comboMaNV.SelectedValue + "',N'" + comboMaKH.SelectedValue + "'," + textTongtien.Text + ")";
                 Functions.RunSQL(sql);
             }
 
             // Lưu thông tin của các mặt hàng
             if (comboMahang.Text.Trim().Length == 0)
             {
-                MessageBox.Show("Bạn phải nhập mã hàng", "Thông báo", MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                MessageBox.Show("Bạn phải nhập mã hàng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 comboMahang.Focus();
                 return;
             }
             if ((textSoluong.Text.Trim().Length == 0) || (textSoluong.Text == "0"))
             {
-                MessageBox.Show("Bạn phải nhập số lượng", "Thông báo", MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                MessageBox.Show("Bạn phải nhập số lượng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 textSoluong.Text = "";
                 textSoluong.Focus();
                 return;
             }
             if (textGiamgia.Text.Trim().Length == 0)
             {
-                MessageBox.Show("Bạn phải nhập giảm giá", "Thông báo", MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                MessageBox.Show("Bạn phải nhập giảm giá", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 textGiamgia.Focus();
                 return;
             }
-            sql = "select MaSP from tblChiTietHDB where MaSP=N'" +comboMahang.SelectedValue + "' and MaHDB = N'" + textMaHD.Text.Trim() + "'";
+            sql = "select MaSP from tblChiTietHDB where MaSP=N'" + comboMahang.SelectedValue + "' and MaHDB = N'" + textMaHD.Text.Trim() + "'";
             if (Functions.CheckKey(sql))
             {
-                MessageBox.Show("Mã hàng này đã có, bạn phải nhập mã khác", "Thông báo",MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Mã hàng này đã có, bạn phải nhập mã khác", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 ResetValuesHang();
                 comboMahang.Focus();
                 return;
             }
             // Kiểm tra xem số lượng hàng trong kho còn đủ để cung cấp không?
-            sl = Convert.ToDouble(Functions.GetFieldValues("select SoLuong from tblSanPham where MaSP = N'" + comboMahang.SelectedValue + "'"));
-            if (Convert.ToDouble(textSoluong.Text) > sl)
+            sl = Convert.ToInt32(Functions.GetFieldValues("select SoLuong from tblSanPham where MaSP = N'" + comboMahang.SelectedValue + "'"));
+            if (Convert.ToInt32(textSoluong.Text) > sl)
             {
-                MessageBox.Show("Số lượng mặt hàng này chỉ còn " + sl, "Thông báo",MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Số lượng mặt hàng này chỉ còn " + sl, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 textSoluong.Text = "";
                 textSoluong.Focus();
                 return;
@@ -194,13 +196,13 @@ namespace QuanLyQuanCafe.Forms
             Functions.RunSQL(sql);
             Load_DataGridViewChitiet();
             // Cập nhật lại số lượng của mặt hàng vào bảng tblHang
-            slcon = sl - Convert.ToDouble(textSoluong.Text);
-            sql = "update tblSanPham set SoLuong =" + slcon + " where MaSP= N'" +comboMahang.SelectedValue + "'";
-            Functions.RunSQL(sql);            
+            slcon = sl - Convert.ToInt32(textSoluong.Text);
+            sql = "update tblSanPham set SoLuong =" + slcon + " where MaSP= N'" + comboMahang.SelectedValue + "'";
+            Functions.RunSQL(sql);
             // Cập nhật lại tổng tiền cho hóa đơn bán
             tong = Convert.ToDouble(Functions.GetFieldValues("select TongTien from tblHoaDonBan where MaHDB = N'" + textMaHD.Text + "'"));
             tongmoi = tong + Convert.ToDouble(textThanhtien.Text);
-            sql = "update tblHoaDonBan set TongTien =" + tongmoi + " where MaHDB = N'" +textMaHD.Text + "'";
+            sql = "update tblHoaDonBan set TongTien =" + tongmoi + " where MaHDB = N'" + textMaHD.Text + "'";
             Functions.RunSQL(sql);
             textTongtien.Text = tongmoi.ToString();
             labelBangchu.Text = "Bằng chữ: " + Functions.ChuyenSoSangChu(tongmoi.ToString());
@@ -209,6 +211,7 @@ namespace QuanLyQuanCafe.Forms
             buttonThemHD.Enabled = true;
             buttonInHD.Enabled = true;
         }
+
         private void ResetValuesHang()
         {
             comboMahang.Text = "";
@@ -223,10 +226,10 @@ namespace QuanLyQuanCafe.Forms
             Double thanhtien;
             if (tblHDB.Rows.Count == 0)
             {
-                MessageBox.Show("Không có dữ liệu!", "Thông báo", MessageBoxButtons.OK,MessageBoxIcon.Information);
+                MessageBox.Show("Không có dữ liệu!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-            if ((MessageBox.Show("Bạn có chắc chắn muốn xóa không?", "Thông báo",MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes))
+            if ((MessageBox.Show("Bạn có chắc chắn muốn xóa không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes))
             {
                 //Xóa hàng và cập nhật lại số lượng hàng 
                 mahang = dataGridViewHDB.CurrentRow.Cells["MaSP"].Value.ToString();
@@ -237,21 +240,23 @@ namespace QuanLyQuanCafe.Forms
                 Load_DataGridViewChitiet();
             }
         }
+
         private void DelHang(string MaHD, string MaSP)
         {
             Double s, sl, slcon;
             string sql;
             sql = "select SoLuong from tblChiTietHDB where MaHDB = N'" + MaHD + "' and MaSP = N'" + MaSP + "'";
-            s = Convert.ToDouble(Functions.GetFieldValues(sql));
-            sql = "delete tblChiTietHDB where MaHDB=N'" + MaHD + "' and MaSP = N'"+ MaSP + "'";
+            s = Convert.ToInt32(Functions.GetFieldValues(sql));
+            sql = "delete tblChiTietHDB where MaHDB=N'" + MaHD + "' and MaSP = N'" + MaSP + "'";
             Functions.RunSQL_Del(sql);
             // Cập nhật lại số lượng cho các mặt hàng
             sql = "select SoLuong from tblSanPham where MaSP = N'" + MaSP + "'";
-            sl = Convert.ToDouble(Functions.GetFieldValues(sql));
+            sl = Convert.ToInt32(Functions.GetFieldValues(sql));
             slcon = sl + s;
             sql = "update tblSanPham set SoLuong =" + slcon + " where MaSP= N'" + MaSP + "'";
             Functions.RunSQL(sql);
         }
+
         private void DelUpdateTongtien(string MaHD, double ThanhTien)
         {
             Double tong, tongmoi;
@@ -259,7 +264,7 @@ namespace QuanLyQuanCafe.Forms
             sql = "select TongTien from tblHoaDonBan where MaHDB = N'" + MaHD + "'";
             tong = Convert.ToDouble(Functions.GetFieldValues(sql));
             tongmoi = tong - ThanhTien;
-            sql = "update tblHoaDonBan set TongTien =" + tongmoi + " where MaHDB = N'" +MaHD + "'";
+            sql = "update tblHoaDonBan set TongTien =" + tongmoi + " where MaHDB = N'" + MaHD + "'";
             Functions.RunSQL(sql);
             textTongtien.Text = tongmoi.ToString();
             labelBangchu.Text = "Bằng chữ: " + Functions.ChuyenSoSangChu(tongmoi.ToString());
@@ -267,13 +272,13 @@ namespace QuanLyQuanCafe.Forms
 
         private void buttonHuyHD_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Bạn có chắc chắn muốn xóa không?", "Thông báo",MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show("Bạn có chắc chắn muốn xóa không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 string[] MaSP = new string[20];
                 string sql;
                 int n = 0;
                 int i;
-                sql = "select MaSP from tblChiTietHDB where MaHDB = N'" +textMaHD.Text + "'";
+                sql = "select MaSP from tblChiTietHDB where MaHDB = N'" + textMaHD.Text + "'";
                 SqlCommand cmd = new SqlCommand(sql, Functions.conn);
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
@@ -293,7 +298,6 @@ namespace QuanLyQuanCafe.Forms
                 buttonHuyHD.Enabled = false;
                 buttonInHD.Enabled = false;
             }
-
         }
 
         private void comboMaNV_TextChanged(object sender, EventArgs e)
@@ -302,7 +306,7 @@ namespace QuanLyQuanCafe.Forms
             if (comboMaNV.Text == "")
                 textTenNV.Text = "";
             // Khi kich chon Ma nhan vien thi ten nhan vien se tu dong hien ra
-            str = "select TenNV from tblNhanVien where MaNV =N'" +comboMaNV.SelectedValue + "'";
+            str = "select TenNV from tblNhanVien where MaNV =N'" + comboMaNV.SelectedValue + "'";
             textTenNV.Text = Functions.GetFieldValues(str);
         }
 
@@ -316,11 +320,11 @@ namespace QuanLyQuanCafe.Forms
                 textDienthoai.Text = "";
             }
             //Khi kich chon Ma khach thi ten khach, dia chi, dien thoai se tu dong hien ra
-            str = "select TenKH from tblKhachHang where MaKH = N'" + comboMaKH.SelectedValue+ "'";
+            str = "select TenKH from tblKhachHang where MaKH = N'" + comboMaKH.SelectedValue + "'";
             textTenKH.Text = Functions.GetFieldValues(str);
-            str = "select DiaChi from tblKhachHang where MaKH = N'" + comboMaKH.SelectedValue+ "'";
+            str = "select DiaChi from tblKhachHang where MaKH = N'" + comboMaKH.SelectedValue + "'";
             textDiachi.Text = Functions.GetFieldValues(str);
-            str = "select SDT from tblKhachHang where MaKH= N'" + comboMaKH.SelectedValue  + "'";
+            str = "select SDT from tblKhachHang where MaKH= N'" + comboMaKH.SelectedValue + "'";
             textDienthoai.Text = Functions.GetFieldValues(str);
         }
 
@@ -333,9 +337,9 @@ namespace QuanLyQuanCafe.Forms
                 textDongia.Text = "";
             }
             // Khi kich chon Ma hang thi ten hang va gia ban se tu dong hien ra
-            str = "select TenSP from tblSanPham where MaSP =N'" + comboMahang.SelectedValue+ "'";
+            str = "select TenSP from tblSanPham where MaSP =N'" + comboMahang.SelectedValue + "'";
             textTenhang.Text = Functions.GetFieldValues(str);
-            str = "select GiaBan from tblSanPham where MaSP =N'" + comboMahang.SelectedValue+ "'";
+            str = "select GiaBan from tblSanPham where MaSP =N'" + comboMahang.SelectedValue + "'";
             textDongia.Text = Functions.GetFieldValues(str);
         }
 
@@ -346,7 +350,7 @@ namespace QuanLyQuanCafe.Forms
             if (textSoluong.Text == "")
                 sl = 0;
             else
-                sl = Convert.ToDouble(textSoluong.Text);
+                sl = Convert.ToInt32(textSoluong.Text);
             if (textGiamgia.Text == "")
                 gg = 0;
             else
@@ -366,7 +370,7 @@ namespace QuanLyQuanCafe.Forms
             if (textSoluong.Text == "")
                 sl = 0;
             else
-                sl = Convert.ToDouble(textSoluong.Text);
+                sl = Convert.ToInt32(textSoluong.Text);
             if (textGiamgia.Text == "")
                 gg = 0;
             else
@@ -487,7 +491,7 @@ namespace QuanLyQuanCafe.Forms
             exRange.Range["A6:C6"].Font.Italic = true;
             exRange.Range["A6:C6"].HorizontalAlignment = COMExcel.XlHAlign.xlHAlignCenter;
             exRange.Range["A6:C6"].Value = tblThongtinHD.Rows[0][6];
-            exSheet.Name = "Hóa đơn nhập";
+            exSheet.Name = "Hóa đơn bán";
             exApp.Visible = true;
         }
 
@@ -495,7 +499,7 @@ namespace QuanLyQuanCafe.Forms
         {
             if (comboMaHDB.Text == "")
             {
-                MessageBox.Show("Bạn phải chọn một mã hóa đơn để tìm", "Thông báo",MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Bạn phải chọn một mã hóa đơn để tìm", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 comboMaHDB.Focus();
                 return;
             }
@@ -516,9 +520,17 @@ namespace QuanLyQuanCafe.Forms
                 e.Handled = true;
         }
 
+        private void textGiamgia_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (((e.KeyChar >= '0') && (e.KeyChar <= '9')) || (Convert.ToInt32(e.KeyChar) == 8))
+                e.Handled = false;
+            else
+                e.Handled = true;
+        }
+
         private void comboMaHDB_DropDown(object sender, EventArgs e)
         {
-            Functions.FillCombo("select MaHDB from tblHoaDonBan", comboMaHDB, "MaHDB","MaHDB");
+            Functions.FillCombo("select MaHDB from tblHoaDonBan", comboMaHDB, "MaHDB", "MaHDB");
             comboMaHDB.SelectedIndex = -1;
         }
 
@@ -531,14 +543,6 @@ namespace QuanLyQuanCafe.Forms
         private void buttonDong_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void textGiamgia_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (((e.KeyChar >= '0') && (e.KeyChar <= '9')) || (Convert.ToInt32(e.KeyChar) == 8))
-                e.Handled = false;
-            else
-                e.Handled = true;
         }
     }
 }

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace QuanLyQuanCafe.Forms
 {
-    public partial class frmDMCongDung : Form
+    public partial class frmCongDung : Form
     {
-        public frmDMCongDung()
+        public frmCongDung()
         {
             InitializeComponent();
         }

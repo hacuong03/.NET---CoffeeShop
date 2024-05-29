@@ -1,6 +1,6 @@
 ﻿namespace QuanLyQuanCafe.Forms
 {
-    partial class frmTKHoaDonNhap
+    partial class frmTimKiemHDN
     {
         /// <summary>
         /// Required designer variable.
@@ -53,7 +53,7 @@
             this.btnDong.Location = new System.Drawing.Point(750, 671);
             this.btnDong.Name = "btnDong";
             this.btnDong.Size = new System.Drawing.Size(88, 40);
-            this.btnDong.TabIndex = 134;
+            this.btnDong.TabIndex = 137;
             this.btnDong.Text = "Đóng";
             this.btnDong.UseVisualStyleBackColor = true;
             this.btnDong.Click += new System.EventHandler(this.btnDong_Click);
@@ -63,7 +63,7 @@
             this.btnTimLai.Location = new System.Drawing.Point(610, 671);
             this.btnTimLai.Name = "btnTimLai";
             this.btnTimLai.Size = new System.Drawing.Size(102, 40);
-            this.btnTimLai.TabIndex = 133;
+            this.btnTimLai.TabIndex = 136;
             this.btnTimLai.Text = "Tìm lại";
             this.btnTimLai.UseVisualStyleBackColor = true;
             this.btnTimLai.Click += new System.EventHandler(this.btnTimLai_Click);
@@ -73,7 +73,7 @@
             this.btnTimKiem.Location = new System.Drawing.Point(471, 671);
             this.btnTimKiem.Name = "btnTimKiem";
             this.btnTimKiem.Size = new System.Drawing.Size(102, 40);
-            this.btnTimKiem.TabIndex = 132;
+            this.btnTimKiem.TabIndex = 135;
             this.btnTimKiem.Text = "Tìm kiếm";
             this.btnTimKiem.UseVisualStyleBackColor = true;
             this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
@@ -87,16 +87,16 @@
             this.dgvTimKiemHDN.RowHeadersWidth = 51;
             this.dgvTimKiemHDN.RowTemplate.Height = 24;
             this.dgvTimKiemHDN.Size = new System.Drawing.Size(806, 389);
-            this.dgvTimKiemHDN.TabIndex = 131;
+            this.dgvTimKiemHDN.TabIndex = 134;
             this.dgvTimKiemHDN.DoubleClick += new System.EventHandler(this.dgvTimKiemHDN_DoubleClick);
             // 
             // txtTongTien
             // 
-            this.txtTongTien.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTongTien.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTongTien.Location = new System.Drawing.Point(560, 81);
             this.txtTongTien.Name = "txtTongTien";
-            this.txtTongTien.Size = new System.Drawing.Size(187, 24);
-            this.txtTongTien.TabIndex = 130;
+            this.txtTongTien.Size = new System.Drawing.Size(187, 22);
+            this.txtTongTien.TabIndex = 133;
             this.txtTongTien.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTongTien_KeyPress);
             // 
             // lblTongTien
@@ -106,17 +106,17 @@
             this.lblTongTien.Location = new System.Drawing.Point(466, 82);
             this.lblTongTien.Name = "lblTongTien";
             this.lblTongTien.Size = new System.Drawing.Size(73, 18);
-            this.lblTongTien.TabIndex = 125;
+            this.lblTongTien.TabIndex = 128;
             this.lblTongTien.Text = "Tổng tiền:";
             // 
             // mskNgayNhap
             // 
-            this.mskNgayNhap.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mskNgayNhap.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mskNgayNhap.Location = new System.Drawing.Point(560, 36);
             this.mskNgayNhap.Mask = "00/00/0000";
             this.mskNgayNhap.Name = "mskNgayNhap";
-            this.mskNgayNhap.Size = new System.Drawing.Size(187, 24);
-            this.mskNgayNhap.TabIndex = 129;
+            this.mskNgayNhap.Size = new System.Drawing.Size(187, 22);
+            this.mskNgayNhap.TabIndex = 132;
             this.mskNgayNhap.ValidatingType = typeof(System.DateTime);
             // 
             // lblNgayNhap
@@ -126,7 +126,7 @@
             this.lblNgayNhap.Location = new System.Drawing.Point(466, 38);
             this.lblNgayNhap.Name = "lblNgayNhap";
             this.lblNgayNhap.Size = new System.Drawing.Size(82, 18);
-            this.lblNgayNhap.TabIndex = 124;
+            this.lblNgayNhap.TabIndex = 127;
             this.lblNgayNhap.Text = "Ngày nhập:";
             // 
             // lblMaHDN
@@ -136,7 +136,7 @@
             this.lblMaHDN.Location = new System.Drawing.Point(36, 37);
             this.lblMaHDN.Name = "lblMaHDN";
             this.lblMaHDN.Size = new System.Drawing.Size(127, 18);
-            this.lblMaHDN.TabIndex = 121;
+            this.lblMaHDN.TabIndex = 124;
             this.lblMaHDN.Text = "Mã hóa đơn nhập:";
             // 
             // lblMaNCC
@@ -146,7 +146,7 @@
             this.lblMaNCC.Location = new System.Drawing.Point(36, 128);
             this.lblMaNCC.Name = "lblMaNCC";
             this.lblMaNCC.Size = new System.Drawing.Size(125, 18);
-            this.lblMaNCC.TabIndex = 123;
+            this.lblMaNCC.TabIndex = 126;
             this.lblMaNCC.Text = "Mã nhà cung cấp:";
             // 
             // lblMaNhanVien
@@ -156,7 +156,7 @@
             this.lblMaNhanVien.Location = new System.Drawing.Point(36, 82);
             this.lblMaNhanVien.Name = "lblMaNhanVien";
             this.lblMaNhanVien.Size = new System.Drawing.Size(99, 18);
-            this.lblMaNhanVien.TabIndex = 122;
+            this.lblMaNhanVien.TabIndex = 125;
             this.lblMaNhanVien.Text = "Mã nhân viên:";
             // 
             // lblTKHoaDonNhap
@@ -166,7 +166,7 @@
             this.lblTKHoaDonNhap.Location = new System.Drawing.Point(288, 35);
             this.lblTKHoaDonNhap.Name = "lblTKHoaDonNhap";
             this.lblTKHoaDonNhap.Size = new System.Drawing.Size(306, 26);
-            this.lblTKHoaDonNhap.TabIndex = 120;
+            this.lblTKHoaDonNhap.TabIndex = 122;
             this.lblTKHoaDonNhap.Text = "TÌM KIẾM HÓA ĐƠN NHẬP";
             // 
             // gbxHoaDonNhap
@@ -185,38 +185,38 @@
             this.gbxHoaDonNhap.Location = new System.Drawing.Point(32, 67);
             this.gbxHoaDonNhap.Name = "gbxHoaDonNhap";
             this.gbxHoaDonNhap.Size = new System.Drawing.Size(806, 177);
-            this.gbxHoaDonNhap.TabIndex = 120;
+            this.gbxHoaDonNhap.TabIndex = 123;
             this.gbxHoaDonNhap.TabStop = false;
             this.gbxHoaDonNhap.Text = "Thông tin tìm kiếm";
             // 
             // cboMaNCC
             // 
-            this.cboMaNCC.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboMaNCC.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboMaNCC.FormattingEnabled = true;
             this.cboMaNCC.Location = new System.Drawing.Point(176, 125);
             this.cboMaNCC.Name = "cboMaNCC";
-            this.cboMaNCC.Size = new System.Drawing.Size(187, 26);
-            this.cboMaNCC.TabIndex = 133;
+            this.cboMaNCC.Size = new System.Drawing.Size(187, 24);
+            this.cboMaNCC.TabIndex = 131;
             // 
             // cboMaNhanVien
             // 
-            this.cboMaNhanVien.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboMaNhanVien.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboMaNhanVien.FormattingEnabled = true;
             this.cboMaNhanVien.Location = new System.Drawing.Point(176, 79);
             this.cboMaNhanVien.Name = "cboMaNhanVien";
-            this.cboMaNhanVien.Size = new System.Drawing.Size(187, 26);
-            this.cboMaNhanVien.TabIndex = 132;
+            this.cboMaNhanVien.Size = new System.Drawing.Size(187, 24);
+            this.cboMaNhanVien.TabIndex = 130;
             // 
             // cboMaHDN
             // 
-            this.cboMaHDN.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboMaHDN.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboMaHDN.FormattingEnabled = true;
             this.cboMaHDN.Location = new System.Drawing.Point(176, 34);
             this.cboMaHDN.Name = "cboMaHDN";
-            this.cboMaHDN.Size = new System.Drawing.Size(187, 26);
-            this.cboMaHDN.TabIndex = 131;
+            this.cboMaHDN.Size = new System.Drawing.Size(187, 24);
+            this.cboMaHDN.TabIndex = 129;
             // 
-            // frmTKHoaDonNhap
+            // frmTimKiemHDN
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -227,10 +227,10 @@
             this.Controls.Add(this.btnTimKiem);
             this.Controls.Add(this.dgvTimKiemHDN);
             this.Controls.Add(this.lblTKHoaDonNhap);
-            this.Name = "frmTKHoaDonNhap";
+            this.Name = "frmTimKiemHDN";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tìm Kiếm Hóa Đơn Nhập";
-            this.Load += new System.EventHandler(this.frmTKHoaDonNhap_Load);
+            this.Load += new System.EventHandler(this.frmTimKiemHDN_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTimKiemHDN)).EndInit();
             this.gbxHoaDonNhap.ResumeLayout(false);
             this.gbxHoaDonNhap.PerformLayout();

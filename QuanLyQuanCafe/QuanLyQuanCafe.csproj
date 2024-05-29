@@ -51,6 +51,24 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class\Functions.cs" />
+    <Compile Include="Forms\BaoCaoDoanhThu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\BaoCaoDoanhThu.Designer.cs">
+      <DependentUpon>BaoCaoDoanhThu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\BaoCaoHDB.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\BaoCaoHDB.Designer.cs">
+      <DependentUpon>BaoCaoHDB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\BaoCaoHDN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\BaoCaoHDN.Designer.cs">
+      <DependentUpon>BaoCaoHDN.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\CongDung.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -74,6 +92,12 @@
     </Compile>
     <Compile Include="Forms\HoaDonBan.Designer.cs">
       <DependentUpon>HoaDonBan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\HoaDonNhap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\HoaDonNhap.Designer.cs">
+      <DependentUpon>HoaDonNhap.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\KhachHang.cs">
       <SubType>Form</SubType>
@@ -119,6 +143,15 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\BaoCaoDoanhThu.resx">
+      <DependentUpon>BaoCaoDoanhThu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\BaoCaoHDB.resx">
+      <DependentUpon>BaoCaoHDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\BaoCaoHDN.resx">
+      <DependentUpon>BaoCaoHDN.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\CongDung.resx">
       <DependentUpon>CongDung.cs</DependentUpon>
     </EmbeddedResource>
@@ -130,6 +163,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\HoaDonBan.resx">
       <DependentUpon>HoaDonBan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\HoaDonNhap.resx">
+      <DependentUpon>HoaDonNhap.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\KhachHang.resx">
       <DependentUpon>KhachHang.cs</DependentUpon>
@@ -160,6 +196,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -177,6 +214,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Image\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\background.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

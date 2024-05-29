@@ -10,16 +10,16 @@ using System.Windows.Forms;
 
 namespace QuanLyQuanCafe.Forms
 {
-    public partial class frmTKHoaDonNhap : Form
+    public partial class frmTimKiemHDN : Form
     {
-        public frmTKHoaDonNhap()
+        public frmTimKiemHDN()
         {
             InitializeComponent();
         }
 
         DataTable tblHoaDonNhap;
 
-        private void frmTKHoaDonNhap_Load(object sender, EventArgs e)
+        private void frmTimKiemHDN_Load(object sender, EventArgs e)
         {
             ResetValues();
             Class.Functions.FillCombo("SELECT MaHDN FROM tblHoaDonNhap", cboMaHDN, "MaHDN", "MaHDN");
@@ -92,9 +92,8 @@ namespace QuanLyQuanCafe.Forms
             if (MessageBox.Show("Bạn có muốn hiển thị thông tin chi tiết hóa đơn nhập này không?", "Xác nhận", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
             {
                 mahdn = dgvTimKiemHDN.CurrentRow.Cells["MaHDN"].Value.ToString();
-                //frmDMHoaDonNhap f = new frmDMHoaDonNhap();
-                //f.txtMaHDN.Text = mahdb;
-                //f.StartPosition = FormStartPosition.CenterScreen;
+                //frmHoaDonNhap f = new frmHoaDonNhap();
+                //f.txtMaHDN.Text = mahdn;
                 //f.ShowDialog();
             }
         }

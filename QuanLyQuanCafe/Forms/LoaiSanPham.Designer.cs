@@ -1,6 +1,6 @@
 ﻿namespace QuanLyQuanCafe.Forms
 {
-    partial class frmDMLoaiSanPham
+    partial class frmLoaiSanPham
     {
         /// <summary>
         /// Required designer variable.
@@ -50,7 +50,7 @@
             this.btnDong.Location = new System.Drawing.Point(630, 553);
             this.btnDong.Name = "btnDong";
             this.btnDong.Size = new System.Drawing.Size(88, 40);
-            this.btnDong.TabIndex = 36;
+            this.btnDong.TabIndex = 35;
             this.btnDong.Text = "Đóng";
             this.btnDong.UseVisualStyleBackColor = true;
             this.btnDong.Click += new System.EventHandler(this.btnDong_Click);
@@ -60,7 +60,7 @@
             this.btnBoQua.Location = new System.Drawing.Point(521, 553);
             this.btnBoQua.Name = "btnBoQua";
             this.btnBoQua.Size = new System.Drawing.Size(88, 40);
-            this.btnBoQua.TabIndex = 35;
+            this.btnBoQua.TabIndex = 34;
             this.btnBoQua.Text = "Bỏ qua";
             this.btnBoQua.UseVisualStyleBackColor = true;
             this.btnBoQua.Click += new System.EventHandler(this.btnBoQua_Click);
@@ -70,7 +70,7 @@
             this.btnLuu.Location = new System.Drawing.Point(410, 553);
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.Size = new System.Drawing.Size(88, 40);
-            this.btnLuu.TabIndex = 34;
+            this.btnLuu.TabIndex = 33;
             this.btnLuu.Text = "Lưu";
             this.btnLuu.UseVisualStyleBackColor = true;
             this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
@@ -80,7 +80,7 @@
             this.btnSua.Location = new System.Drawing.Point(191, 553);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(88, 40);
-            this.btnSua.TabIndex = 32;
+            this.btnSua.TabIndex = 31;
             this.btnSua.Text = "Sửa";
             this.btnSua.UseVisualStyleBackColor = true;
             this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
@@ -90,7 +90,7 @@
             this.btnXoa.Location = new System.Drawing.Point(304, 553);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(88, 40);
-            this.btnXoa.TabIndex = 33;
+            this.btnXoa.TabIndex = 32;
             this.btnXoa.Text = "Xóa";
             this.btnXoa.UseVisualStyleBackColor = true;
             this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
@@ -100,7 +100,7 @@
             this.btnThem.Location = new System.Drawing.Point(80, 553);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(88, 40);
-            this.btnThem.TabIndex = 31;
+            this.btnThem.TabIndex = 30;
             this.btnThem.Text = "Thêm";
             this.btnThem.UseVisualStyleBackColor = true;
             this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
@@ -115,24 +115,24 @@
             this.dgvLoaiSanPham.RowHeadersWidth = 51;
             this.dgvLoaiSanPham.RowTemplate.Height = 24;
             this.dgvLoaiSanPham.Size = new System.Drawing.Size(697, 331);
-            this.dgvLoaiSanPham.TabIndex = 30;
+            this.dgvLoaiSanPham.TabIndex = 29;
             this.dgvLoaiSanPham.Click += new System.EventHandler(this.dgvLoaiSanPham_Click);
             // 
             // txtTenLoai
             // 
-            this.txtTenLoai.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTenLoai.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTenLoai.Location = new System.Drawing.Point(111, 76);
             this.txtTenLoai.Name = "txtTenLoai";
-            this.txtTenLoai.Size = new System.Drawing.Size(187, 24);
-            this.txtTenLoai.TabIndex = 29;
+            this.txtTenLoai.Size = new System.Drawing.Size(187, 22);
+            this.txtTenLoai.TabIndex = 28;
             // 
             // txtMaLoai
             // 
-            this.txtMaLoai.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMaLoai.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMaLoai.Location = new System.Drawing.Point(111, 36);
             this.txtMaLoai.Name = "txtMaLoai";
-            this.txtMaLoai.Size = new System.Drawing.Size(187, 24);
-            this.txtMaLoai.TabIndex = 28;
+            this.txtMaLoai.Size = new System.Drawing.Size(187, 22);
+            this.txtMaLoai.TabIndex = 27;
             this.txtMaLoai.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtMaLoai_KeyUp);
             // 
             // lblTenLoai
@@ -142,7 +142,7 @@
             this.lblTenLoai.Location = new System.Drawing.Point(29, 77);
             this.lblTenLoai.Name = "lblTenLoai";
             this.lblTenLoai.Size = new System.Drawing.Size(64, 18);
-            this.lblTenLoai.TabIndex = 27;
+            this.lblTenLoai.TabIndex = 26;
             this.lblTenLoai.Text = "Tên loại:";
             // 
             // lblMaLoai
@@ -152,7 +152,7 @@
             this.lblMaLoai.Location = new System.Drawing.Point(29, 37);
             this.lblMaLoai.Name = "lblMaLoai";
             this.lblMaLoai.Size = new System.Drawing.Size(60, 18);
-            this.lblMaLoai.TabIndex = 26;
+            this.lblMaLoai.TabIndex = 25;
             this.lblMaLoai.Text = "Mã loại:";
             // 
             // lblDMLoaiSanPham
@@ -162,7 +162,7 @@
             this.lblDMLoaiSanPham.Location = new System.Drawing.Point(235, 28);
             this.lblDMLoaiSanPham.Name = "lblDMLoaiSanPham";
             this.lblDMLoaiSanPham.Size = new System.Drawing.Size(331, 26);
-            this.lblDMLoaiSanPham.TabIndex = 24;
+            this.lblDMLoaiSanPham.TabIndex = 23;
             this.lblDMLoaiSanPham.Text = "DANH MỤC LOẠI SẢN PHẨM";
             // 
             // gbxLoaiSanPham
@@ -175,11 +175,11 @@
             this.gbxLoaiSanPham.Location = new System.Drawing.Point(50, 70);
             this.gbxLoaiSanPham.Name = "gbxLoaiSanPham";
             this.gbxLoaiSanPham.Size = new System.Drawing.Size(697, 118);
-            this.gbxLoaiSanPham.TabIndex = 25;
+            this.gbxLoaiSanPham.TabIndex = 24;
             this.gbxLoaiSanPham.TabStop = false;
             this.gbxLoaiSanPham.Text = "Thông tin chi tiết";
             // 
-            // frmDMLoaiSanPham
+            // frmLoaiSanPham
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -193,9 +193,9 @@
             this.Controls.Add(this.btnThem);
             this.Controls.Add(this.dgvLoaiSanPham);
             this.Controls.Add(this.lblDMLoaiSanPham);
-            this.Name = "frmDMLoaiSanPham";
+            this.Name = "frmLoaiSanPham";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Danh Mục Loại Sản Phẩm";
+            this.Text = "Loại Sản Phẩm";
             this.Load += new System.EventHandler(this.frmDMLoaiSanPham_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvLoaiSanPham)).EndInit();
             this.gbxLoaiSanPham.ResumeLayout(false);

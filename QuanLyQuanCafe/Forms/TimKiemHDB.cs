@@ -10,16 +10,16 @@ using System.Windows.Forms;
 
 namespace QuanLyQuanCafe.Forms
 {
-    public partial class frmTKHoaDonBan : Form
+    public partial class frmTimKiemHDB : Form
     {
-        public frmTKHoaDonBan()
+        public frmTimKiemHDB()
         {
             InitializeComponent();
         }
 
         DataTable tblHoaDonBan;
 
-        private void frmTKHoaDonBan_Load(object sender, EventArgs e)
+        private void frmTimKiemHDB_Load(object sender, EventArgs e)
         {
             ResetValues();
             Class.Functions.FillCombo("SELECT MaHDB FROM tblHoaDonBan", cboMaHDB, "MaHDB", "MaHDB");

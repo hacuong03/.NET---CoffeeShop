@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace QuanLyQuanCafe.Forms
 {
-    public partial class frmDMNhaCungCap : Form
+    public partial class frmNhaCungCap : Form
     {
-        public frmDMNhaCungCap()
+        public frmNhaCungCap()
         {
             InitializeComponent();
         }
@@ -36,6 +36,10 @@ namespace QuanLyQuanCafe.Forms
             dgvNhaCungCap.Columns[1].HeaderText = "Tên nhà cung cấp";
             dgvNhaCungCap.Columns[2].HeaderText = "Địa chỉ";
             dgvNhaCungCap.Columns[3].HeaderText = "Điện thoại";
+            dgvNhaCungCap.Columns[0].Width = 100;
+            dgvNhaCungCap.Columns[1].Width = 150;
+            dgvNhaCungCap.Columns[2].Width = 150;
+            dgvNhaCungCap.Columns[3].Width = 150;
             dgvNhaCungCap.AllowUserToAddRows = false;
             dgvNhaCungCap.EditMode = DataGridViewEditMode.EditProgrammatically;
         }

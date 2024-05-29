@@ -34,23 +34,24 @@
             this.dgvTimKiemHDN = new System.Windows.Forms.DataGridView();
             this.txtTongTien = new System.Windows.Forms.TextBox();
             this.lblTongTien = new System.Windows.Forms.Label();
-            this.mskNgayNhap = new System.Windows.Forms.MaskedTextBox();
             this.lblNgayNhap = new System.Windows.Forms.Label();
             this.lblMaHDN = new System.Windows.Forms.Label();
             this.lblMaNCC = new System.Windows.Forms.Label();
             this.lblMaNhanVien = new System.Windows.Forms.Label();
             this.lblTKHoaDonNhap = new System.Windows.Forms.Label();
             this.gbxHoaDonNhap = new System.Windows.Forms.GroupBox();
+            this.dtpNgayNhap = new System.Windows.Forms.DateTimePicker();
             this.cboMaNCC = new System.Windows.Forms.ComboBox();
             this.cboMaNhanVien = new System.Windows.Forms.ComboBox();
             this.cboMaHDN = new System.Windows.Forms.ComboBox();
+            this.labelChuthich = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTimKiemHDN)).BeginInit();
             this.gbxHoaDonNhap.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnDong
             // 
-            this.btnDong.Location = new System.Drawing.Point(750, 671);
+            this.btnDong.Location = new System.Drawing.Point(750, 690);
             this.btnDong.Name = "btnDong";
             this.btnDong.Size = new System.Drawing.Size(88, 40);
             this.btnDong.TabIndex = 137;
@@ -60,7 +61,7 @@
             // 
             // btnTimLai
             // 
-            this.btnTimLai.Location = new System.Drawing.Point(610, 671);
+            this.btnTimLai.Location = new System.Drawing.Point(610, 690);
             this.btnTimLai.Name = "btnTimLai";
             this.btnTimLai.Size = new System.Drawing.Size(102, 40);
             this.btnTimLai.TabIndex = 136;
@@ -70,7 +71,7 @@
             // 
             // btnTimKiem
             // 
-            this.btnTimKiem.Location = new System.Drawing.Point(471, 671);
+            this.btnTimKiem.Location = new System.Drawing.Point(471, 690);
             this.btnTimKiem.Name = "btnTimKiem";
             this.btnTimKiem.Size = new System.Drawing.Size(102, 40);
             this.btnTimKiem.TabIndex = 135;
@@ -109,21 +110,11 @@
             this.lblTongTien.TabIndex = 128;
             this.lblTongTien.Text = "Tổng tiền:";
             // 
-            // mskNgayNhap
-            // 
-            this.mskNgayNhap.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mskNgayNhap.Location = new System.Drawing.Point(560, 36);
-            this.mskNgayNhap.Mask = "00/00/0000";
-            this.mskNgayNhap.Name = "mskNgayNhap";
-            this.mskNgayNhap.Size = new System.Drawing.Size(187, 22);
-            this.mskNgayNhap.TabIndex = 132;
-            this.mskNgayNhap.ValidatingType = typeof(System.DateTime);
-            // 
             // lblNgayNhap
             // 
             this.lblNgayNhap.AutoSize = true;
             this.lblNgayNhap.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNgayNhap.Location = new System.Drawing.Point(466, 38);
+            this.lblNgayNhap.Location = new System.Drawing.Point(466, 37);
             this.lblNgayNhap.Name = "lblNgayNhap";
             this.lblNgayNhap.Size = new System.Drawing.Size(82, 18);
             this.lblNgayNhap.TabIndex = 127;
@@ -171,6 +162,7 @@
             // 
             // gbxHoaDonNhap
             // 
+            this.gbxHoaDonNhap.Controls.Add(this.dtpNgayNhap);
             this.gbxHoaDonNhap.Controls.Add(this.cboMaNCC);
             this.gbxHoaDonNhap.Controls.Add(this.cboMaNhanVien);
             this.gbxHoaDonNhap.Controls.Add(this.cboMaHDN);
@@ -180,7 +172,6 @@
             this.gbxHoaDonNhap.Controls.Add(this.txtTongTien);
             this.gbxHoaDonNhap.Controls.Add(this.lblTongTien);
             this.gbxHoaDonNhap.Controls.Add(this.lblNgayNhap);
-            this.gbxHoaDonNhap.Controls.Add(this.mskNgayNhap);
             this.gbxHoaDonNhap.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbxHoaDonNhap.Location = new System.Drawing.Point(32, 67);
             this.gbxHoaDonNhap.Name = "gbxHoaDonNhap";
@@ -188,6 +179,16 @@
             this.gbxHoaDonNhap.TabIndex = 123;
             this.gbxHoaDonNhap.TabStop = false;
             this.gbxHoaDonNhap.Text = "Thông tin tìm kiếm";
+            // 
+            // dtpNgayNhap
+            // 
+            this.dtpNgayNhap.CustomFormat = "dd/MM/yyyy";
+            this.dtpNgayNhap.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpNgayNhap.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpNgayNhap.Location = new System.Drawing.Point(560, 34);
+            this.dtpNgayNhap.Name = "dtpNgayNhap";
+            this.dtpNgayNhap.Size = new System.Drawing.Size(187, 24);
+            this.dtpNgayNhap.TabIndex = 132;
             // 
             // cboMaNCC
             // 
@@ -216,11 +217,22 @@
             this.cboMaHDN.Size = new System.Drawing.Size(187, 24);
             this.cboMaHDN.TabIndex = 129;
             // 
+            // labelChuthich
+            // 
+            this.labelChuthich.AutoSize = true;
+            this.labelChuthich.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelChuthich.Location = new System.Drawing.Point(61, 663);
+            this.labelChuthich.Name = "labelChuthich";
+            this.labelChuthich.Size = new System.Drawing.Size(413, 18);
+            this.labelChuthich.TabIndex = 188;
+            this.labelChuthich.Text = "* Kích đúp vào một hàng để xem chi tiết hóa đơn nhập";
+            // 
             // frmTimKiemHDN
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(869, 742);
+            this.ClientSize = new System.Drawing.Size(869, 754);
+            this.Controls.Add(this.labelChuthich);
             this.Controls.Add(this.gbxHoaDonNhap);
             this.Controls.Add(this.btnDong);
             this.Controls.Add(this.btnTimLai);
@@ -247,15 +259,16 @@
         private System.Windows.Forms.DataGridView dgvTimKiemHDN;
         private System.Windows.Forms.TextBox txtTongTien;
         private System.Windows.Forms.Label lblTongTien;
-        private System.Windows.Forms.MaskedTextBox mskNgayNhap;
         private System.Windows.Forms.Label lblNgayNhap;
         private System.Windows.Forms.Label lblMaHDN;
         private System.Windows.Forms.Label lblMaNCC;
         private System.Windows.Forms.Label lblMaNhanVien;
         private System.Windows.Forms.Label lblTKHoaDonNhap;
         private System.Windows.Forms.GroupBox gbxHoaDonNhap;
-        private System.Windows.Forms.ComboBox cboMaNCC;
         private System.Windows.Forms.ComboBox cboMaNhanVien;
         private System.Windows.Forms.ComboBox cboMaHDN;
+        private System.Windows.Forms.ComboBox cboMaNCC;
+        private System.Windows.Forms.DateTimePicker dtpNgayNhap;
+        private System.Windows.Forms.Label labelChuthich;
     }
 }

@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.mskNgaySinh = new System.Windows.Forms.MaskedTextBox();
             this.mskDienThoai = new System.Windows.Forms.MaskedTextBox();
             this.txtDiaChi = new System.Windows.Forms.TextBox();
             this.lblNgaySinh = new System.Windows.Forms.Label();
@@ -53,20 +52,10 @@
             this.btnSua = new System.Windows.Forms.Button();
             this.btnXoa = new System.Windows.Forms.Button();
             this.btnThem = new System.Windows.Forms.Button();
+            this.dtpNgaySinh = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNhanVien)).BeginInit();
             this.gbxNhanVien.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // mskNgaySinh
-            // 
-            this.mskNgaySinh.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mskNgaySinh.Location = new System.Drawing.Point(654, 34);
-            this.mskNgaySinh.Mask = "00/00/0000";
-            this.mskNgaySinh.Name = "mskNgaySinh";
-            this.mskNgaySinh.Size = new System.Drawing.Size(187, 22);
-            this.mskNgaySinh.TabIndex = 76;
-            this.mskNgaySinh.ValidatingType = typeof(System.DateTime);
-            this.mskNgaySinh.KeyUp += new System.Windows.Forms.KeyEventHandler(this.mskNgaySinh_KeyUp);
             // 
             // mskDienThoai
             // 
@@ -76,7 +65,6 @@
             this.mskDienThoai.Name = "mskDienThoai";
             this.mskDienThoai.Size = new System.Drawing.Size(187, 22);
             this.mskDienThoai.TabIndex = 78;
-            this.mskDienThoai.KeyUp += new System.Windows.Forms.KeyEventHandler(this.mskDienThoai_KeyUp);
             // 
             // txtDiaChi
             // 
@@ -127,6 +115,7 @@
             this.chkGioiTinh.TabIndex = 75;
             this.chkGioiTinh.Text = "Nam";
             this.chkGioiTinh.UseVisualStyleBackColor = true;
+            this.chkGioiTinh.KeyUp += new System.Windows.Forms.KeyEventHandler(this.chkGioiTinh_KeyUp);
             // 
             // lblGioiTinh
             // 
@@ -220,13 +209,13 @@
             // 
             // gbxNhanVien
             // 
+            this.gbxNhanVien.Controls.Add(this.dtpNgaySinh);
             this.gbxNhanVien.Controls.Add(this.mskDienThoai);
             this.gbxNhanVien.Controls.Add(this.lblMaNhanVien);
             this.gbxNhanVien.Controls.Add(this.cboMaQue);
             this.gbxNhanVien.Controls.Add(this.lblTenNhanVien);
             this.gbxNhanVien.Controls.Add(this.lblMaQue);
             this.gbxNhanVien.Controls.Add(this.txtMaNhanVien);
-            this.gbxNhanVien.Controls.Add(this.mskNgaySinh);
             this.gbxNhanVien.Controls.Add(this.txtTenNhanVien);
             this.gbxNhanVien.Controls.Add(this.lblGioiTinh);
             this.gbxNhanVien.Controls.Add(this.txtDiaChi);
@@ -330,6 +319,17 @@
             this.btnThem.UseVisualStyleBackColor = true;
             this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
+            // dtpNgaySinh
+            // 
+            this.dtpNgaySinh.CustomFormat = "dd/MM/yyyy";
+            this.dtpNgaySinh.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpNgaySinh.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpNgaySinh.Location = new System.Drawing.Point(654, 32);
+            this.dtpNgaySinh.Name = "dtpNgaySinh";
+            this.dtpNgaySinh.Size = new System.Drawing.Size(187, 24);
+            this.dtpNgaySinh.TabIndex = 76;
+            this.dtpNgaySinh.KeyUp += new System.Windows.Forms.KeyEventHandler(this.dtpNgaySinh_KeyUp);
+            // 
             // frmNhanVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -349,7 +349,7 @@
             this.Name = "frmNhanVien";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Nhân Viên";
-            this.Load += new System.EventHandler(this.frmDMNhanVien_Load);
+            this.Load += new System.EventHandler(this.frmNhanVien_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvNhanVien)).EndInit();
             this.gbxNhanVien.ResumeLayout(false);
             this.gbxNhanVien.PerformLayout();
@@ -359,8 +359,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.MaskedTextBox mskNgaySinh;
         private System.Windows.Forms.MaskedTextBox mskDienThoai;
         private System.Windows.Forms.TextBox txtDiaChi;
         private System.Windows.Forms.Label lblNgaySinh;
@@ -385,5 +383,6 @@
         private System.Windows.Forms.Button btnSua;
         private System.Windows.Forms.Button btnXoa;
         private System.Windows.Forms.Button btnThem;
+        private System.Windows.Forms.DateTimePicker dtpNgaySinh;
     }
 }

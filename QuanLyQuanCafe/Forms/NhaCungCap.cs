@@ -19,9 +19,8 @@ namespace QuanLyQuanCafe.Forms
 
         DataTable tblNhaCungCap;
 
-        private void frmDMNhaCungCap_Load(object sender, EventArgs e)
+        private void frmNhaCungCap_Load(object sender, EventArgs e)
         {
-            txtMaNCC.Enabled = false;
             btnLuu.Enabled = false;
             btnBoQua.Enabled = false;
             Load_DataGridView();
@@ -47,6 +46,7 @@ namespace QuanLyQuanCafe.Forms
         private void ResetValues()
         {
             txtMaNCC.Text = "";
+            txtMaNCC.Enabled = true;
             txtTenNCC.Text = "";
             txtDiaChi.Text = "";
             mskDienThoai.Text = "";
@@ -72,6 +72,7 @@ namespace QuanLyQuanCafe.Forms
             btnSua.Enabled = true;
             btnXoa.Enabled = true;
             btnBoQua.Enabled = true;
+            txtMaNCC.Enabled = false;
         }
 
         private void btnThem_Click(object sender, EventArgs e)
@@ -190,7 +191,6 @@ namespace QuanLyQuanCafe.Forms
             btnXoa.Enabled = true;
             btnLuu.Enabled = false;
             btnBoQua.Enabled = false;
-            txtMaNCC.Enabled = false;
         }
 
         private void btnBoQua_Click(object sender, EventArgs e)
@@ -201,7 +201,39 @@ namespace QuanLyQuanCafe.Forms
             btnXoa.Enabled = true;
             btnLuu.Enabled = false;
             btnBoQua.Enabled = false;
-            txtMaNCC.Enabled = false;
+        }
+
+        private void btnTimKiem_Click(object sender, EventArgs e)
+        {
+            string sql;
+            if ((txtMaNCC.Text == "") && (txtTenNCC.Text == "") && (txtDiaChi.Text == "") && (string.IsNullOrWhiteSpace(mskDienThoai.Text.Trim().Replace("(", "").Replace(")", "").Replace("-", "").Replace(" ", ""))))
+            {
+                MessageBox.Show("Hãy nhập điều kiện để tìm kiếm!", "Yêu cầu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            sql = "SELECT * FROM tblNhaCungCap WHERE 1=1";
+            if (txtMaNCC.Text != "")
+                sql = sql + " AND MaNCC LIKE N'%" + txtMaNCC.Text + "%'";
+            if (txtTenNCC.Text != "")
+                sql = sql + " AND TenNCC LIKE N'%" + txtTenNCC.Text + "%'";
+            if (txtDiaChi.Text != "")
+                sql = sql + " AND DiaChi LIKE N'%" + txtDiaChi.Text + "%'";
+            if (!string.IsNullOrWhiteSpace(mskDienThoai.Text.Trim().Replace("(", "").Replace(")", "").Replace("-", "").Replace(" ", "")))
+                sql = sql + " AND SDT LIKE N'%" + mskDienThoai.Text.Trim() + "%'";
+            tblNhaCungCap = Class.Functions.GetDataToTable(sql);
+            if (tblNhaCungCap.Rows.Count == 0)
+                MessageBox.Show("Không có nhân viên nào thỏa mãn điều kiện", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            else
+                MessageBox.Show("Có " + tblNhaCungCap.Rows.Count + " nhân viên thỏa mãn điều kiện", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            dgvNhaCungCap.DataSource = tblNhaCungCap;
+            ResetValues();
+        }
+
+        private void btnHienThiDS_Click(object sender, EventArgs e)
+        {
+            string sql = "SELECT MaNCC, TenNCC, DiaChi, SDT FROM tblNhaCungCap";
+            tblNhaCungCap = Class.Functions.GetDataToTable(sql);
+            dgvNhaCungCap.DataSource = tblNhaCungCap;
         }
 
         private void btnDong_Click(object sender, EventArgs e)
@@ -222,12 +254,6 @@ namespace QuanLyQuanCafe.Forms
         }
 
         private void txtDiaChi_KeyUp(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-                SendKeys.Send("{TAB}");
-        }
-
-        private void mskDienThoai_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
                 SendKeys.Send("{TAB}");

@@ -19,7 +19,7 @@ namespace QuanLyQuanCafe.Forms
 
         DataTable tblSanPham;
 
-        private void frmDMSanPham_Load(object sender, EventArgs e)
+        private void frmSanPham_Load(object sender, EventArgs e)
         {
             btnLuu.Enabled = false;
             btnBoQua.Enabled = false;

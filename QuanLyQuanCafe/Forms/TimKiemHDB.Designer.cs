@@ -32,7 +32,6 @@
             this.lblMaNhanVien = new System.Windows.Forms.Label();
             this.lblMaKhachHang = new System.Windows.Forms.Label();
             this.lblMaHDB = new System.Windows.Forms.Label();
-            this.mskNgayBan = new System.Windows.Forms.MaskedTextBox();
             this.lblNgayBan = new System.Windows.Forms.Label();
             this.txtTongTien = new System.Windows.Forms.TextBox();
             this.lblTongTien = new System.Windows.Forms.Label();
@@ -44,6 +43,8 @@
             this.cboMaKhachHang = new System.Windows.Forms.ComboBox();
             this.cboMaNhanVien = new System.Windows.Forms.ComboBox();
             this.cboMaHDB = new System.Windows.Forms.ComboBox();
+            this.dtpNgayBan = new System.Windows.Forms.DateTimePicker();
+            this.labelChuthich = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTimKiemHDB)).BeginInit();
             this.gbxHoaDonBan.SuspendLayout();
             this.SuspendLayout();
@@ -88,21 +89,11 @@
             this.lblMaHDB.TabIndex = 140;
             this.lblMaHDB.Text = "Mã hóa đơn bán:";
             // 
-            // mskNgayBan
-            // 
-            this.mskNgayBan.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mskNgayBan.Location = new System.Drawing.Point(562, 37);
-            this.mskNgayBan.Mask = "00/00/0000";
-            this.mskNgayBan.Name = "mskNgayBan";
-            this.mskNgayBan.Size = new System.Drawing.Size(187, 22);
-            this.mskNgayBan.TabIndex = 148;
-            this.mskNgayBan.ValidatingType = typeof(System.DateTime);
-            // 
             // lblNgayBan
             // 
             this.lblNgayBan.AutoSize = true;
             this.lblNgayBan.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNgayBan.Location = new System.Drawing.Point(468, 39);
+            this.lblNgayBan.Location = new System.Drawing.Point(468, 38);
             this.lblNgayBan.Name = "lblNgayBan";
             this.lblNgayBan.Size = new System.Drawing.Size(74, 18);
             this.lblNgayBan.TabIndex = 143;
@@ -141,7 +132,7 @@
             // 
             // btnTimKiem
             // 
-            this.btnTimKiem.Location = new System.Drawing.Point(494, 671);
+            this.btnTimKiem.Location = new System.Drawing.Point(494, 684);
             this.btnTimKiem.Name = "btnTimKiem";
             this.btnTimKiem.Size = new System.Drawing.Size(102, 40);
             this.btnTimKiem.TabIndex = 151;
@@ -151,7 +142,7 @@
             // 
             // btnTimLai
             // 
-            this.btnTimLai.Location = new System.Drawing.Point(623, 671);
+            this.btnTimLai.Location = new System.Drawing.Point(623, 684);
             this.btnTimLai.Name = "btnTimLai";
             this.btnTimLai.Size = new System.Drawing.Size(102, 40);
             this.btnTimLai.TabIndex = 152;
@@ -161,7 +152,7 @@
             // 
             // btnDong
             // 
-            this.btnDong.Location = new System.Drawing.Point(751, 671);
+            this.btnDong.Location = new System.Drawing.Point(751, 684);
             this.btnDong.Name = "btnDong";
             this.btnDong.Size = new System.Drawing.Size(88, 40);
             this.btnDong.TabIndex = 153;
@@ -171,6 +162,7 @@
             // 
             // gbxHoaDonBan
             // 
+            this.gbxHoaDonBan.Controls.Add(this.dtpNgayBan);
             this.gbxHoaDonBan.Controls.Add(this.cboMaKhachHang);
             this.gbxHoaDonBan.Controls.Add(this.cboMaNhanVien);
             this.gbxHoaDonBan.Controls.Add(this.cboMaHDB);
@@ -180,7 +172,6 @@
             this.gbxHoaDonBan.Controls.Add(this.txtTongTien);
             this.gbxHoaDonBan.Controls.Add(this.lblTongTien);
             this.gbxHoaDonBan.Controls.Add(this.lblNgayBan);
-            this.gbxHoaDonBan.Controls.Add(this.mskNgayBan);
             this.gbxHoaDonBan.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbxHoaDonBan.Location = new System.Drawing.Point(33, 68);
             this.gbxHoaDonBan.Name = "gbxHoaDonBan";
@@ -216,11 +207,32 @@
             this.cboMaHDB.Size = new System.Drawing.Size(187, 24);
             this.cboMaHDB.TabIndex = 145;
             // 
+            // dtpNgayBan
+            // 
+            this.dtpNgayBan.CustomFormat = "dd/MM/yyyy";
+            this.dtpNgayBan.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpNgayBan.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpNgayBan.Location = new System.Drawing.Point(562, 35);
+            this.dtpNgayBan.Name = "dtpNgayBan";
+            this.dtpNgayBan.Size = new System.Drawing.Size(187, 24);
+            this.dtpNgayBan.TabIndex = 148;
+            // 
+            // labelChuthich
+            // 
+            this.labelChuthich.AutoSize = true;
+            this.labelChuthich.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelChuthich.Location = new System.Drawing.Point(58, 659);
+            this.labelChuthich.Name = "labelChuthich";
+            this.labelChuthich.Size = new System.Drawing.Size(404, 18);
+            this.labelChuthich.TabIndex = 187;
+            this.labelChuthich.Text = "* Kích đúp vào một hàng để xem chi tiết hóa đơn bán";
+            // 
             // frmTimKiemHDB
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(869, 743);
+            this.ClientSize = new System.Drawing.Size(869, 756);
+            this.Controls.Add(this.labelChuthich);
             this.Controls.Add(this.gbxHoaDonBan);
             this.Controls.Add(this.btnDong);
             this.Controls.Add(this.btnTimLai);
@@ -245,7 +257,6 @@
         private System.Windows.Forms.Label lblMaNhanVien;
         private System.Windows.Forms.Label lblMaKhachHang;
         private System.Windows.Forms.Label lblMaHDB;
-        private System.Windows.Forms.MaskedTextBox mskNgayBan;
         private System.Windows.Forms.Label lblNgayBan;
         private System.Windows.Forms.TextBox txtTongTien;
         private System.Windows.Forms.Label lblTongTien;
@@ -257,5 +268,7 @@
         private System.Windows.Forms.ComboBox cboMaKhachHang;
         private System.Windows.Forms.ComboBox cboMaNhanVien;
         private System.Windows.Forms.ComboBox cboMaHDB;
+        private System.Windows.Forms.DateTimePicker dtpNgayBan;
+        private System.Windows.Forms.Label labelChuthich;
     }
 }

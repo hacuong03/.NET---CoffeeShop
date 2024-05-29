@@ -45,6 +45,8 @@
             this.lblMaNCC = new System.Windows.Forms.Label();
             this.lblDMNhaCungCap = new System.Windows.Forms.Label();
             this.gbxNhaCungCap = new System.Windows.Forms.GroupBox();
+            this.btnTimKiem = new System.Windows.Forms.Button();
+            this.btnHienThiDS = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNhaCungCap)).BeginInit();
             this.gbxNhaCungCap.SuspendLayout();
             this.SuspendLayout();
@@ -57,7 +59,6 @@
             this.mskDienThoai.Name = "mskDienThoai";
             this.mskDienThoai.Size = new System.Drawing.Size(187, 22);
             this.mskDienThoai.TabIndex = 114;
-            this.mskDienThoai.KeyUp += new System.Windows.Forms.KeyEventHandler(this.mskDienThoai_KeyUp);
             // 
             // txtDiaChi
             // 
@@ -90,7 +91,7 @@
             // 
             // btnDong
             // 
-            this.btnDong.Location = new System.Drawing.Point(754, 644);
+            this.btnDong.Location = new System.Drawing.Point(826, 645);
             this.btnDong.Name = "btnDong";
             this.btnDong.Size = new System.Drawing.Size(88, 40);
             this.btnDong.TabIndex = 121;
@@ -100,7 +101,7 @@
             // 
             // btnBoQua
             // 
-            this.btnBoQua.Location = new System.Drawing.Point(623, 644);
+            this.btnBoQua.Location = new System.Drawing.Point(489, 645);
             this.btnBoQua.Name = "btnBoQua";
             this.btnBoQua.Size = new System.Drawing.Size(88, 40);
             this.btnBoQua.TabIndex = 120;
@@ -110,7 +111,7 @@
             // 
             // btnLuu
             // 
-            this.btnLuu.Location = new System.Drawing.Point(489, 644);
+            this.btnLuu.Location = new System.Drawing.Point(374, 645);
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.Size = new System.Drawing.Size(88, 40);
             this.btnLuu.TabIndex = 119;
@@ -120,7 +121,7 @@
             // 
             // btnSua
             // 
-            this.btnSua.Location = new System.Drawing.Point(229, 645);
+            this.btnSua.Location = new System.Drawing.Point(142, 645);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(88, 40);
             this.btnSua.TabIndex = 117;
@@ -130,7 +131,7 @@
             // 
             // btnXoa
             // 
-            this.btnXoa.Location = new System.Drawing.Point(361, 645);
+            this.btnXoa.Location = new System.Drawing.Point(258, 645);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(88, 40);
             this.btnXoa.TabIndex = 118;
@@ -140,7 +141,7 @@
             // 
             // btnThem
             // 
-            this.btnThem.Location = new System.Drawing.Point(93, 644);
+            this.btnThem.Location = new System.Drawing.Point(29, 645);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(88, 40);
             this.btnThem.TabIndex = 116;
@@ -226,11 +227,35 @@
             this.gbxNhaCungCap.TabStop = false;
             this.gbxNhaCungCap.Text = "Thông tin chi tiết";
             // 
+            // btnTimKiem
+            // 
+            this.btnTimKiem.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTimKiem.Location = new System.Drawing.Point(603, 645);
+            this.btnTimKiem.Name = "btnTimKiem";
+            this.btnTimKiem.Size = new System.Drawing.Size(88, 40);
+            this.btnTimKiem.TabIndex = 122;
+            this.btnTimKiem.Text = "Tìm kiếm";
+            this.btnTimKiem.UseVisualStyleBackColor = true;
+            this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
+            // 
+            // btnHienThiDS
+            // 
+            this.btnHienThiDS.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHienThiDS.Location = new System.Drawing.Point(717, 645);
+            this.btnHienThiDS.Name = "btnHienThiDS";
+            this.btnHienThiDS.Size = new System.Drawing.Size(88, 40);
+            this.btnHienThiDS.TabIndex = 123;
+            this.btnHienThiDS.Text = "Hiển thị";
+            this.btnHienThiDS.UseVisualStyleBackColor = true;
+            this.btnHienThiDS.Click += new System.EventHandler(this.btnHienThiDS_Click);
+            // 
             // frmNhaCungCap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(939, 723);
+            this.Controls.Add(this.btnHienThiDS);
+            this.Controls.Add(this.btnTimKiem);
             this.Controls.Add(this.gbxNhaCungCap);
             this.Controls.Add(this.btnDong);
             this.Controls.Add(this.btnBoQua);
@@ -243,7 +268,7 @@
             this.Name = "frmNhaCungCap";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Nhà Cung Cấp";
-            this.Load += new System.EventHandler(this.frmDMNhaCungCap_Load);
+            this.Load += new System.EventHandler(this.frmNhaCungCap_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvNhaCungCap)).EndInit();
             this.gbxNhaCungCap.ResumeLayout(false);
             this.gbxNhaCungCap.PerformLayout();
@@ -270,5 +295,7 @@
         private System.Windows.Forms.Label lblMaNCC;
         private System.Windows.Forms.Label lblDMNhaCungCap;
         private System.Windows.Forms.GroupBox gbxNhaCungCap;
+        private System.Windows.Forms.Button btnTimKiem;
+        private System.Windows.Forms.Button btnHienThiDS;
     }
 }

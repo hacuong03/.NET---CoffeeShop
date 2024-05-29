@@ -21,7 +21,6 @@ namespace QuanLyQuanCafe.Forms
 
         private void frmKhachHang_Load(object sender, EventArgs e)
         {
-            txtMaKhachHang.Enabled = false;
             btnLuu.Enabled = false;
             btnBoQua.Enabled = false;
             Load_DataGridView();
@@ -47,6 +46,7 @@ namespace QuanLyQuanCafe.Forms
         private void ResetValues()
         {
             txtMaKhachHang.Text = "";
+            txtMaKhachHang.Enabled = true;
             txtTenKhachHang.Text = "";
             txtDiaChi.Text = "";
             mskDienThoai.Text = "";
@@ -72,6 +72,7 @@ namespace QuanLyQuanCafe.Forms
             btnSua.Enabled = true;
             btnXoa.Enabled = true;
             btnBoQua.Enabled = true;
+            txtMaKhachHang.Enabled = false;
         }
 
         private void btnThem_Click(object sender, EventArgs e)
@@ -190,7 +191,6 @@ namespace QuanLyQuanCafe.Forms
             btnXoa.Enabled = true;
             btnLuu.Enabled = false;
             btnBoQua.Enabled = false;
-            txtMaKhachHang.Enabled = false;
         }
 
         private void btnBoQua_Click(object sender, EventArgs e)
@@ -201,7 +201,39 @@ namespace QuanLyQuanCafe.Forms
             btnXoa.Enabled = true;
             btnLuu.Enabled = false;
             btnBoQua.Enabled = false;
-            txtMaKhachHang.Enabled = false;
+        }
+
+        private void btnTimKiem_Click(object sender, EventArgs e)
+        {
+            string sql;
+            if ((txtMaKhachHang.Text == "") && (txtTenKhachHang.Text == "") && (txtDiaChi.Text == "") && (string.IsNullOrWhiteSpace(mskDienThoai.Text.Trim().Replace("(", "").Replace(")", "").Replace("-", "").Replace(" ", ""))))
+            {
+                MessageBox.Show("Hãy nhập điều kiện để tìm kiếm!", "Yêu cầu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            sql = "SELECT * FROM tblKhachHang WHERE 1=1";
+            if (txtMaKhachHang.Text != "")
+                sql = sql + " AND MaKH LIKE N'%" + txtMaKhachHang.Text + "%'";
+            if (txtTenKhachHang.Text != "")
+                sql = sql + " AND TenKH LIKE N'%" + txtTenKhachHang.Text + "%'";
+            if (txtDiaChi.Text != "")
+                sql = sql + " AND DiaChi LIKE N'%" + txtDiaChi.Text + "%'";
+            if (!string.IsNullOrWhiteSpace(mskDienThoai.Text.Trim().Replace("(", "").Replace(")", "").Replace("-", "").Replace(" ", "")))
+                sql = sql + " AND SDT LIKE N'%" + mskDienThoai.Text.Trim() + "%'";
+            tblKhachHang = Class.Functions.GetDataToTable(sql);
+            if (tblKhachHang.Rows.Count == 0)
+                MessageBox.Show("Không có nhân viên nào thỏa mãn điều kiện", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            else
+                MessageBox.Show("Có " + tblKhachHang.Rows.Count + " nhân viên thỏa mãn điều kiện", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            dgvKhachHang.DataSource = tblKhachHang;
+            ResetValues();
+        }
+
+        private void btnHienThiDS_Click(object sender, EventArgs e)
+        {
+            string sql = "SELECT MaKH, TenKH, DiaChi, SDT FROM tblKhachHang";
+            tblKhachHang = Class.Functions.GetDataToTable(sql);
+            dgvKhachHang.DataSource = tblKhachHang;
         }
 
         private void btnDong_Click(object sender, EventArgs e)
@@ -222,12 +254,6 @@ namespace QuanLyQuanCafe.Forms
         }
 
         private void txtDiaChi_KeyUp(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-                SendKeys.Send("{TAB}");
-        }
-
-        private void mskDienThoai_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
                 SendKeys.Send("{TAB}");

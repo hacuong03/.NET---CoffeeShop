@@ -19,7 +19,7 @@ namespace QuanLyQuanCafe.Forms
 
         DataTable tblNhanVien;
 
-        private void frmDMNhanVien_Load(object sender, EventArgs e)
+        private void frmNhanVien_Load(object sender, EventArgs e)
         {
             btnLuu.Enabled = false;
             btnBoQua.Enabled = false;
@@ -49,10 +49,11 @@ namespace QuanLyQuanCafe.Forms
         private void ResetValues()
         {
             txtMaNhanVien.Text = "";
+            txtMaNhanVien.Enabled = true;
             txtTenNhanVien.Text = "";
             txtDiaChi.Text = "";
             chkGioiTinh.Checked = false;
-            mskNgaySinh.Text = "";
+            dtpNgaySinh.Checked = false;
             mskDienThoai.Text = "";
             cboMaQue.Text = "";
         }
@@ -78,7 +79,7 @@ namespace QuanLyQuanCafe.Forms
                 chkGioiTinh.Checked = true;
             else
                 chkGioiTinh.Checked = false;
-            mskNgaySinh.Text = dgvNhanVien.CurrentRow.Cells["NgaySinh"].Value.ToString();
+            dtpNgaySinh.Text = dgvNhanVien.CurrentRow.Cells["NgaySinh"].Value.ToString();
             ma = dgvNhanVien.CurrentRow.Cells["MaQue"].Value.ToString();
             cboMaQue.Text = Class.Functions.GetFieldValues("SELECT TenQue FROM tblQue WHERE MaQue = N'" + ma + "'");
             mskDienThoai.Text = dgvNhanVien.CurrentRow.Cells["SDT"].Value.ToString();
@@ -129,17 +130,18 @@ namespace QuanLyQuanCafe.Forms
                 gt = "Nam";
             else
                 gt = "Nữ";
-            if (mskNgaySinh.Text == "  /  /")
+
+            if (!dtpNgaySinh.Checked)
             {
                 MessageBox.Show("Hãy nhập ngày sinh!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                mskNgaySinh.Focus();
+                dtpNgaySinh.Focus();
                 return;
             }
-            if (!Class.Functions.IsDate(mskNgaySinh.Text))
+
+            if (!Class.Functions.IsDate(dtpNgaySinh.Value.ToString("dd/MM/yyyy")))
             {
                 MessageBox.Show("Hãy nhập lại ngày sinh!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                mskNgaySinh.Text = "";
-                mskNgaySinh.Focus();
+                dtpNgaySinh.Focus();
                 return;
             }
             if (cboMaQue.Text.Trim().Length == 0)
@@ -154,7 +156,7 @@ namespace QuanLyQuanCafe.Forms
                 mskDienThoai.Focus();
                 return;
             }
-            sql = "UPDATE tblNhanVien SET TenNV = N'" + txtTenNhanVien.Text.Trim().ToString() + "', DiaChi = N'" + txtDiaChi.Text.Trim().ToString() + "', GioiTinh = N'" + gt + "', NgaySinh = '" + Class.Functions.ConvertDateTime(mskNgaySinh.Text) + "', MaQue = N'" + cboMaQue.SelectedValue.ToString() + "', SDT = '" + mskDienThoai.Text.ToString() + "' WHERE MaNV = N'" + txtMaNhanVien.Text + "'";
+            sql = "UPDATE tblNhanVien SET TenNV = N'" + txtTenNhanVien.Text.Trim() + "', DiaChi = N'" + txtDiaChi.Text.Trim() + "', GioiTinh = N'" + gt + "', NgaySinh = '" + dtpNgaySinh.Value.ToString("yyyy-MM-dd") + "', MaQue = N'" + cboMaQue.SelectedValue.ToString() + "', SDT = '" + mskDienThoai.Text.ToString() + "' WHERE MaNV = N'" + txtMaNhanVien.Text + "'";
             Class.Functions.RunSQL(sql);
             Load_DataGridView();
             ResetValues();
@@ -208,17 +210,17 @@ namespace QuanLyQuanCafe.Forms
                 gt = "Nam";
             else
                 gt = "Nữ";
-            if (mskNgaySinh.Text == "  /  /")
+            if (!dtpNgaySinh.Checked)
             {
                 MessageBox.Show("Hãy nhập ngày sinh!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                mskNgaySinh.Focus();
+                dtpNgaySinh.Focus();
                 return;
             }
-            if (!Class.Functions.IsDate(mskNgaySinh.Text))
+
+            if (!Class.Functions.IsDate(dtpNgaySinh.Value.ToString("dd/MM/yyyy")))
             {
                 MessageBox.Show("Hãy nhập lại ngày sinh!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                mskNgaySinh.Text = "";
-                mskNgaySinh.Focus();
+                dtpNgaySinh.Focus();
                 return;
             }
             if (cboMaQue.Text.Trim().Length == 0)
@@ -227,7 +229,7 @@ namespace QuanLyQuanCafe.Forms
                 cboMaQue.Focus();
                 return;
             }
-            if (mskDienThoai.Text == "(   )     -")
+            if (string.IsNullOrWhiteSpace(mskDienThoai.Text.Trim().Replace("(", "").Replace(")", "").Replace("-", "").Replace(" ", "")))
             {
                 MessageBox.Show("Hãy nhập điện thoại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 mskDienThoai.Focus();
@@ -241,7 +243,7 @@ namespace QuanLyQuanCafe.Forms
                 txtMaNhanVien.Text = "";
                 return;
             }
-            sql = "INSERT INTO tblNhanVien(MaNV, TenNV, DiaChi, GioiTinh, NgaySinh, MaQue, SDT) VALUES(N'" + txtMaNhanVien.Text.Trim() + "', N'" + txtTenNhanVien.Text.Trim() + "', N'" + txtDiaChi.Text.Trim() + "', N'" + gt + "', '" + Class.Functions.ConvertDateTime(mskNgaySinh.Text) + "', N'" + cboMaQue.SelectedValue.ToString() + "', '" + mskDienThoai.Text + "')";
+            sql = "INSERT INTO tblNhanVien(MaNV, TenNV, DiaChi, GioiTinh, NgaySinh, MaQue, SDT) VALUES(N'" + txtMaNhanVien.Text.Trim() + "', N'" + txtTenNhanVien.Text.Trim() + "', N'" + txtDiaChi.Text.Trim() + "', N'" + gt + "', '" + dtpNgaySinh.Value.ToString("yyyy-MM-dd") + "', N'" + cboMaQue.SelectedValue.ToString() + "', '" + mskDienThoai.Text + "')";
             Class.Functions.RunSQL(sql);
             Load_DataGridView();
             ResetValues();
@@ -264,8 +266,8 @@ namespace QuanLyQuanCafe.Forms
 
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
-            string sql;
-            if ((txtMaNhanVien.Text == "") && (txtTenNhanVien.Text == "") && (txtDiaChi.Text == "") && (cboMaQue.Text == ""))
+            string sql, gt = "";
+            if ((txtMaNhanVien.Text == "") && (txtTenNhanVien.Text == "") && (txtDiaChi.Text == "") && (cboMaQue.Text == "") && (!dtpNgaySinh.Checked) && (string.IsNullOrWhiteSpace(mskDienThoai.Text.Trim().Replace("(", "").Replace(")", "").Replace("-", "").Replace(" ", ""))) && (!chkGioiTinh.Checked))
             {
                 MessageBox.Show("Hãy nhập điều kiện để tìm kiếm!", "Yêu cầu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -279,6 +281,19 @@ namespace QuanLyQuanCafe.Forms
                 sql = sql + " AND DiaChi LIKE N'%" + txtDiaChi.Text + "%'";
             if (cboMaQue.Text != "")
                 sql = sql + " AND MaQue LIKE N'%" + cboMaQue.SelectedValue + "%'";
+            if (dtpNgaySinh.Checked)
+                sql = sql + " AND NgaySinh = '" + dtpNgaySinh.Value.ToString("yyyy-MM-dd") + "'";
+            if (!string.IsNullOrWhiteSpace(mskDienThoai.Text.Trim().Replace("(", "").Replace(")", "").Replace("-", "").Replace(" ", "")))
+                sql = sql + " AND SDT LIKE N'%" + mskDienThoai.Text.Trim() + "%'";
+            if (chkGioiTinh.Checked)
+            {
+                gt = "Nam";
+            }
+            else
+            {
+                gt = "Nữ";
+            }
+            sql = sql + " AND GioiTinh = N'" + gt + "'";
             tblNhanVien = Class.Functions.GetDataToTable(sql);
             if (tblNhanVien.Rows.Count == 0)
                 MessageBox.Show("Không có nhân viên nào thỏa mãn điều kiện", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -313,19 +328,19 @@ namespace QuanLyQuanCafe.Forms
                 SendKeys.Send("{TAB}");
         }
 
-        private void mskNgaySinh_KeyUp(object sender, KeyEventArgs e)
+        private void chkGioiTinh_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                SendKeys.Send("{TAB}");
+        }
+
+        private void dtpNgaySinh_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
                 SendKeys.Send("{TAB}");
         }
 
         private void cboMaQue_KeyUp(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-                SendKeys.Send("{TAB}");
-        }
-
-        private void mskDienThoai_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
                 SendKeys.Send("{TAB}");

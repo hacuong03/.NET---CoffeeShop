@@ -19,7 +19,7 @@ namespace QuanLyQuanCafe.Forms
 
         DataTable tblCongDung;
 
-        private void frmDMCongDung_Load(object sender, EventArgs e)
+        private void frmCongDung_Load(object sender, EventArgs e)
         {
             txtMaCongDung.Enabled = false;
             btnLuu.Enabled = false;

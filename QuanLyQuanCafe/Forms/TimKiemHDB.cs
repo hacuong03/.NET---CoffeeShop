@@ -47,6 +47,7 @@ namespace QuanLyQuanCafe.Forms
             cboMaHDB.Text = "";
             cboMaNhanVien.Text = "";
             cboMaKhachHang.Text = "";
+            dtpNgayBan.Checked = false;
             txtTongTien.Text = "";
             cboMaHDB.Focus();
         }
@@ -54,7 +55,7 @@ namespace QuanLyQuanCafe.Forms
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
             string sql;
-            if ((cboMaHDB.Text == "") && (cboMaNhanVien.Text == "") && (cboMaKhachHang.Text == "") && (txtTongTien.Text == ""))
+            if ((cboMaHDB.Text == "") && (cboMaNhanVien.Text == "") && (cboMaKhachHang.Text == "") && (txtTongTien.Text == "") && (!dtpNgayBan.Checked))
             {
                 MessageBox.Show("Hãy nhập điều kiện tìm kiếm!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -68,6 +69,8 @@ namespace QuanLyQuanCafe.Forms
                 sql = sql + " AND MaKH LIKE N'%" + cboMaKhachHang.Text + "%'";
             if (txtTongTien.Text != "")
                 sql = sql + " AND TongTien <=" + txtTongTien.Text;
+            if (dtpNgayBan.Checked)
+                sql = sql + " AND NgaySinh = '" + dtpNgayBan.Value.ToString("yyyy-MM-dd") + "'";
             tblHoaDonBan = Class.Functions.GetDataToTable(sql);
             if (tblHoaDonBan.Rows.Count == 0)
             {

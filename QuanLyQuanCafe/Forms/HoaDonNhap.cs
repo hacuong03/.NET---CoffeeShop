@@ -147,6 +147,7 @@ namespace QuanLyQuanCafe.Forms
                 sql = "insert into tblHoaDonNhap(MaHDN, NgayNhap, MaNV, MaNCC, TongTien) values(N'" + textMaHDN.Text.Trim() + "', '" + Functions.ConvertDateTime(textNgaynhap.Text.Trim()) + "',N'" + comboMaNV.SelectedValue + "',N'" + comboMaNCC.SelectedValue + "'," + textTongtien.Text + ")";
                 Functions.RunSQL(sql);
             }
+
             if (comboMahang.Text.Trim().Length == 0)
             {
                 MessageBox.Show("Bạn phải nhập mã hàng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -180,23 +181,28 @@ namespace QuanLyQuanCafe.Forms
                 comboMahang.Focus();
                 return;
             }
+
             sql = "insert into tblChiTietHDN(MaHDN, MaSP, SoLuong, DonGia, Chietkhau, ThanhTien) values(N'" + textMaHDN.Text.Trim() + "', N'" + comboMahang.SelectedValue + "'," + textSoluong.Text + "'," + textDongianhap.Text + "," + textChietkhau.Text + "," + textThanhtien.Text + ")";
             Functions.RunSQL(sql);
             Load_DataGridViewChitiet();
+
             sl = Convert.ToInt32(Functions.GetFieldValues("select SoLuong from tblSanPham where MaSP = N'" + comboMahang.SelectedValue + "'"));
             slcon = sl + Convert.ToInt32(textSoluong.Text);
             sql = "update tblSanPham set SoLuong =" + slcon + " where MaSP = N'" + comboMahang.SelectedValue + "'";
             Functions.RunSQL(sql);
-            tong = Convert.ToDouble(Functions.GetFieldValues("select TongTien from tblHoaDonNhap where MaHDN = N'" + textMaHDN.Text + "'"));
-            tongmoi = tong + Convert.ToDouble(textThanhtien.Text);
-            sql = "update tblHoaDonNhap set TongTien =" + tongmoi + " where MaHDN = N'" + textMaHDN.Text + "'";
-            Functions.RunSQL(sql);
-            textTongtien.Text = tongmoi.ToString();
-            labelBangchu.Text = "Bằng chữ: " + Functions.ChuyenSoSangChu(tongmoi.ToString());
+
             dongianhap = Convert.ToDouble(textDongianhap.Text);
             giaban = dongianhap * 1.10;
             sql = "update tblSanPham set GiaBan = " + giaban + " where MaSP = N'" + comboMahang.SelectedValue + "'";
             Functions.RunSQL(sql);
+
+            tong = Convert.ToDouble(Functions.GetFieldValues("select TongTien from tblHoaDonNhap where MaHDN = N'" + textMaHDN.Text + "'"));
+            tongmoi = tong + Convert.ToDouble(textThanhtien.Text);
+            sql = "update tblHoaDonNhap set TongTien =" + tongmoi + " where MaHDN = N'" + textMaHDN.Text + "'";
+            Functions.RunSQL(sql);
+
+            textTongtien.Text = tongmoi.ToString();
+            labelBangchu.Text = "Bằng chữ: " + Functions.ChuyenSoSangChu(tongmoi.ToString());
             ResetValuesHang();
             buttonHuyHD.Enabled = true;
             buttonThemHD.Enabled = true;
@@ -392,6 +398,7 @@ namespace QuanLyQuanCafe.Forms
             DataTable tblThongtinHDN, tblThongtinHang;
             exBook = exApp.Workbooks.Add(COMExcel.XlWBATemplate.xlWBATWorksheet);
             exSheet = exBook.Worksheets[1];
+
             exRange = exSheet.Cells[1, 1];
             exRange.Range["A1:B3"].Font.Size = 10;
             exRange.Range["A1:B3"].Font.Name = "Times new roman";
@@ -415,6 +422,7 @@ namespace QuanLyQuanCafe.Forms
             exRange.Range["C2:E2"].MergeCells = true;
             exRange.Range["C2:E2"].HorizontalAlignment = COMExcel.XlHAlign.xlHAlignCenter;
             exRange.Range["C2:E2"].Value = "HÓA ĐƠN NHẬP";
+
             sql = "select a.MaHDN, a.NgayNhap, a.TongTien, b.TenNCC, b.DiaChi, b.SDT, c.TenNV " +
                 "from tblHoaDonNhap as a, tblNhaCungCap as b, tblNhanVien as c " +
                 "where a.MaHDN = N'" + textMaHDN.Text + "' and a.MaNCC = b.MaNCC and a.MaNV = c.MaNV";
@@ -433,6 +441,7 @@ namespace QuanLyQuanCafe.Forms
             exRange.Range["B9:B9"].Value = "Điện thoại:";
             exRange.Range["C9:E9"].MergeCells = true;
             exRange.Range["C9:E9"].Value = tblThongtinHDN.Rows[0][5].ToString();
+
             sql = "select b.TenSP, a.SoLuong, a.DonGia, a.ChietKhau, a.ThanhTien " +
                   "from tblChiTietHDN as a , tblSanPham as b " +
                   "where a.MaHDN = N'" + textMaHDN.Text + "' and a.MaSP = b.MaSP";

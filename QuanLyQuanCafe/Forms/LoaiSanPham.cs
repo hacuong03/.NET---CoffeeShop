@@ -19,7 +19,7 @@ namespace QuanLyQuanCafe.Forms
 
         DataTable tblLoai;
 
-        private void frmDMLoaiSanPham_Load(object sender, EventArgs e)
+        private void frmLoaiSanPham_Load(object sender, EventArgs e)
         {
             txtMaLoai.Enabled = false;
             btnLuu.Enabled = false;

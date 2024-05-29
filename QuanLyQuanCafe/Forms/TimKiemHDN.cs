@@ -47,6 +47,7 @@ namespace QuanLyQuanCafe.Forms
             cboMaHDN.Text = "";
             cboMaNhanVien.Text = "";
             cboMaNCC.Text = "";
+            dtpNgayNhap.Checked = false;
             txtTongTien.Text = "";
             cboMaHDN.Focus();
         }
@@ -54,7 +55,7 @@ namespace QuanLyQuanCafe.Forms
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
             string sql;
-            if ((cboMaHDN.Text == "") && (cboMaNhanVien.Text == "") && (cboMaNCC.Text == "") && (txtTongTien.Text == ""))
+            if ((cboMaHDN.Text == "") && (cboMaNhanVien.Text == "") && (cboMaNCC.Text == "") && (txtTongTien.Text == "") && (!dtpNgayNhap.Checked))
             {
                 MessageBox.Show("Hãy nhập điều kiện tìm kiếm!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -68,6 +69,8 @@ namespace QuanLyQuanCafe.Forms
                 sql = sql + " AND MaNCC LIKE N'%" + cboMaNCC.Text + "%'";
             if (txtTongTien.Text != "")
                 sql = sql + " AND TongTien <=" + txtTongTien.Text;
+            if (dtpNgayNhap.Checked)
+                sql = sql + " AND NgaySinh = '" + dtpNgayNhap.Value.ToString("yyyy-MM-dd") + "'";
             tblHoaDonNhap = Class.Functions.GetDataToTable(sql);
             if (tblHoaDonNhap.Rows.Count == 0)
             {
@@ -92,9 +95,9 @@ namespace QuanLyQuanCafe.Forms
             if (MessageBox.Show("Bạn có muốn hiển thị thông tin chi tiết hóa đơn nhập này không?", "Xác nhận", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
             {
                 mahdn = dgvTimKiemHDN.CurrentRow.Cells["MaHDN"].Value.ToString();
-                //frmHoaDonNhap f = new frmHoaDonNhap();
-                //f.txtMaHDN.Text = mahdn;
-                //f.ShowDialog();
+                frmHoaDonNhap f = new frmHoaDonNhap();
+                f.textMaHDN.Text = mahdn;
+                f.ShowDialog();
             }
         }
 

@@ -196,7 +196,7 @@
             this.Name = "frmLoaiSanPham";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Loại Sản Phẩm";
-            this.Load += new System.EventHandler(this.frmDMLoaiSanPham_Load);
+            this.Load += new System.EventHandler(this.frmLoaiSanPham_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvLoaiSanPham)).EndInit();
             this.gbxLoaiSanPham.ResumeLayout(false);
             this.gbxLoaiSanPham.PerformLayout();

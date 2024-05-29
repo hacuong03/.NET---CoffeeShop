@@ -196,7 +196,7 @@
             this.Name = "frmCongDung";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Công Dụng";
-            this.Load += new System.EventHandler(this.frmDMCongDung_Load);
+            this.Load += new System.EventHandler(this.frmCongDung_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCongDung)).EndInit();
             this.gbxCongDung.ResumeLayout(false);
             this.gbxCongDung.PerformLayout();

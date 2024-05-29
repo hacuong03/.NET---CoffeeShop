@@ -38,11 +38,11 @@ namespace QuanLyQuanCafe.Forms
             textTongtien.ReadOnly = true;
             textGiamgia.Text = "0";
             textTongtien.Text = "0";
-            Functions.FillCombo("select MaKH, TenKH from tblKhachHang", comboMaKH, "MaKH", "TenKH");
+            Functions.FillCombo("select MaKH, TenKH from tblKhachHang", comboMaKH, "MaKH", "MaKH");
             comboMaKH.SelectedIndex = -1;
-            Functions.FillCombo("select MaNV, TenNV from tblNhanVien", comboMaNV, "MaNV", "TenNV");
+            Functions.FillCombo("select MaNV, TenNV from tblNhanVien", comboMaNV, "MaNV", "MaNV");
             comboMaNV.SelectedIndex = -1;
-            Functions.FillCombo("select MaSP, TenSP from tblSanPham", comboMahang, "MaSP", "TenSP");
+            Functions.FillCombo("select MaSP, TenSP from tblSanPham", comboMahang, "MaSP", "MaSP");
             comboMahang.SelectedIndex = -1;
             Functions.FillCombo("select MaHDB from tblHoaDonBan", comboMaHDB, "MaHDB", "MaHDB");
             comboMaHDB.SelectedIndex = -1;
@@ -405,7 +405,7 @@ namespace QuanLyQuanCafe.Forms
             exRange.Range["B1:B1"].ColumnWidth = 15;
             exRange.Range["A1:B1"].MergeCells = true;
             exRange.Range["A1:B1"].HorizontalAlignment = COMExcel.XlHAlign.xlHAlignCenter;
-            exRange.Range["A1:B1"].Value = "Cafe";
+            exRange.Range["A1:B1"].Value = "Quán Cafe";
 
             exRange.Range["A2:B2"].MergeCells = true;
             exRange.Range["A2:B2"].HorizontalAlignment = COMExcel.XlHAlign.xlHAlignCenter;

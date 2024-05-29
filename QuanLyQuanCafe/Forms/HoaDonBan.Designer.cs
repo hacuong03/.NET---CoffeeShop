@@ -54,7 +54,7 @@
             this.textTenhang = new System.Windows.Forms.TextBox();
             this.labelBangchu = new System.Windows.Forms.Label();
             this.labelGiamgia = new System.Windows.Forms.Label();
-            this.labelThongtin = new System.Windows.Forms.Label();
+            this.labelChuthich = new System.Windows.Forms.Label();
             this.textGiamgia = new System.Windows.Forms.TextBox();
             this.dataGridViewHDB = new System.Windows.Forms.DataGridView();
             this.labelThanhtien = new System.Windows.Forms.Label();
@@ -184,7 +184,7 @@
             this.gbxThongTinMatHang.Controls.Add(this.textTenhang);
             this.gbxThongTinMatHang.Controls.Add(this.labelBangchu);
             this.gbxThongTinMatHang.Controls.Add(this.labelGiamgia);
-            this.gbxThongTinMatHang.Controls.Add(this.labelThongtin);
+            this.gbxThongTinMatHang.Controls.Add(this.labelChuthich);
             this.gbxThongTinMatHang.Controls.Add(this.textGiamgia);
             this.gbxThongTinMatHang.Controls.Add(this.dataGridViewHDB);
             this.gbxThongTinMatHang.Controls.Add(this.labelThanhtien);
@@ -364,15 +364,15 @@
             this.labelGiamgia.TabIndex = 175;
             this.labelGiamgia.Text = "Giảm giá (%)";
             // 
-            // labelThongtin
+            // labelChuthich
             // 
-            this.labelThongtin.AutoSize = true;
-            this.labelThongtin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelThongtin.Location = new System.Drawing.Point(33, 522);
-            this.labelThongtin.Name = "labelThongtin";
-            this.labelThongtin.Size = new System.Drawing.Size(179, 18);
-            this.labelThongtin.TabIndex = 186;
-            this.labelThongtin.Text = "Kích đúp một hàng để xóa";
+            this.labelChuthich.AutoSize = true;
+            this.labelChuthich.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelChuthich.Location = new System.Drawing.Point(33, 522);
+            this.labelChuthich.Name = "labelChuthich";
+            this.labelChuthich.Size = new System.Drawing.Size(179, 18);
+            this.labelChuthich.TabIndex = 186;
+            this.labelChuthich.Text = "Kích đúp một hàng để xóa";
             // 
             // textGiamgia
             // 
@@ -617,7 +617,7 @@
         private System.Windows.Forms.TextBox textTenhang;
         private System.Windows.Forms.Label labelBangchu;
         private System.Windows.Forms.Label labelGiamgia;
-        private System.Windows.Forms.Label labelThongtin;
+        private System.Windows.Forms.Label labelChuthich;
         private System.Windows.Forms.TextBox textGiamgia;
         private System.Windows.Forms.DataGridView dataGridViewHDB;
         private System.Windows.Forms.Label labelThanhtien;

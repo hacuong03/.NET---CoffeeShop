@@ -142,6 +142,26 @@ namespace BTL_CoffeeShop.Class
             return ma;
         }
         
+        public static string GenerateInvoiceKey()
+        {
+            string prefix = "HDN";
+            string lastInvoiceKeySql = "SELECT TOP 1 MaHDN FROM tblHoaDonNhap ORDER BY MaHDN DESC";
+            DataTable lastInvoiceKeyTable = Functions.GetDataToTable(lastInvoiceKeySql);
+
+            if (lastInvoiceKeyTable.Rows.Count == 0)
+            {
+                // Nếu không có hóa đơn nào trong cơ sở dữ liệu, trả về mã hóa đơn đầu tiên
+                return prefix + "0001";
+            }
+            else
+            {
+                string lastInvoiceKey = lastInvoiceKeyTable.Rows[0][0].ToString();
+                string numberPart = lastInvoiceKey.Substring(prefix.Length);
+                int nextNumber = Convert.ToInt32(numberPart) + 1;
+                return prefix + nextNumber.ToString("D4"); // D4 để đảm bảo có ít nhất 4 chữ số
+            }
+        }
+        
         public static void FillCombo(string sql, ComboBox cbo, string ma, string ten)
 
         {

@@ -162,12 +162,14 @@ namespace BTL_CoffeeShop
            string sql;
 
             // Kiểm tra các giá trị nhập vào để đảm bảo không để trống
-            if (txtmahoadonnhap.Text.Trim() == "")
+            /*if (txtmahoadonnhap.Text.Trim() == "")
             {
                 MessageBox.Show("Bạn phải nhập mã hóa đơn", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtmahoadonnhap.Focus();
                 return;
-            }
+            }*/
+            txtmahoadonnhap.Text = Functions.GenerateInvoiceKey();
+           
             if (cbomasanpham.SelectedIndex == -1)
             {
                 MessageBox.Show("Bạn phải chọn mã sản phẩm", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);

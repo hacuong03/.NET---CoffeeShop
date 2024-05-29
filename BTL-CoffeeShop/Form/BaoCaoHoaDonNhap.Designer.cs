@@ -236,6 +236,7 @@ partial class BaoCaoHoaDonNhap
         this.btninhoadon.TabIndex = 5;
         this.btninhoadon.Text = "In";
         this.btninhoadon.UseVisualStyleBackColor = true;
+        //this.btninhoadon.Click += new System.EventHandler(this.btninhoadon_Click_1);
         // 
         // BaoCaoHoaDonNhap
         // 

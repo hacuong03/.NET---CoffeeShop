@@ -33,7 +33,6 @@
             this.lblNgaySinh = new System.Windows.Forms.Label();
             this.lblDienThoai = new System.Windows.Forms.Label();
             this.lblDiaChi = new System.Windows.Forms.Label();
-            this.chkGioiTinh = new System.Windows.Forms.CheckBox();
             this.lblGioiTinh = new System.Windows.Forms.Label();
             this.dgvNhanVien = new System.Windows.Forms.DataGridView();
             this.txtTenNhanVien = new System.Windows.Forms.TextBox();
@@ -44,6 +43,7 @@
             this.cboMaQue = new System.Windows.Forms.ComboBox();
             this.lblMaQue = new System.Windows.Forms.Label();
             this.gbxNhanVien = new System.Windows.Forms.GroupBox();
+            this.dtpNgaySinh = new System.Windows.Forms.DateTimePicker();
             this.btnHienThiDS = new System.Windows.Forms.Button();
             this.btnDong = new System.Windows.Forms.Button();
             this.btnTimKiem = new System.Windows.Forms.Button();
@@ -52,7 +52,8 @@
             this.btnSua = new System.Windows.Forms.Button();
             this.btnXoa = new System.Windows.Forms.Button();
             this.btnThem = new System.Windows.Forms.Button();
-            this.dtpNgaySinh = new System.Windows.Forms.DateTimePicker();
+            this.rdoGioiTinhNam = new System.Windows.Forms.RadioButton();
+            this.rdoGioiTinhNu = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNhanVien)).BeginInit();
             this.gbxNhanVien.SuspendLayout();
             this.SuspendLayout();
@@ -104,18 +105,6 @@
             this.lblDiaChi.Size = new System.Drawing.Size(57, 18);
             this.lblDiaChi.TabIndex = 67;
             this.lblDiaChi.Text = "Địa chỉ:";
-            // 
-            // chkGioiTinh
-            // 
-            this.chkGioiTinh.AutoSize = true;
-            this.chkGioiTinh.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkGioiTinh.Location = new System.Drawing.Point(149, 164);
-            this.chkGioiTinh.Name = "chkGioiTinh";
-            this.chkGioiTinh.Size = new System.Drawing.Size(58, 20);
-            this.chkGioiTinh.TabIndex = 75;
-            this.chkGioiTinh.Text = "Nam";
-            this.chkGioiTinh.UseVisualStyleBackColor = true;
-            this.chkGioiTinh.KeyUp += new System.Windows.Forms.KeyEventHandler(this.chkGioiTinh_KeyUp);
             // 
             // lblGioiTinh
             // 
@@ -209,6 +198,8 @@
             // 
             // gbxNhanVien
             // 
+            this.gbxNhanVien.Controls.Add(this.rdoGioiTinhNu);
+            this.gbxNhanVien.Controls.Add(this.rdoGioiTinhNam);
             this.gbxNhanVien.Controls.Add(this.dtpNgaySinh);
             this.gbxNhanVien.Controls.Add(this.mskDienThoai);
             this.gbxNhanVien.Controls.Add(this.lblMaNhanVien);
@@ -219,7 +210,6 @@
             this.gbxNhanVien.Controls.Add(this.txtTenNhanVien);
             this.gbxNhanVien.Controls.Add(this.lblGioiTinh);
             this.gbxNhanVien.Controls.Add(this.txtDiaChi);
-            this.gbxNhanVien.Controls.Add(this.chkGioiTinh);
             this.gbxNhanVien.Controls.Add(this.lblNgaySinh);
             this.gbxNhanVien.Controls.Add(this.lblDiaChi);
             this.gbxNhanVien.Controls.Add(this.lblDienThoai);
@@ -230,6 +220,17 @@
             this.gbxNhanVien.TabIndex = 64;
             this.gbxNhanVien.TabStop = false;
             this.gbxNhanVien.Text = "Thông tin chi tiết";
+            // 
+            // dtpNgaySinh
+            // 
+            this.dtpNgaySinh.CustomFormat = "dd/MM/yyyy";
+            this.dtpNgaySinh.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpNgaySinh.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpNgaySinh.Location = new System.Drawing.Point(654, 32);
+            this.dtpNgaySinh.Name = "dtpNgaySinh";
+            this.dtpNgaySinh.Size = new System.Drawing.Size(187, 24);
+            this.dtpNgaySinh.TabIndex = 76;
+            this.dtpNgaySinh.KeyUp += new System.Windows.Forms.KeyEventHandler(this.dtpNgaySinh_KeyUp);
             // 
             // btnHienThiDS
             // 
@@ -319,16 +320,29 @@
             this.btnThem.UseVisualStyleBackColor = true;
             this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
-            // dtpNgaySinh
+            // rdoGioiTinhNam
             // 
-            this.dtpNgaySinh.CustomFormat = "dd/MM/yyyy";
-            this.dtpNgaySinh.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpNgaySinh.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpNgaySinh.Location = new System.Drawing.Point(654, 32);
-            this.dtpNgaySinh.Name = "dtpNgaySinh";
-            this.dtpNgaySinh.Size = new System.Drawing.Size(187, 24);
-            this.dtpNgaySinh.TabIndex = 76;
-            this.dtpNgaySinh.KeyUp += new System.Windows.Forms.KeyEventHandler(this.dtpNgaySinh_KeyUp);
+            this.rdoGioiTinhNam.AutoSize = true;
+            this.rdoGioiTinhNam.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdoGioiTinhNam.Location = new System.Drawing.Point(149, 163);
+            this.rdoGioiTinhNam.Name = "rdoGioiTinhNam";
+            this.rdoGioiTinhNam.Size = new System.Drawing.Size(57, 20);
+            this.rdoGioiTinhNam.TabIndex = 79;
+            this.rdoGioiTinhNam.TabStop = true;
+            this.rdoGioiTinhNam.Text = "Nam";
+            this.rdoGioiTinhNam.UseVisualStyleBackColor = true;
+            // 
+            // rdoGioiTinhNu
+            // 
+            this.rdoGioiTinhNu.AutoSize = true;
+            this.rdoGioiTinhNu.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdoGioiTinhNu.Location = new System.Drawing.Point(212, 163);
+            this.rdoGioiTinhNu.Name = "rdoGioiTinhNu";
+            this.rdoGioiTinhNu.Size = new System.Drawing.Size(45, 20);
+            this.rdoGioiTinhNu.TabIndex = 80;
+            this.rdoGioiTinhNu.TabStop = true;
+            this.rdoGioiTinhNu.Text = "Nữ";
+            this.rdoGioiTinhNu.UseVisualStyleBackColor = true;
             // 
             // frmNhanVien
             // 
@@ -364,7 +378,6 @@
         private System.Windows.Forms.Label lblNgaySinh;
         private System.Windows.Forms.Label lblDienThoai;
         private System.Windows.Forms.Label lblDiaChi;
-        private System.Windows.Forms.CheckBox chkGioiTinh;
         private System.Windows.Forms.Label lblGioiTinh;
         private System.Windows.Forms.DataGridView dgvNhanVien;
         private System.Windows.Forms.TextBox txtTenNhanVien;
@@ -384,5 +397,7 @@
         private System.Windows.Forms.Button btnXoa;
         private System.Windows.Forms.Button btnThem;
         private System.Windows.Forms.DateTimePicker dtpNgaySinh;
+        private System.Windows.Forms.RadioButton rdoGioiTinhNam;
+        private System.Windows.Forms.RadioButton rdoGioiTinhNu;
     }
 }

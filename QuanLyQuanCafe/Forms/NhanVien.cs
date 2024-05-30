@@ -52,7 +52,8 @@ namespace QuanLyQuanCafe.Forms
             txtMaNhanVien.Enabled = true;
             txtTenNhanVien.Text = "";
             txtDiaChi.Text = "";
-            chkGioiTinh.Checked = false;
+            rdoGioiTinhNam.Checked = false;
+            rdoGioiTinhNu.Checked = false;
             dtpNgaySinh.Checked = false;
             mskDienThoai.Text = "";
             cboMaQue.Text = "";
@@ -76,9 +77,15 @@ namespace QuanLyQuanCafe.Forms
             txtTenNhanVien.Text = dgvNhanVien.CurrentRow.Cells["TenNV"].Value.ToString();
             txtDiaChi.Text = dgvNhanVien.CurrentRow.Cells["DiaChi"].Value.ToString();
             if (dgvNhanVien.CurrentRow.Cells["GioiTinh"].Value.ToString() == "Nam")
-                chkGioiTinh.Checked = true;
+            {
+                rdoGioiTinhNam.Checked = true;
+                rdoGioiTinhNu.Checked = false;
+            }
             else
-                chkGioiTinh.Checked = false;
+            {
+                rdoGioiTinhNam.Checked = false;
+                rdoGioiTinhNu.Checked = true;
+            }
             dtpNgaySinh.Text = dgvNhanVien.CurrentRow.Cells["NgaySinh"].Value.ToString();
             ma = dgvNhanVien.CurrentRow.Cells["MaQue"].Value.ToString();
             cboMaQue.Text = Class.Functions.GetFieldValues("SELECT TenQue FROM tblQue WHERE MaQue = N'" + ma + "'");
@@ -126,18 +133,21 @@ namespace QuanLyQuanCafe.Forms
                 txtDiaChi.Focus();
                 return;
             }
-            if (chkGioiTinh.Checked == true)
+            if (rdoGioiTinhNam.Checked)
                 gt = "Nam";
-            else
+            else if (rdoGioiTinhNu.Checked)
                 gt = "Nữ";
-
+            else
+            {
+                MessageBox.Show("Hãy chọn giới tính!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             if (!dtpNgaySinh.Checked)
             {
                 MessageBox.Show("Hãy nhập ngày sinh!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 dtpNgaySinh.Focus();
                 return;
             }
-
             if (!Class.Functions.IsDate(dtpNgaySinh.Value.ToString("dd/MM/yyyy")))
             {
                 MessageBox.Show("Hãy nhập lại ngày sinh!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -206,17 +216,15 @@ namespace QuanLyQuanCafe.Forms
                 txtDiaChi.Focus();
                 return;
             }
-            if (chkGioiTinh.Checked == true)
+            if (rdoGioiTinhNam.Checked)
                 gt = "Nam";
-            else
+            else if (rdoGioiTinhNu.Checked)
                 gt = "Nữ";
-            if (!dtpNgaySinh.Checked)
+            else
             {
-                MessageBox.Show("Hãy nhập ngày sinh!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                dtpNgaySinh.Focus();
+                MessageBox.Show("Hãy chọn giới tính!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-
             if (!Class.Functions.IsDate(dtpNgaySinh.Value.ToString("dd/MM/yyyy")))
             {
                 MessageBox.Show("Hãy nhập lại ngày sinh!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -267,7 +275,7 @@ namespace QuanLyQuanCafe.Forms
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
             string sql, gt = "";
-            if ((txtMaNhanVien.Text == "") && (txtTenNhanVien.Text == "") && (txtDiaChi.Text == "") && (cboMaQue.Text == "") && (!dtpNgaySinh.Checked) && (string.IsNullOrWhiteSpace(mskDienThoai.Text.Trim().Replace("(", "").Replace(")", "").Replace("-", "").Replace(" ", ""))) && (!chkGioiTinh.Checked))
+            if ((txtMaNhanVien.Text == "") && (txtTenNhanVien.Text == "") && (txtDiaChi.Text == "") && (cboMaQue.Text == "") && (!dtpNgaySinh.Checked) && (string.IsNullOrWhiteSpace(mskDienThoai.Text.Trim().Replace("(", "").Replace(")", "").Replace("-", "").Replace(" ", ""))) && (!rdoGioiTinhNam.Checked) && (!rdoGioiTinhNu.Checked))
             {
                 MessageBox.Show("Hãy nhập điều kiện để tìm kiếm!", "Yêu cầu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -285,14 +293,10 @@ namespace QuanLyQuanCafe.Forms
                 sql = sql + " AND NgaySinh = '" + dtpNgaySinh.Value.ToString("yyyy-MM-dd") + "'";
             if (!string.IsNullOrWhiteSpace(mskDienThoai.Text.Trim().Replace("(", "").Replace(")", "").Replace("-", "").Replace(" ", "")))
                 sql = sql + " AND SDT LIKE N'%" + mskDienThoai.Text.Trim() + "%'";
-            if (chkGioiTinh.Checked)
-            {
+            if (rdoGioiTinhNam.Checked)
                 gt = "Nam";
-            }
-            else
-            {
+            else if (rdoGioiTinhNu.Checked)
                 gt = "Nữ";
-            }
             sql = sql + " AND GioiTinh = N'" + gt + "'";
             tblNhanVien = Class.Functions.GetDataToTable(sql);
             if (tblNhanVien.Rows.Count == 0)

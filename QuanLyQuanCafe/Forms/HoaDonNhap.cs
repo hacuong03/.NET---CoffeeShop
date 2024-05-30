@@ -122,7 +122,7 @@ namespace QuanLyQuanCafe.Forms
         private void buttonLuu_Click(object sender, EventArgs e)
         {
             string sql;
-            double sl, slcon, tong, tongmoi, dongianhap, giaban;
+            double sl, slcon, tong, tongmoi, dongianhap, dongiaban;
             sql = "select MaHDN from tblHoaDonNhap where MaHDN = N'" + textMaHDN.Text + "'";
             if (!Functions.CheckKey(sql))
             {
@@ -192,8 +192,8 @@ namespace QuanLyQuanCafe.Forms
             Functions.RunSQL(sql);
 
             dongianhap = Convert.ToDouble(textDongianhap.Text);
-            giaban = dongianhap * 1.10;
-            sql = "update tblSanPham set GiaBan = " + giaban + " where MaSP = N'" + comboMahang.SelectedValue + "'";
+            dongiaban = dongianhap * 1.10;
+            sql = "update tblSanPham set GiaNhap = " + dongianhap + ", GiaBan = " + dongiaban + " where MaSP = N'" + comboMahang.SelectedValue + "'";
             Functions.RunSQL(sql);
 
             tong = Convert.ToDouble(Functions.GetFieldValues("select TongTien from tblHoaDonNhap where MaHDN = N'" + textMaHDN.Text + "'"));
@@ -541,6 +541,16 @@ namespace QuanLyQuanCafe.Forms
         private void frmHoaDonNhap_FormClosing(object sender, FormClosingEventArgs e)
         {
             ResetValues();
+        }
+
+        private void buttonBoqua_Click(object sender, EventArgs e)
+        {
+            ResetValues();
+            buttonThemHD.Enabled = true;
+            buttonHuyHD.Enabled = false;
+            buttonBoqua.Enabled = false;
+            textMaHDN.Enabled = true;
+            textNgaynhap.Text = "";
         }
 
         private void buttonDong_Click(object sender, EventArgs e)

@@ -131,6 +131,7 @@
             this.buttonDong.TabIndex = 261;
             this.buttonDong.Text = "Đóng";
             this.buttonDong.UseVisualStyleBackColor = true;
+            this.buttonDong.Click += new System.EventHandler(this.buttonDong_Click);
             // 
             // gbxThongtin
             // 

@@ -152,7 +152,7 @@
             // dgvNhaCungCap
             // 
             this.dgvNhaCungCap.AllowUserToOrderColumns = true;
-            this.dgvNhaCungCap.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvNhaCungCap.ColumnHeadersHeight = 29;
             this.dgvNhaCungCap.Location = new System.Drawing.Point(66, 234);
             this.dgvNhaCungCap.Name = "dgvNhaCungCap";
             this.dgvNhaCungCap.RowHeadersWidth = 51;

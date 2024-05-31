@@ -107,9 +107,13 @@ namespace QuanLyQuanCafe.Forms
         private void ResetValues()
         {
             textMaHDN.Text = "";
-            textNgaynhap.Text = DateTime.Now.ToShortDateString();
+            textNgaynhap.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
             comboMaNV.Text = "";
+            textTenNV.Text = "";
             comboMaNCC.Text = "";
+            textTenNCC.Text = "";
+            textDiachi.Text = "";
+            textDienthoai.Text = "";
             textTongtien.Text = "0";
             labelBangchu.Text = "Bằng chữ: ";
             comboMahang.Text = "";
@@ -144,7 +148,7 @@ namespace QuanLyQuanCafe.Forms
                     comboMaNCC.Focus();
                     return;
                 }
-                sql = "insert into tblHoaDonNhap(MaHDN, NgayNhap, MaNV, MaNCC, TongTien) values(N'" + textMaHDN.Text.Trim() + "', '" + Functions.ConvertDateTime(textNgaynhap.Text.Trim()) + "',N'" + comboMaNV.SelectedValue + "',N'" + comboMaNCC.SelectedValue + "'," + textTongtien.Text + ")";
+                sql = "insert into tblHoaDonNhap(MaHDN, NgayNhap, MaNV, MaNCC, TongTien) values(N'" + textMaHDN.Text.Trim() + "', '" + DateTime.ParseExact(textNgaynhap.Text.Trim(), "dd/MM/yyyy HH:mm:ss", null).ToString("yyyy-MM-dd HH:mm:ss") + "', N'" + comboMaNV.SelectedValue + "', N'" + comboMaNCC.SelectedValue + "', " + textTongtien.Text + ")";
                 Functions.RunSQL(sql);
             }
 
@@ -182,7 +186,7 @@ namespace QuanLyQuanCafe.Forms
                 return;
             }
 
-            sql = "insert into tblChiTietHDN(MaHDN, MaSP, SoLuong, DonGia, Chietkhau, ThanhTien) values(N'" + textMaHDN.Text.Trim() + "', N'" + comboMahang.SelectedValue + "'," + textSoluong.Text + "'," + textDongianhap.Text + "," + textChietkhau.Text + "," + textThanhtien.Text + ")";
+            sql = "insert into tblChiTietHDN(MaHDN, MaSP, SoLuong, DonGia, Chietkhau, ThanhTien) values(N'" + textMaHDN.Text.Trim() + "', N'" + comboMahang.SelectedValue + "', " + textSoluong.Text + ", " + textDongianhap.Text + ", " + textChietkhau.Text + ", " + textThanhtien.Text + ")";
             Functions.RunSQL(sql);
             Load_DataGridViewChitiet();
 
@@ -212,6 +216,7 @@ namespace QuanLyQuanCafe.Forms
         private void ResetValuesHang()
         {
             comboMahang.Text = "";
+            textTenhang.Text = "";
             textSoluong.Text = "";
             textDongianhap.Text = "";
             textChietkhau.Text = "0";

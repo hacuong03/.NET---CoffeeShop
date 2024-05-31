@@ -82,7 +82,7 @@
             // dgvTimKiemHDN
             // 
             this.dgvTimKiemHDN.AllowUserToOrderColumns = true;
-            this.dgvTimKiemHDN.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTimKiemHDN.ColumnHeadersHeight = 29;
             this.dgvTimKiemHDN.Location = new System.Drawing.Point(32, 259);
             this.dgvTimKiemHDN.Name = "dgvTimKiemHDN";
             this.dgvTimKiemHDN.RowHeadersWidth = 51;
@@ -221,7 +221,7 @@
             // 
             this.labelChuthich.AutoSize = true;
             this.labelChuthich.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelChuthich.Location = new System.Drawing.Point(61, 663);
+            this.labelChuthich.Location = new System.Drawing.Point(29, 662);
             this.labelChuthich.Name = "labelChuthich";
             this.labelChuthich.Size = new System.Drawing.Size(413, 18);
             this.labelChuthich.TabIndex = 188;

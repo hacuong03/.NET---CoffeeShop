@@ -54,6 +54,7 @@ namespace QuanLyQuanCafe.Forms
             txtDiaChi.Text = "";
             rdoGioiTinhNam.Checked = false;
             rdoGioiTinhNu.Checked = false;
+            dtpNgaySinh.Value = DateTimePicker.MinimumDateTime;
             dtpNgaySinh.Checked = false;
             mskDienThoai.Text = "";
             cboMaQue.Text = "";
@@ -148,12 +149,6 @@ namespace QuanLyQuanCafe.Forms
                 dtpNgaySinh.Focus();
                 return;
             }
-            if (!Class.Functions.IsDate(dtpNgaySinh.Value.ToString("dd/MM/yyyy")))
-            {
-                MessageBox.Show("Hãy nhập lại ngày sinh!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                dtpNgaySinh.Focus();
-                return;
-            }
             if (cboMaQue.Text.Trim().Length == 0)
             {
                 MessageBox.Show("Hãy nhập quê quán!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -225,9 +220,9 @@ namespace QuanLyQuanCafe.Forms
                 MessageBox.Show("Hãy chọn giới tính!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            if (!Class.Functions.IsDate(dtpNgaySinh.Value.ToString("dd/MM/yyyy")))
+            if (!dtpNgaySinh.Checked)
             {
-                MessageBox.Show("Hãy nhập lại ngày sinh!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Hãy nhập ngày sinh!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 dtpNgaySinh.Focus();
                 return;
             }
@@ -297,7 +292,8 @@ namespace QuanLyQuanCafe.Forms
                 gt = "Nam";
             else if (rdoGioiTinhNu.Checked)
                 gt = "Nữ";
-            sql = sql + " AND GioiTinh = N'" + gt + "'";
+            if (gt != "")
+                sql = sql + " AND GioiTinh = N'" + gt + "'";
             tblNhanVien = Class.Functions.GetDataToTable(sql);
             if (tblNhanVien.Rows.Count == 0)
                 MessageBox.Show("Không có nhân viên nào thỏa mãn điều kiện", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);

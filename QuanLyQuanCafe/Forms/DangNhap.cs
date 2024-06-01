@@ -48,9 +48,9 @@ namespace QuanLyQuanCafe.Forms
             else
             {
                 MessageBox.Show("Tên đăng nhập hoặc mật khẩu không chính xác, hãy nhập lại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtTaiKhoan.Focus();
                 txtTaiKhoan.Clear();
                 txtMatKhau.Clear();
-                txtTaiKhoan.Focus();
             }
         }
 

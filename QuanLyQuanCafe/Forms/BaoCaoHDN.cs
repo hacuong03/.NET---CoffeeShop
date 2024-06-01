@@ -102,6 +102,13 @@ namespace QuanLyQuanCafe.Forms
                 MessageBox.Show("Hãy nhập ít nhất 1 dữ liệu để tìm", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+
+            if ((maskedNgaybd.Text != "  /  /" && maskedNgaykt.Text == "  /  /") || (maskedNgaybd.Text == "  /  /" && maskedNgaykt.Text != "  /  /"))
+            {
+                MessageBox.Show("Bạn phải nhập đủ cả ngày bắt đầu và ngày kết thúc", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             sql = "SELECT a.MaHDN, c.TenSP, c.MaSP, b.SoLuong, b.DonGia, b.ChietKhau, b.ThanhTien, a.NgayNhap, d.TenNCC, e.TenNV " +
                   "FROM tblHoaDonNhap AS a " +
                   "JOIN tblChiTietHDN AS b ON a.MaHDN = b.MaHDN " +
@@ -222,6 +229,13 @@ namespace QuanLyQuanCafe.Forms
 
             dataGridViewSanpham.DataSource = tblSP;
             Load_DataGridViewSanpham();
+        }
+
+        private void buttonTimlai_Click(object sender, EventArgs e)
+        {
+            ResetValues();
+            dataGridViewHoadon.DataSource = null;
+            dataGridViewSanpham.DataSource = null;
         }
 
         private void buttonInBC_Click(object sender, EventArgs e)

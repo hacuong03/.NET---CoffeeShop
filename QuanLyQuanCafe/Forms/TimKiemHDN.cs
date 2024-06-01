@@ -24,9 +24,9 @@ namespace QuanLyQuanCafe.Forms
             ResetValues();
             Class.Functions.FillCombo("SELECT MaHDN FROM tblHoaDonNhap", cboMaHDN, "MaHDN", "MaHDN");
             cboMaHDN.SelectedIndex = -1;
-            Class.Functions.FillCombo("SELECT MaNV FROM tblHoaDonNhap", cboMaNhanVien, "MaNV", "MaNV");
+            Class.Functions.FillCombo("SELECT MaNV FROM tblNhanVien", cboMaNhanVien, "MaNV", "MaNV");
             cboMaNhanVien.SelectedIndex = -1;
-            Class.Functions.FillCombo("SELECT MaNCC FROM tblHoaDonNhap", cboMaNCC, "MaNCC", "MaNCC");
+            Class.Functions.FillCombo("SELECT MaNCC FROM tblNhaCungCap", cboMaNCC, "MaNCC", "MaNCC");
             cboMaNCC.SelectedIndex = -1;
             dgvTimKiemHDN.DataSource = null;
         }
@@ -39,10 +39,10 @@ namespace QuanLyQuanCafe.Forms
             dgvTimKiemHDN.Columns[3].HeaderText = "Mã nhà cung cấp";
             dgvTimKiemHDN.Columns[4].HeaderText = "Tổng tiền";
             dgvTimKiemHDN.Columns[0].Width = 150;
-            dgvTimKiemHDN.Columns[1].Width = 100;
-            dgvTimKiemHDN.Columns[2].Width = 100;
-            dgvTimKiemHDN.Columns[3].Width = 100;
-            dgvTimKiemHDN.Columns[4].Width = 100;
+            dgvTimKiemHDN.Columns[1].Width = 150;
+            dgvTimKiemHDN.Columns[2].Width = 125;
+            dgvTimKiemHDN.Columns[3].Width = 125;
+            dgvTimKiemHDN.Columns[4].Width = 125;
             dgvTimKiemHDN.AllowUserToAddRows = false;
             dgvTimKiemHDN.EditMode = DataGridViewEditMode.EditProgrammatically;
         }
@@ -52,7 +52,12 @@ namespace QuanLyQuanCafe.Forms
             cboMaHDN.Text = "";
             cboMaNhanVien.Text = "";
             cboMaNCC.Text = "";
+            dtpNgayNhap.Value = DateTimePicker.MinimumDateTime;
             dtpNgayNhap.Checked = false;
+            dtpNgayBD.Value = DateTimePicker.MinimumDateTime;
+            dtpNgayBD.Checked = false;
+            dtpNgayKT.Value = DateTimePicker.MinimumDateTime;
+            dtpNgayKT.Checked = false;
             txtTongTien.Text = "";
             cboMaHDN.Focus();
         }
@@ -60,9 +65,14 @@ namespace QuanLyQuanCafe.Forms
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
             string sql;
-            if ((cboMaHDN.Text == "") && (cboMaNhanVien.Text == "") && (cboMaNCC.Text == "") && (txtTongTien.Text == "") && (!dtpNgayNhap.Checked))
+            if ((cboMaHDN.Text == "") && (cboMaNhanVien.Text == "") && (cboMaNCC.Text == "") && (txtTongTien.Text == "") && (!dtpNgayNhap.Checked) && (!dtpNgayBD.Checked) && (!dtpNgayKT.Checked))
             {
                 MessageBox.Show("Hãy nhập điều kiện tìm kiếm!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if ((dtpNgayBD.Checked && !dtpNgayKT.Checked) || (!dtpNgayBD.Checked && dtpNgayKT.Checked))
+            {
+                MessageBox.Show("Hãy nhập đầy đủ cả ngày bắt đầu và ngày kết thúc!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             sql = "SELECT * FROM tblHoaDonNhap WHERE 1=1";
@@ -76,6 +86,15 @@ namespace QuanLyQuanCafe.Forms
                 sql = sql + " AND TongTien <=" + txtTongTien.Text;
             if (dtpNgayNhap.Checked)
                 sql = sql + " AND CONVERT(date, NgayNhap) = '" + dtpNgayNhap.Value.ToString("yyyy-MM-dd") + "'";
+            if (dtpNgayBD.Checked && dtpNgayKT.Checked)
+            {
+                if (dtpNgayBD.Value > dtpNgayKT.Value)
+                {
+                    MessageBox.Show("Ngày bắt đầu phải nhỏ hơn ngày kết thúc", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                sql = sql + " AND (CONVERT(date, NgayNhap) BETWEEN '" + dtpNgayBD.Value.ToString("yyyy-MM-dd") + "' AND '" + dtpNgayKT.Value.ToString("yyyy-MM-dd") + "')";
+            }
             tblHoaDonNhap = Class.Functions.GetDataToTable(sql);
             if (tblHoaDonNhap.Rows.Count == 0)
             {

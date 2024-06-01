@@ -245,12 +245,12 @@
             // buttonThemHD
             // 
             this.buttonThemHD.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonThemHD.Location = new System.Drawing.Point(110, 597);
+            this.buttonThemHD.Location = new System.Drawing.Point(71, 597);
             this.buttonThemHD.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonThemHD.Name = "buttonThemHD";
-            this.buttonThemHD.Size = new System.Drawing.Size(86, 37);
+            this.buttonThemHD.Size = new System.Drawing.Size(125, 37);
             this.buttonThemHD.TabIndex = 232;
-            this.buttonThemHD.Text = "Thêm";
+            this.buttonThemHD.Text = "Thêm hóa đơn";
             this.buttonThemHD.UseVisualStyleBackColor = true;
             this.buttonThemHD.Click += new System.EventHandler(this.buttonThemHD_Click);
             // 

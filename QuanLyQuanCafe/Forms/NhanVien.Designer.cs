@@ -43,6 +43,8 @@
             this.cboMaQue = new System.Windows.Forms.ComboBox();
             this.lblMaQue = new System.Windows.Forms.Label();
             this.gbxNhanVien = new System.Windows.Forms.GroupBox();
+            this.rdoGioiTinhNu = new System.Windows.Forms.RadioButton();
+            this.rdoGioiTinhNam = new System.Windows.Forms.RadioButton();
             this.dtpNgaySinh = new System.Windows.Forms.DateTimePicker();
             this.btnHienThiDS = new System.Windows.Forms.Button();
             this.btnDong = new System.Windows.Forms.Button();
@@ -52,8 +54,6 @@
             this.btnSua = new System.Windows.Forms.Button();
             this.btnXoa = new System.Windows.Forms.Button();
             this.btnThem = new System.Windows.Forms.Button();
-            this.rdoGioiTinhNam = new System.Windows.Forms.RadioButton();
-            this.rdoGioiTinhNu = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNhanVien)).BeginInit();
             this.gbxNhanVien.SuspendLayout();
             this.SuspendLayout();
@@ -221,6 +221,30 @@
             this.gbxNhanVien.TabStop = false;
             this.gbxNhanVien.Text = "Thông tin chi tiết";
             // 
+            // rdoGioiTinhNu
+            // 
+            this.rdoGioiTinhNu.AutoSize = true;
+            this.rdoGioiTinhNu.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdoGioiTinhNu.Location = new System.Drawing.Point(212, 163);
+            this.rdoGioiTinhNu.Name = "rdoGioiTinhNu";
+            this.rdoGioiTinhNu.Size = new System.Drawing.Size(45, 20);
+            this.rdoGioiTinhNu.TabIndex = 80;
+            this.rdoGioiTinhNu.TabStop = true;
+            this.rdoGioiTinhNu.Text = "Nữ";
+            this.rdoGioiTinhNu.UseVisualStyleBackColor = true;
+            // 
+            // rdoGioiTinhNam
+            // 
+            this.rdoGioiTinhNam.AutoSize = true;
+            this.rdoGioiTinhNam.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdoGioiTinhNam.Location = new System.Drawing.Point(149, 163);
+            this.rdoGioiTinhNam.Name = "rdoGioiTinhNam";
+            this.rdoGioiTinhNam.Size = new System.Drawing.Size(57, 20);
+            this.rdoGioiTinhNam.TabIndex = 79;
+            this.rdoGioiTinhNam.TabStop = true;
+            this.rdoGioiTinhNam.Text = "Nam";
+            this.rdoGioiTinhNam.UseVisualStyleBackColor = true;
+            // 
             // dtpNgaySinh
             // 
             this.dtpNgaySinh.CustomFormat = "dd/MM/yyyy";
@@ -319,30 +343,6 @@
             this.btnThem.Text = "Thêm";
             this.btnThem.UseVisualStyleBackColor = true;
             this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
-            // 
-            // rdoGioiTinhNam
-            // 
-            this.rdoGioiTinhNam.AutoSize = true;
-            this.rdoGioiTinhNam.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdoGioiTinhNam.Location = new System.Drawing.Point(149, 163);
-            this.rdoGioiTinhNam.Name = "rdoGioiTinhNam";
-            this.rdoGioiTinhNam.Size = new System.Drawing.Size(57, 20);
-            this.rdoGioiTinhNam.TabIndex = 79;
-            this.rdoGioiTinhNam.TabStop = true;
-            this.rdoGioiTinhNam.Text = "Nam";
-            this.rdoGioiTinhNam.UseVisualStyleBackColor = true;
-            // 
-            // rdoGioiTinhNu
-            // 
-            this.rdoGioiTinhNu.AutoSize = true;
-            this.rdoGioiTinhNu.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdoGioiTinhNu.Location = new System.Drawing.Point(212, 163);
-            this.rdoGioiTinhNu.Name = "rdoGioiTinhNu";
-            this.rdoGioiTinhNu.Size = new System.Drawing.Size(45, 20);
-            this.rdoGioiTinhNu.TabIndex = 80;
-            this.rdoGioiTinhNu.TabStop = true;
-            this.rdoGioiTinhNu.Text = "Nữ";
-            this.rdoGioiTinhNu.UseVisualStyleBackColor = true;
             // 
             // frmNhanVien
             // 

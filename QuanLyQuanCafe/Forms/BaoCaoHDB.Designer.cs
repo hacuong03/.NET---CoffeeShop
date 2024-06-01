@@ -48,6 +48,7 @@
             this.labelMaHD = new System.Windows.Forms.Label();
             this.buttonDong = new System.Windows.Forms.Button();
             this.gbxThongtin = new System.Windows.Forms.GroupBox();
+            this.buttonTimlai = new System.Windows.Forms.Button();
             this.labelHDB = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSanpham)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewHoadon)).BeginInit();
@@ -113,7 +114,7 @@
             // 
             // buttonInBC
             // 
-            this.buttonInBC.Location = new System.Drawing.Point(1132, 730);
+            this.buttonInBC.Location = new System.Drawing.Point(1132, 736);
             this.buttonInBC.Name = "buttonInBC";
             this.buttonInBC.Size = new System.Drawing.Size(113, 43);
             this.buttonInBC.TabIndex = 283;
@@ -124,7 +125,7 @@
             // dataGridViewSanpham
             // 
             this.dataGridViewSanpham.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewSanpham.Location = new System.Drawing.Point(964, 287);
+            this.dataGridViewSanpham.Location = new System.Drawing.Point(964, 293);
             this.dataGridViewSanpham.Name = "dataGridViewSanpham";
             this.dataGridViewSanpham.RowHeadersWidth = 62;
             this.dataGridViewSanpham.RowTemplate.Height = 24;
@@ -134,7 +135,7 @@
             // dataGridViewHoadon
             // 
             this.dataGridViewHoadon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewHoadon.Location = new System.Drawing.Point(50, 287);
+            this.dataGridViewHoadon.Location = new System.Drawing.Point(50, 293);
             this.dataGridViewHoadon.Name = "dataGridViewHoadon";
             this.dataGridViewHoadon.RowHeadersWidth = 62;
             this.dataGridViewHoadon.RowTemplate.Height = 24;
@@ -143,7 +144,7 @@
             // 
             // buttonTimkiem
             // 
-            this.buttonTimkiem.Location = new System.Drawing.Point(1197, 121);
+            this.buttonTimkiem.Location = new System.Drawing.Point(1079, 141);
             this.buttonTimkiem.Name = "buttonTimkiem";
             this.buttonTimkiem.Size = new System.Drawing.Size(89, 37);
             this.buttonTimkiem.TabIndex = 280;
@@ -186,7 +187,7 @@
             // comboMaSP
             // 
             this.comboMaSP.FormattingEnabled = true;
-            this.comboMaSP.Location = new System.Drawing.Point(132, 93);
+            this.comboMaSP.Location = new System.Drawing.Point(142, 93);
             this.comboMaSP.Name = "comboMaSP";
             this.comboMaSP.Size = new System.Drawing.Size(156, 26);
             this.comboMaSP.TabIndex = 274;
@@ -202,7 +203,7 @@
             // comboMaHD
             // 
             this.comboMaHD.FormattingEnabled = true;
-            this.comboMaHD.Location = new System.Drawing.Point(132, 38);
+            this.comboMaHD.Location = new System.Drawing.Point(142, 38);
             this.comboMaHD.Name = "comboMaHD";
             this.comboMaHD.Size = new System.Drawing.Size(156, 26);
             this.comboMaHD.TabIndex = 273;
@@ -217,7 +218,7 @@
             // 
             // buttonDong
             // 
-            this.buttonDong.Location = new System.Drawing.Point(1272, 730);
+            this.buttonDong.Location = new System.Drawing.Point(1272, 736);
             this.buttonDong.Name = "buttonDong";
             this.buttonDong.Size = new System.Drawing.Size(94, 43);
             this.buttonDong.TabIndex = 284;
@@ -227,6 +228,7 @@
             // 
             // gbxThongtin
             // 
+            this.gbxThongtin.Controls.Add(this.buttonTimlai);
             this.gbxThongtin.Controls.Add(this.labelNgaykt);
             this.gbxThongtin.Controls.Add(this.labelNgaybd);
             this.gbxThongtin.Controls.Add(this.maskedNgaykt);
@@ -245,10 +247,20 @@
             this.gbxThongtin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbxThongtin.Location = new System.Drawing.Point(50, 79);
             this.gbxThongtin.Name = "gbxThongtin";
-            this.gbxThongtin.Size = new System.Drawing.Size(1316, 179);
+            this.gbxThongtin.Size = new System.Drawing.Size(1316, 193);
             this.gbxThongtin.TabIndex = 265;
             this.gbxThongtin.TabStop = false;
             this.gbxThongtin.Text = "Thông tin hóa đơn";
+            // 
+            // buttonTimlai
+            // 
+            this.buttonTimlai.Location = new System.Drawing.Point(1197, 141);
+            this.buttonTimlai.Name = "buttonTimlai";
+            this.buttonTimlai.Size = new System.Drawing.Size(89, 37);
+            this.buttonTimlai.TabIndex = 285;
+            this.buttonTimlai.Text = "Tìm lại";
+            this.buttonTimlai.UseVisualStyleBackColor = true;
+            this.buttonTimlai.Click += new System.EventHandler(this.buttonTimlai_Click);
             // 
             // labelHDB
             // 
@@ -307,5 +319,6 @@
         private System.Windows.Forms.Button buttonDong;
         private System.Windows.Forms.GroupBox gbxThongtin;
         private System.Windows.Forms.Label labelHDB;
+        private System.Windows.Forms.Button buttonTimlai;
     }
 }

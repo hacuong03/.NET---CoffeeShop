@@ -101,6 +101,13 @@ namespace QuanLyQuanCafe.Forms
                 MessageBox.Show("Hãy nhập ít nhất 1 dữ liệu để tìm", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+
+            if ((maskedNgaybd.Text != "  /  /" && maskedNgaykt.Text == "  /  /") || (maskedNgaybd.Text == "  /  /" && maskedNgaykt.Text != "  /  /"))
+            {
+                MessageBox.Show("Bạn phải nhập đủ cả ngày bắt đầu và ngày kết thúc", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             sql = "SELECT a.MaHDB, c.TenSP, c.MaSP, b.SoLuong, c.GiaBan, b.KhuyenMai, b.ThanhTien, a.NgayBan, d.TenKH, e.TenNV " +
                   "FROM tblHoaDonBan AS a " +
                   "JOIN tblChiTietHDB AS b ON a.MaHDB = b.MaHDB " +
@@ -127,25 +134,8 @@ namespace QuanLyQuanCafe.Forms
                 }
                 sql = sql + " AND CONVERT(date, a.NgayBan)='" + Functions.ConvertDateTime(maskNgay.Text) + "'";
             }
-            if (maskedNgaybd.Text != "  /  /")
-            {
-                if (maskedNgaybd.Text == "  /  /")
-                {
-                    MessageBox.Show("Hãy nhập ngày bắt đầu", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    maskedNgaybd.Focus();
-                    return;
-                }
-            }
-            if (maskedNgaykt.Text != "  /  /")
-            {
-                if (maskedNgaykt.Text == "  /  /")
-                {
-                    MessageBox.Show("Hãy nhập ngày kết thúc", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    maskedNgaykt.Focus();
-                    return;
-                }
-            }
-            if (maskedNgaybd.Text != "  /  /" && maskedNgaybd.Text != "  /  /")
+
+            if (maskedNgaybd.Text != "  /  /" && maskedNgaykt.Text != "  /  /")
             {
                 if (!Functions.IsDate(maskedNgaykt.Text))
                 {
@@ -170,6 +160,7 @@ namespace QuanLyQuanCafe.Forms
                 }
                 sql = sql + " AND (CONVERT(date, a.NgayBan) BETWEEN '" + Functions.ConvertDateTime(maskedNgaybd.Text) + "' AND '" + Functions.ConvertDateTime(maskedNgaykt.Text) + "')";
             }
+
             if (comboMaKH.SelectedValue != null)
             {
                 sql = sql + " AND d.TenKH LIKE N'%" + comboMaKH.Text + "%'";
@@ -178,6 +169,7 @@ namespace QuanLyQuanCafe.Forms
             {
                 sql = sql + " AND e.TenNV LIKE N'%" + comboMaNV.Text + "%'";
             }
+
             tblDSHD = Class.Functions.GetDataToTable(sql);
             var countHDB = tblDSHD.AsEnumerable().Select(row => row.Field<string>("MaHDB")).Distinct().Count();
             if (countHDB == 0)
@@ -219,6 +211,13 @@ namespace QuanLyQuanCafe.Forms
 
             dataGridViewSanpham.DataSource = tblSP;
             Load_DataGridViewSanpham();
+        }
+
+        private void buttonTimlai_Click(object sender, EventArgs e)
+        {
+            ResetValues();
+            dataGridViewHoadon.DataSource = null;
+            dataGridViewSanpham.DataSource = null;
         }
 
         private void buttonInBC_Click(object sender, EventArgs e)

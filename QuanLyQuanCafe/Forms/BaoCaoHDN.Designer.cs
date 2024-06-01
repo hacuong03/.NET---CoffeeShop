@@ -37,6 +37,7 @@
             this.labelNgay = new System.Windows.Forms.Label();
             this.buttonDong = new System.Windows.Forms.Button();
             this.gbxThongtin = new System.Windows.Forms.GroupBox();
+            this.buttonTimlai = new System.Windows.Forms.Button();
             this.textDongianhap = new System.Windows.Forms.TextBox();
             this.labelDongianhap = new System.Windows.Forms.Label();
             this.buttonTimkiem = new System.Windows.Forms.Button();
@@ -135,6 +136,7 @@
             // 
             // gbxThongtin
             // 
+            this.gbxThongtin.Controls.Add(this.buttonTimlai);
             this.gbxThongtin.Controls.Add(this.textDongianhap);
             this.gbxThongtin.Controls.Add(this.labelNgaykt);
             this.gbxThongtin.Controls.Add(this.labelDongianhap);
@@ -160,6 +162,16 @@
             this.gbxThongtin.TabStop = false;
             this.gbxThongtin.Text = "Thông tin hóa đơn";
             // 
+            // buttonTimlai
+            // 
+            this.buttonTimlai.Location = new System.Drawing.Point(1197, 169);
+            this.buttonTimlai.Name = "buttonTimlai";
+            this.buttonTimlai.Size = new System.Drawing.Size(89, 37);
+            this.buttonTimlai.TabIndex = 262;
+            this.buttonTimlai.Text = "Tìm lại";
+            this.buttonTimlai.UseVisualStyleBackColor = true;
+            this.buttonTimlai.Click += new System.EventHandler(this.buttonTimlai_Click);
+            // 
             // textDongianhap
             // 
             this.textDongianhap.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -181,7 +193,7 @@
             // 
             // buttonTimkiem
             // 
-            this.buttonTimkiem.Location = new System.Drawing.Point(1200, 169);
+            this.buttonTimkiem.Location = new System.Drawing.Point(1079, 169);
             this.buttonTimkiem.Name = "buttonTimkiem";
             this.buttonTimkiem.Size = new System.Drawing.Size(89, 37);
             this.buttonTimkiem.TabIndex = 257;
@@ -333,5 +345,6 @@
         private System.Windows.Forms.DataGridView dataGridViewHoadon;
         private System.Windows.Forms.TextBox textDongianhap;
         private System.Windows.Forms.Label labelDongianhap;
+        private System.Windows.Forms.Button buttonTimlai;
     }
 }

@@ -222,9 +222,9 @@ namespace QuanLyQuanCafe.Forms
                 sql = sql + " AND SDT LIKE N'%" + mskDienThoai.Text.Trim() + "%'";
             tblNhaCungCap = Class.Functions.GetDataToTable(sql);
             if (tblNhaCungCap.Rows.Count == 0)
-                MessageBox.Show("Không có nhân viên nào thỏa mãn điều kiện", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Không có nhà cung cấp nào thỏa mãn điều kiện", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             else
-                MessageBox.Show("Có " + tblNhaCungCap.Rows.Count + " nhân viên thỏa mãn điều kiện", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Có " + tblNhaCungCap.Rows.Count + " nhà cung cấp thỏa mãn điều kiện", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             dgvNhaCungCap.DataSource = tblNhaCungCap;
             ResetValues();
         }

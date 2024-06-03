@@ -53,7 +53,10 @@ namespace QuanLyQuanCafe.Forms
             cboTenSP.Text = "";
             txtSoLuong.Text = "0";
             txtGiaBan.Text = "0";
+            rdTheoNgay.Checked = false;
             mskTheoNgay.Text = "  /  /";
+            rdTheoKhoang.Checked = false;
+            grbKhoangNgay.Enabled = false;
             mskTheoKhoang1.Text = "  /  /";
             mskTheoKhoang2.Text = "  /  /";
             txtDoanhThu.Text = "0";

@@ -25,7 +25,6 @@ namespace QuanLyQuanCafe.Forms
         {
             buttonThemHD.Enabled = true;
             buttonLuu.Enabled = false;
-            buttonBoqua.Enabled = false;
             buttonHuyHD.Enabled = false;
             buttonInHD.Enabled = false;
             textMaHDN.ReadOnly = true;
@@ -96,7 +95,6 @@ namespace QuanLyQuanCafe.Forms
 
         private void buttonThemHD_Click(object sender, EventArgs e)
         {
-            buttonBoqua.Enabled = true;
             buttonHuyHD.Enabled = false;
             buttonLuu.Enabled = true;
             buttonInHD.Enabled = false;
@@ -130,6 +128,7 @@ namespace QuanLyQuanCafe.Forms
         {
             string sql;
             double sl, slcon, tong, tongmoi, dongianhap, dongiaban;
+
             sql = "select MaHDN from tblHoaDonNhap where MaHDN = N'" + textMaHDN.Text + "'";
             if (!Functions.CheckKey(sql))
             {
@@ -154,7 +153,6 @@ namespace QuanLyQuanCafe.Forms
                 sql = "insert into tblHoaDonNhap(MaHDN, NgayNhap, MaNV, MaNCC, TongTien) values(N'" + textMaHDN.Text.Trim() + "', '" + DateTime.ParseExact(textNgaynhap.Text.Trim(), "dd/MM/yyyy HH:mm:ss", null).ToString("yyyy-MM-dd HH:mm:ss") + "', N'" + comboMaNV.SelectedValue + "', N'" + comboMaNCC.SelectedValue + "', " + textTongtien.Text + ")";
                 Functions.RunSQL(sql);
             }
-
             if (comboMahang.Text.Trim().Length == 0)
             {
                 MessageBox.Show("Bạn phải nhập mã hàng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -515,7 +513,6 @@ namespace QuanLyQuanCafe.Forms
             buttonThemHD.Enabled = true;
             buttonHuyHD.Enabled = true;
             buttonLuu.Enabled = true;
-            buttonBoqua.Enabled = true;
             buttonInHD.Enabled = true;
             comboMaHDN.SelectedIndex = -1;
         }
@@ -553,14 +550,6 @@ namespace QuanLyQuanCafe.Forms
         private void frmHoaDonNhap_FormClosing(object sender, FormClosingEventArgs e)
         {
             ResetValues();
-        }
-
-        private void buttonBoqua_Click(object sender, EventArgs e)
-        {
-            textSoluong.Text = "";
-            textDongianhap.Text = "";
-            textChietkhau.Text = "0";
-            textThanhtien.Text = "0";;
         }
 
         private void buttonDong_Click(object sender, EventArgs e)

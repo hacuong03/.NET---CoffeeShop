@@ -513,6 +513,7 @@ namespace QuanLyQuanCafe.Forms
             textMaHD.Text = comboMaHDB.Text;
             Load_ThongtinHD();
             Load_DataGridViewChitiet();
+            buttonThemHD.Enabled = true;
             buttonHuyHD.Enabled = true;
             buttonLuu.Enabled = true;
             buttonInHD.Enabled = true;

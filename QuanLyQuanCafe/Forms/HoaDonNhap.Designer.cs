@@ -34,7 +34,6 @@
             this.labelMaHDN = new System.Windows.Forms.Label();
             this.textThanhtien = new System.Windows.Forms.TextBox();
             this.labelThanhtien = new System.Windows.Forms.Label();
-            this.buttonBoqua = new System.Windows.Forms.Button();
             this.buttonTimkiem = new System.Windows.Forms.Button();
             this.gbxThongTinMatHang = new System.Windows.Forms.GroupBox();
             this.buttonDong = new System.Windows.Forms.Button();
@@ -109,17 +108,6 @@
             this.labelThanhtien.TabIndex = 238;
             this.labelThanhtien.Text = "Thành tiền";
             // 
-            // buttonBoqua
-            // 
-            this.buttonBoqua.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonBoqua.Location = new System.Drawing.Point(597, 595);
-            this.buttonBoqua.Name = "buttonBoqua";
-            this.buttonBoqua.Size = new System.Drawing.Size(88, 40);
-            this.buttonBoqua.TabIndex = 236;
-            this.buttonBoqua.Text = "Bỏ qua";
-            this.buttonBoqua.UseVisualStyleBackColor = true;
-            this.buttonBoqua.Click += new System.EventHandler(this.buttonBoqua_Click);
-            // 
             // buttonTimkiem
             // 
             this.buttonTimkiem.Location = new System.Drawing.Point(442, 989);
@@ -135,7 +123,6 @@
             // 
             this.gbxThongTinMatHang.Controls.Add(this.textThanhtien);
             this.gbxThongTinMatHang.Controls.Add(this.labelThanhtien);
-            this.gbxThongTinMatHang.Controls.Add(this.buttonBoqua);
             this.gbxThongTinMatHang.Controls.Add(this.buttonDong);
             this.gbxThongTinMatHang.Controls.Add(this.buttonInHD);
             this.gbxThongTinMatHang.Controls.Add(this.labelMahang);
@@ -179,7 +166,7 @@
             // buttonInHD
             // 
             this.buttonInHD.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonInHD.Location = new System.Drawing.Point(457, 597);
+            this.buttonInHD.Location = new System.Drawing.Point(563, 597);
             this.buttonInHD.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonInHD.Name = "buttonInHD";
             this.buttonInHD.Size = new System.Drawing.Size(123, 37);
@@ -201,7 +188,7 @@
             // buttonHuyHD
             // 
             this.buttonHuyHD.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonHuyHD.Location = new System.Drawing.Point(314, 597);
+            this.buttonHuyHD.Location = new System.Drawing.Point(420, 597);
             this.buttonHuyHD.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonHuyHD.Name = "buttonHuyHD";
             this.buttonHuyHD.Size = new System.Drawing.Size(123, 37);
@@ -223,7 +210,7 @@
             // buttonLuu
             // 
             this.buttonLuu.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonLuu.Location = new System.Drawing.Point(216, 597);
+            this.buttonLuu.Location = new System.Drawing.Point(322, 597);
             this.buttonLuu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonLuu.Name = "buttonLuu";
             this.buttonLuu.Size = new System.Drawing.Size(78, 37);
@@ -245,7 +232,7 @@
             // buttonThemHD
             // 
             this.buttonThemHD.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonThemHD.Location = new System.Drawing.Point(71, 597);
+            this.buttonThemHD.Location = new System.Drawing.Point(177, 597);
             this.buttonThemHD.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonThemHD.Name = "buttonThemHD";
             this.buttonThemHD.Size = new System.Drawing.Size(125, 37);
@@ -636,7 +623,6 @@
         private System.Windows.Forms.Label labelMaHDN;
         private System.Windows.Forms.TextBox textThanhtien;
         private System.Windows.Forms.Label labelThanhtien;
-        private System.Windows.Forms.Button buttonBoqua;
         private System.Windows.Forms.Button buttonTimkiem;
         private System.Windows.Forms.GroupBox gbxThongTinMatHang;
         private System.Windows.Forms.Button buttonDong;

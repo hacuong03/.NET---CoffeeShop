@@ -28,12 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.labelNgaykt = new System.Windows.Forms.Label();
-            this.labelNgaybd = new System.Windows.Forms.Label();
-            this.maskedNgaykt = new System.Windows.Forms.MaskedTextBox();
-            this.maskedNgaybd = new System.Windows.Forms.MaskedTextBox();
             this.maskNgay = new System.Windows.Forms.MaskedTextBox();
-            this.labelNgay = new System.Windows.Forms.Label();
             this.buttonInBC = new System.Windows.Forms.Button();
             this.dataGridViewSanpham = new System.Windows.Forms.DataGridView();
             this.dataGridViewHoadon = new System.Windows.Forms.DataGridView();
@@ -47,70 +42,31 @@
             this.comboMaHD = new System.Windows.Forms.ComboBox();
             this.labelMaHD = new System.Windows.Forms.Label();
             this.buttonDong = new System.Windows.Forms.Button();
-            this.gbxThongtin = new System.Windows.Forms.GroupBox();
+            this.groupThongtinhoadon = new System.Windows.Forms.GroupBox();
+            this.groupKhoangngay = new System.Windows.Forms.GroupBox();
+            this.maskedNgaykt = new System.Windows.Forms.MaskedTextBox();
+            this.labelNgaykt = new System.Windows.Forms.Label();
+            this.maskedNgaybd = new System.Windows.Forms.MaskedTextBox();
+            this.labelNgaybd = new System.Windows.Forms.Label();
+            this.radioKhoang = new System.Windows.Forms.RadioButton();
+            this.radioNgay = new System.Windows.Forms.RadioButton();
             this.buttonTimlai = new System.Windows.Forms.Button();
             this.labelHDB = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSanpham)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewHoadon)).BeginInit();
-            this.gbxThongtin.SuspendLayout();
+            this.groupThongtinhoadon.SuspendLayout();
+            this.groupKhoangngay.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // labelNgaykt
-            // 
-            this.labelNgaykt.AutoSize = true;
-            this.labelNgaykt.Location = new System.Drawing.Point(960, 96);
-            this.labelNgaykt.Name = "labelNgaykt";
-            this.labelNgaykt.Size = new System.Drawing.Size(32, 18);
-            this.labelNgaykt.TabIndex = 272;
-            this.labelNgaykt.Text = "đến";
-            // 
-            // labelNgaybd
-            // 
-            this.labelNgaybd.AutoSize = true;
-            this.labelNgaybd.Location = new System.Drawing.Point(678, 96);
-            this.labelNgaybd.Name = "labelNgaybd";
-            this.labelNgaybd.Size = new System.Drawing.Size(95, 18);
-            this.labelNgaybd.TabIndex = 271;
-            this.labelNgaybd.Text = "Theo khoảng";
-            // 
-            // maskedNgaykt
-            // 
-            this.maskedNgaykt.Location = new System.Drawing.Point(1012, 93);
-            this.maskedNgaykt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.maskedNgaykt.Mask = "00/00/0000";
-            this.maskedNgaykt.Name = "maskedNgaykt";
-            this.maskedNgaykt.Size = new System.Drawing.Size(156, 24);
-            this.maskedNgaykt.TabIndex = 279;
-            this.maskedNgaykt.ValidatingType = typeof(System.DateTime);
-            // 
-            // maskedNgaybd
-            // 
-            this.maskedNgaybd.Location = new System.Drawing.Point(786, 93);
-            this.maskedNgaybd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.maskedNgaybd.Mask = "00/00/0000";
-            this.maskedNgaybd.Name = "maskedNgaybd";
-            this.maskedNgaybd.Size = new System.Drawing.Size(156, 24);
-            this.maskedNgaybd.TabIndex = 278;
-            this.maskedNgaybd.ValidatingType = typeof(System.DateTime);
             // 
             // maskNgay
             // 
-            this.maskNgay.Location = new System.Drawing.Point(786, 38);
+            this.maskNgay.Location = new System.Drawing.Point(885, 39);
             this.maskNgay.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.maskNgay.Mask = "00/00/0000";
             this.maskNgay.Name = "maskNgay";
             this.maskNgay.Size = new System.Drawing.Size(156, 24);
             this.maskNgay.TabIndex = 277;
             this.maskNgay.ValidatingType = typeof(System.DateTime);
-            // 
-            // labelNgay
-            // 
-            this.labelNgay.AutoSize = true;
-            this.labelNgay.Location = new System.Drawing.Point(678, 41);
-            this.labelNgay.Name = "labelNgay";
-            this.labelNgay.Size = new System.Drawing.Size(77, 18);
-            this.labelNgay.TabIndex = 270;
-            this.labelNgay.Text = "Theo ngày";
             // 
             // buttonInBC
             // 
@@ -155,7 +111,7 @@
             // comboMaNV
             // 
             this.comboMaNV.FormattingEnabled = true;
-            this.comboMaNV.Location = new System.Drawing.Point(459, 93);
+            this.comboMaNV.Location = new System.Drawing.Point(520, 94);
             this.comboMaNV.Name = "comboMaNV";
             this.comboMaNV.Size = new System.Drawing.Size(162, 26);
             this.comboMaNV.TabIndex = 276;
@@ -163,14 +119,14 @@
             // comboMaKH
             // 
             this.comboMaKH.FormattingEnabled = true;
-            this.comboMaKH.Location = new System.Drawing.Point(459, 38);
+            this.comboMaKH.Location = new System.Drawing.Point(520, 39);
             this.comboMaKH.Name = "comboMaKH";
             this.comboMaKH.Size = new System.Drawing.Size(162, 26);
             this.comboMaKH.TabIndex = 275;
             // 
             // labelTenNV
             // 
-            this.labelTenNV.Location = new System.Drawing.Point(333, 96);
+            this.labelTenNV.Location = new System.Drawing.Point(384, 97);
             this.labelTenNV.Name = "labelTenNV";
             this.labelTenNV.Size = new System.Drawing.Size(101, 18);
             this.labelTenNV.TabIndex = 269;
@@ -178,7 +134,7 @@
             // 
             // labelKH
             // 
-            this.labelKH.Location = new System.Drawing.Point(333, 41);
+            this.labelKH.Location = new System.Drawing.Point(384, 42);
             this.labelKH.Name = "labelKH";
             this.labelKH.Size = new System.Drawing.Size(121, 17);
             this.labelKH.TabIndex = 268;
@@ -187,14 +143,14 @@
             // comboMaSP
             // 
             this.comboMaSP.FormattingEnabled = true;
-            this.comboMaSP.Location = new System.Drawing.Point(142, 93);
+            this.comboMaSP.Location = new System.Drawing.Point(177, 94);
             this.comboMaSP.Name = "comboMaSP";
             this.comboMaSP.Size = new System.Drawing.Size(156, 26);
             this.comboMaSP.TabIndex = 274;
             // 
             // labelTenSP
             // 
-            this.labelTenSP.Location = new System.Drawing.Point(25, 96);
+            this.labelTenSP.Location = new System.Drawing.Point(55, 97);
             this.labelTenSP.Name = "labelTenSP";
             this.labelTenSP.Size = new System.Drawing.Size(101, 18);
             this.labelTenSP.TabIndex = 267;
@@ -203,14 +159,14 @@
             // comboMaHD
             // 
             this.comboMaHD.FormattingEnabled = true;
-            this.comboMaHD.Location = new System.Drawing.Point(142, 38);
+            this.comboMaHD.Location = new System.Drawing.Point(177, 39);
             this.comboMaHD.Name = "comboMaHD";
             this.comboMaHD.Size = new System.Drawing.Size(156, 26);
             this.comboMaHD.TabIndex = 273;
             // 
             // labelMaHD
             // 
-            this.labelMaHD.Location = new System.Drawing.Point(25, 41);
+            this.labelMaHD.Location = new System.Drawing.Point(55, 42);
             this.labelMaHD.Name = "labelMaHD";
             this.labelMaHD.Size = new System.Drawing.Size(101, 18);
             this.labelMaHD.TabIndex = 266;
@@ -226,31 +182,101 @@
             this.buttonDong.UseVisualStyleBackColor = true;
             this.buttonDong.Click += new System.EventHandler(this.buttonDong_Click);
             // 
-            // gbxThongtin
+            // groupThongtinhoadon
             // 
-            this.gbxThongtin.Controls.Add(this.buttonTimlai);
-            this.gbxThongtin.Controls.Add(this.labelNgaykt);
-            this.gbxThongtin.Controls.Add(this.labelNgaybd);
-            this.gbxThongtin.Controls.Add(this.maskedNgaykt);
-            this.gbxThongtin.Controls.Add(this.maskedNgaybd);
-            this.gbxThongtin.Controls.Add(this.maskNgay);
-            this.gbxThongtin.Controls.Add(this.labelNgay);
-            this.gbxThongtin.Controls.Add(this.buttonTimkiem);
-            this.gbxThongtin.Controls.Add(this.comboMaNV);
-            this.gbxThongtin.Controls.Add(this.comboMaKH);
-            this.gbxThongtin.Controls.Add(this.labelTenNV);
-            this.gbxThongtin.Controls.Add(this.labelKH);
-            this.gbxThongtin.Controls.Add(this.comboMaSP);
-            this.gbxThongtin.Controls.Add(this.labelTenSP);
-            this.gbxThongtin.Controls.Add(this.comboMaHD);
-            this.gbxThongtin.Controls.Add(this.labelMaHD);
-            this.gbxThongtin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbxThongtin.Location = new System.Drawing.Point(50, 79);
-            this.gbxThongtin.Name = "gbxThongtin";
-            this.gbxThongtin.Size = new System.Drawing.Size(1316, 193);
-            this.gbxThongtin.TabIndex = 265;
-            this.gbxThongtin.TabStop = false;
-            this.gbxThongtin.Text = "Thông tin hóa đơn";
+            this.groupThongtinhoadon.Controls.Add(this.groupKhoangngay);
+            this.groupThongtinhoadon.Controls.Add(this.radioKhoang);
+            this.groupThongtinhoadon.Controls.Add(this.radioNgay);
+            this.groupThongtinhoadon.Controls.Add(this.buttonTimlai);
+            this.groupThongtinhoadon.Controls.Add(this.maskNgay);
+            this.groupThongtinhoadon.Controls.Add(this.buttonTimkiem);
+            this.groupThongtinhoadon.Controls.Add(this.comboMaNV);
+            this.groupThongtinhoadon.Controls.Add(this.comboMaKH);
+            this.groupThongtinhoadon.Controls.Add(this.labelTenNV);
+            this.groupThongtinhoadon.Controls.Add(this.labelKH);
+            this.groupThongtinhoadon.Controls.Add(this.comboMaSP);
+            this.groupThongtinhoadon.Controls.Add(this.labelTenSP);
+            this.groupThongtinhoadon.Controls.Add(this.comboMaHD);
+            this.groupThongtinhoadon.Controls.Add(this.labelMaHD);
+            this.groupThongtinhoadon.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupThongtinhoadon.Location = new System.Drawing.Point(50, 79);
+            this.groupThongtinhoadon.Name = "groupThongtinhoadon";
+            this.groupThongtinhoadon.Size = new System.Drawing.Size(1316, 193);
+            this.groupThongtinhoadon.TabIndex = 265;
+            this.groupThongtinhoadon.TabStop = false;
+            this.groupThongtinhoadon.Text = "Thông tin hóa đơn";
+            // 
+            // groupKhoangngay
+            // 
+            this.groupKhoangngay.Controls.Add(this.maskedNgaykt);
+            this.groupKhoangngay.Controls.Add(this.labelNgaykt);
+            this.groupKhoangngay.Controls.Add(this.maskedNgaybd);
+            this.groupKhoangngay.Controls.Add(this.labelNgaybd);
+            this.groupKhoangngay.Location = new System.Drawing.Point(885, 83);
+            this.groupKhoangngay.Name = "groupKhoangngay";
+            this.groupKhoangngay.Size = new System.Drawing.Size(363, 38);
+            this.groupKhoangngay.TabIndex = 272;
+            this.groupKhoangngay.TabStop = false;
+            // 
+            // maskedNgaykt
+            // 
+            this.maskedNgaykt.Location = new System.Drawing.Point(228, 11);
+            this.maskedNgaykt.Mask = "00/00/0000";
+            this.maskedNgaykt.Name = "maskedNgaykt";
+            this.maskedNgaykt.Size = new System.Drawing.Size(130, 24);
+            this.maskedNgaykt.TabIndex = 279;
+            this.maskedNgaykt.ValidatingType = typeof(System.DateTime);
+            // 
+            // labelNgaykt
+            // 
+            this.labelNgaykt.AutoSize = true;
+            this.labelNgaykt.Location = new System.Drawing.Point(181, 14);
+            this.labelNgaykt.Name = "labelNgaykt";
+            this.labelNgaykt.Size = new System.Drawing.Size(32, 18);
+            this.labelNgaykt.TabIndex = 272;
+            this.labelNgaykt.Text = "đến";
+            // 
+            // maskedNgaybd
+            // 
+            this.maskedNgaybd.Location = new System.Drawing.Point(38, 11);
+            this.maskedNgaybd.Mask = "00/00/0000";
+            this.maskedNgaybd.Name = "maskedNgaybd";
+            this.maskedNgaybd.Size = new System.Drawing.Size(130, 24);
+            this.maskedNgaybd.TabIndex = 278;
+            this.maskedNgaybd.ValidatingType = typeof(System.DateTime);
+            // 
+            // labelNgaybd
+            // 
+            this.labelNgaybd.AutoSize = true;
+            this.labelNgaybd.Location = new System.Drawing.Point(6, 14);
+            this.labelNgaybd.Name = "labelNgaybd";
+            this.labelNgaybd.Size = new System.Drawing.Size(25, 18);
+            this.labelNgaybd.TabIndex = 272;
+            this.labelNgaybd.Text = "Từ";
+            // 
+            // radioKhoang
+            // 
+            this.radioKhoang.AutoSize = true;
+            this.radioKhoang.Location = new System.Drawing.Point(750, 95);
+            this.radioKhoang.Name = "radioKhoang";
+            this.radioKhoang.Size = new System.Drawing.Size(120, 22);
+            this.radioKhoang.TabIndex = 271;
+            this.radioKhoang.TabStop = true;
+            this.radioKhoang.Text = "Theo khoảng:";
+            this.radioKhoang.UseVisualStyleBackColor = true;
+            this.radioKhoang.CheckedChanged += new System.EventHandler(this.radioKhoang_CheckedChanged);
+            // 
+            // radioNgay
+            // 
+            this.radioNgay.AutoSize = true;
+            this.radioNgay.Location = new System.Drawing.Point(750, 40);
+            this.radioNgay.Name = "radioNgay";
+            this.radioNgay.Size = new System.Drawing.Size(102, 22);
+            this.radioNgay.TabIndex = 270;
+            this.radioNgay.TabStop = true;
+            this.radioNgay.Text = "Theo ngày:";
+            this.radioNgay.UseVisualStyleBackColor = true;
+            this.radioNgay.CheckedChanged += new System.EventHandler(this.radioNgay_CheckedChanged);
             // 
             // buttonTimlai
             // 
@@ -266,7 +292,7 @@
             // 
             this.labelHDB.AutoSize = true;
             this.labelHDB.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelHDB.Location = new System.Drawing.Point(477, 33);
+            this.labelHDB.Location = new System.Drawing.Point(475, 33);
             this.labelHDB.Name = "labelHDB";
             this.labelHDB.Size = new System.Drawing.Size(456, 32);
             this.labelHDB.TabIndex = 264;
@@ -283,27 +309,24 @@
             this.Controls.Add(this.dataGridViewSanpham);
             this.Controls.Add(this.dataGridViewHoadon);
             this.Controls.Add(this.buttonDong);
-            this.Controls.Add(this.gbxThongtin);
+            this.Controls.Add(this.groupThongtinhoadon);
             this.Name = "frmBaoCaoHDB";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Báo Cáo Hóa Đơn Bán";
             this.Load += new System.EventHandler(this.frmBaoCaoHDB_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSanpham)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewHoadon)).EndInit();
-            this.gbxThongtin.ResumeLayout(false);
-            this.gbxThongtin.PerformLayout();
+            this.groupThongtinhoadon.ResumeLayout(false);
+            this.groupThongtinhoadon.PerformLayout();
+            this.groupKhoangngay.ResumeLayout(false);
+            this.groupKhoangngay.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Label labelNgaykt;
-        private System.Windows.Forms.Label labelNgaybd;
-        private System.Windows.Forms.MaskedTextBox maskedNgaykt;
-        private System.Windows.Forms.MaskedTextBox maskedNgaybd;
         private System.Windows.Forms.MaskedTextBox maskNgay;
-        private System.Windows.Forms.Label labelNgay;
         private System.Windows.Forms.Button buttonInBC;
         private System.Windows.Forms.DataGridView dataGridViewSanpham;
         private System.Windows.Forms.DataGridView dataGridViewHoadon;
@@ -317,8 +340,15 @@
         private System.Windows.Forms.ComboBox comboMaHD;
         private System.Windows.Forms.Label labelMaHD;
         private System.Windows.Forms.Button buttonDong;
-        private System.Windows.Forms.GroupBox gbxThongtin;
+        private System.Windows.Forms.GroupBox groupThongtinhoadon;
         private System.Windows.Forms.Label labelHDB;
         private System.Windows.Forms.Button buttonTimlai;
+        private System.Windows.Forms.RadioButton radioNgay;
+        private System.Windows.Forms.GroupBox groupKhoangngay;
+        private System.Windows.Forms.MaskedTextBox maskedNgaykt;
+        private System.Windows.Forms.Label labelNgaykt;
+        private System.Windows.Forms.MaskedTextBox maskedNgaybd;
+        private System.Windows.Forms.Label labelNgaybd;
+        private System.Windows.Forms.RadioButton radioKhoang;
     }
 }

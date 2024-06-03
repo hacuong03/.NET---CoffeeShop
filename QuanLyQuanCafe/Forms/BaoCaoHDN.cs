@@ -45,7 +45,10 @@ namespace QuanLyQuanCafe.Forms
             comboMaNCC.Text = "";
             comboMaNV.Text = "";
             textDongianhap.Text = "";
+            radioNgay.Checked = false;
             maskNgay.Text = "  /  /";
+            radioKhoang.Checked = false;
+            groupKhoangngay.Enabled = false;
             maskedNgaybd.Text = "  /  /";
             maskedNgaykt.Text = "  /  /";
         }
@@ -317,6 +320,29 @@ namespace QuanLyQuanCafe.Forms
             }
 
             exApp.Visible = true;
+        }
+
+        private void radioNgay_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioNgay.Checked == true)
+                maskNgay.Enabled = true;
+            else
+            {
+                maskNgay.Enabled = false;
+                maskNgay.Text = "  /  /";
+            }
+        }
+
+        private void radioKhoang_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioKhoang.Checked == true)
+                groupKhoangngay.Enabled = true;
+            else
+            {
+                groupKhoangngay.Enabled = false;
+                maskedNgaybd.Text = "  /  /";
+                maskedNgaykt.Text = "  /  /";
+            }
         }
 
         private void buttonDong_Click(object sender, EventArgs e)

@@ -122,6 +122,7 @@ namespace QuanLyQuanCafe.Forms
             textTongtien.Text = "0";
             labelBangchu.Text = "Bằng chữ: ";
             comboMahang.Text = "";
+            textTenhang.Text = "";
             textSoluong.Text = "";
             textGiamgia.Text = "0";
             textThanhtien.Text = "0";

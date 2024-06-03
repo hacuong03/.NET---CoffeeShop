@@ -50,16 +50,20 @@ namespace QuanLyQuanCafe.Forms
         private void ResetValues()
         {
             cboMaHDN.Text = "";
+            cboMaHDN.Focus();
             cboMaNhanVien.Text = "";
             cboMaNCC.Text = "";
+            rdoTheoNgay.Checked = false;
             dtpNgayNhap.Value = DateTimePicker.MinimumDateTime;
             dtpNgayNhap.Checked = false;
+            dtpNgayNhap.Enabled = false;
+            rdoTheoKhoang.Checked = false;
+            grbKhoangNgay.Enabled = false;
             dtpNgayBD.Value = DateTimePicker.MinimumDateTime;
             dtpNgayBD.Checked = false;
             dtpNgayKT.Value = DateTimePicker.MinimumDateTime;
             dtpNgayKT.Checked = false;
             txtTongTien.Text = "";
-            cboMaHDN.Focus();
         }
 
         private void btnTimKiem_Click(object sender, EventArgs e)
@@ -93,7 +97,8 @@ namespace QuanLyQuanCafe.Forms
                     MessageBox.Show("Ngày bắt đầu phải nhỏ hơn ngày kết thúc", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-                sql = sql + " AND (CONVERT(date, NgayNhap) BETWEEN '" + dtpNgayBD.Value.ToString("yyyy-MM-dd") + "' AND '" + dtpNgayKT.Value.ToString("yyyy-MM-dd") + "')";
+                else
+                    sql = sql + " AND (CONVERT(date, NgayNhap) BETWEEN '" + dtpNgayBD.Value.ToString("yyyy-MM-dd") + "' AND '" + dtpNgayKT.Value.ToString("yyyy-MM-dd") + "')";
             }
             tblHoaDonNhap = Class.Functions.GetDataToTable(sql);
             if (tblHoaDonNhap.Rows.Count == 0)
@@ -131,6 +136,32 @@ namespace QuanLyQuanCafe.Forms
                 e.Handled = false;
             else
                 e.Handled = true;
+        }
+
+        private void rdoTheoNgay_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdoTheoNgay.Checked == true)
+                dtpNgayNhap.Enabled = true;
+            else
+            {
+                dtpNgayNhap.Value = DateTimePicker.MinimumDateTime;
+                dtpNgayNhap.Checked = false;
+                dtpNgayNhap.Enabled = false;
+            }
+        }
+
+        private void rdoTheoKhoang_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdoTheoKhoang.Checked == true)
+                grbKhoangNgay.Enabled = true;
+            else
+            {
+                grbKhoangNgay.Enabled = false;
+                dtpNgayBD.Value = DateTimePicker.MinimumDateTime;
+                dtpNgayBD.Checked = false;
+                dtpNgayKT.Value = DateTimePicker.MinimumDateTime;
+                dtpNgayKT.Checked = false;
+            }
         }
 
         private void btnDong_Click(object sender, EventArgs e)

@@ -50,16 +50,20 @@ namespace QuanLyQuanCafe.Forms
         private void ResetValues()
         {
             cboMaHDB.Text = "";
+            cboMaHDB.Focus();
             cboMaNhanVien.Text = "";
             cboMaKhachHang.Text = "";
+            rdoTheoNgay.Checked = false;
             dtpNgayBan.Value = DateTimePicker.MinimumDateTime;
             dtpNgayBan.Checked = false;
+            dtpNgayBan.Enabled = false;
+            rdoTheoKhoang.Checked = false;
+            grbKhoangNgay.Enabled = false;
             dtpNgayBD.Value = DateTimePicker.MinimumDateTime;
             dtpNgayBD.Checked = false;
             dtpNgayKT.Value = DateTimePicker.MinimumDateTime;
             dtpNgayKT.Checked = false;
             txtTongTien.Text = "";
-            cboMaHDB.Focus();
         }
 
         private void btnTimKiem_Click(object sender, EventArgs e)
@@ -70,24 +74,22 @@ namespace QuanLyQuanCafe.Forms
                 MessageBox.Show("Hãy nhập điều kiện tìm kiếm!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-
             if ((dtpNgayBD.Checked && !dtpNgayKT.Checked) || (!dtpNgayBD.Checked && dtpNgayKT.Checked))
             {
                 MessageBox.Show("Hãy nhập đầy đủ cả ngày bắt đầu và ngày kết thúc!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-
             sql = "SELECT * FROM tblHoaDonBan WHERE 1=1";
             if (cboMaHDB.Text != "")
-                sql += " AND MaHDB LIKE N'%" + cboMaHDB.Text + "%'";
+                sql = sql + " AND MaHDB LIKE N'%" + cboMaHDB.Text + "%'";
             if (cboMaNhanVien.Text != "")
-                sql += " AND MaNV LIKE N'%" + cboMaNhanVien.Text + "%'";
+                sql = sql + " AND MaNV LIKE N'%" + cboMaNhanVien.Text + "%'";
             if (cboMaKhachHang.Text != "")
-                sql += " AND MaKH LIKE N'%" + cboMaKhachHang.Text + "%'";
+                sql = sql + " AND MaKH LIKE N'%" + cboMaKhachHang.Text + "%'";
             if (txtTongTien.Text != "")
-                sql += " AND TongTien <=" + txtTongTien.Text;
+                sql = sql + " AND TongTien <=" + txtTongTien.Text;
             if (dtpNgayBan.Checked)
-                sql += " AND CONVERT(date, NgayBan) = '" + dtpNgayBan.Value.ToString("yyyy-MM-dd") + "'";
+                sql = sql + " AND CONVERT(date, NgayBan) = '" + dtpNgayBan.Value.ToString("yyyy-MM-dd") + "'";
             if (dtpNgayBD.Checked && dtpNgayKT.Checked)
             {
                 if (dtpNgayBD.Value > dtpNgayKT.Value)
@@ -96,7 +98,7 @@ namespace QuanLyQuanCafe.Forms
                     return;
                 }
                 else
-                    sql += " AND (CONVERT(date, NgayBan) BETWEEN '" + dtpNgayBD.Value.ToString("yyyy-MM-dd") + "' AND '" + dtpNgayKT.Value.ToString("yyyy-MM-dd") + "')";
+                    sql = sql + " AND (CONVERT(date, NgayBan) BETWEEN '" + dtpNgayBD.Value.ToString("yyyy-MM-dd") + "' AND '" + dtpNgayKT.Value.ToString("yyyy-MM-dd") + "')";
             }
             tblHoaDonBan = Class.Functions.GetDataToTable(sql);
             if (tblHoaDonBan.Rows.Count == 0)
@@ -105,9 +107,7 @@ namespace QuanLyQuanCafe.Forms
                 ResetValues();
             }
             else
-            {
                 MessageBox.Show("Có " + tblHoaDonBan.Rows.Count + " hóa đơn bán thỏa mãn điều kiện", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
             dgvTimKiemHDB.DataSource = tblHoaDonBan;
             Load_DataGridView();
         }
@@ -127,6 +127,32 @@ namespace QuanLyQuanCafe.Forms
                 frmHoaDonBan f = new frmHoaDonBan();
                 f.textMaHD.Text = mahdb;
                 f.ShowDialog();
+            }
+        }
+
+        private void rdoTheoNgay_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdoTheoNgay.Checked == true)
+                dtpNgayBan.Enabled = true;
+            else
+            {
+                dtpNgayBan.Value = DateTimePicker.MinimumDateTime;
+                dtpNgayBan.Checked = false;
+                dtpNgayBan.Enabled = false;
+            }
+        }
+
+        private void rdoTheoKhoang_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdoTheoKhoang.Checked == true)
+                grbKhoangNgay.Enabled = true;
+            else
+            {
+                grbKhoangNgay.Enabled = false;
+                dtpNgayBD.Value = DateTimePicker.MinimumDateTime;
+                dtpNgayBD.Checked = false;
+                dtpNgayKT.Value = DateTimePicker.MinimumDateTime;
+                dtpNgayKT.Checked = false;
             }
         }
 

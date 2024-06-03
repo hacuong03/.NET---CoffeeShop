@@ -25,6 +25,7 @@ namespace QuanLyQuanCafe.Forms
         {
             buttonThemHD.Enabled = true;
             buttonLuu.Enabled = false;
+            buttonBoqua.Enabled = false;
             buttonHuyHD.Enabled = false;
             buttonInHD.Enabled = false;
             textMaHDN.ReadOnly = true;
@@ -95,6 +96,7 @@ namespace QuanLyQuanCafe.Forms
 
         private void buttonThemHD_Click(object sender, EventArgs e)
         {
+            buttonBoqua.Enabled = true;
             buttonHuyHD.Enabled = false;
             buttonLuu.Enabled = true;
             buttonInHD.Enabled = false;
@@ -117,6 +119,7 @@ namespace QuanLyQuanCafe.Forms
             textTongtien.Text = "0";
             labelBangchu.Text = "Bằng chữ: ";
             comboMahang.Text = "";
+            textTenhang.Text = "";
             textSoluong.Text = "";
             textDongianhap.Text = "";
             textChietkhau.Text = "0";
@@ -333,6 +336,8 @@ namespace QuanLyQuanCafe.Forms
             }
             str = "select TenSP from tblSanPham where MaSP =N'" + comboMahang.SelectedValue + "'";
             textTenhang.Text = Functions.GetFieldValues(str);
+            str = "select GiaNhap from tblSanPham where MaSP =N'" + comboMahang.SelectedValue + "'";
+            textDongianhap.Text = Functions.GetFieldValues(str);
         }
 
         private void textSoluong_TextChanged(object sender, EventArgs e)
@@ -507,8 +512,10 @@ namespace QuanLyQuanCafe.Forms
             textMaHDN.Text = comboMaHDN.Text;
             Load_ThongtinHD();
             Load_DataGridViewChitiet();
+            buttonThemHD.Enabled = true;
             buttonHuyHD.Enabled = true;
             buttonLuu.Enabled = true;
+            buttonBoqua.Enabled = true;
             buttonInHD.Enabled = true;
             comboMaHDN.SelectedIndex = -1;
         }
@@ -550,12 +557,10 @@ namespace QuanLyQuanCafe.Forms
 
         private void buttonBoqua_Click(object sender, EventArgs e)
         {
-            ResetValues();
-            buttonThemHD.Enabled = true;
-            buttonHuyHD.Enabled = false;
-            buttonBoqua.Enabled = false;
-            textMaHDN.Enabled = true;
-            textNgaynhap.Text = "";
+            textSoluong.Text = "";
+            textDongianhap.Text = "";
+            textChietkhau.Text = "0";
+            textThanhtien.Text = "0";;
         }
 
         private void buttonDong_Click(object sender, EventArgs e)
